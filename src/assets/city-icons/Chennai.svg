@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="81.717" height="62.328" viewBox="0 0 81.717 62.328">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-5 {
+        fill: #ff8c78;
+      }
+
+      .cls-2, .cls-4, .cls-7, .cls-8 {
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-4, .cls-8 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-3 {
+        fill: #ecefd6;
+      }
+
+      .cls-4, .cls-9 {
+        fill: none;
+      }
+
+      .cls-6, .cls-7, .cls-8 {
+        fill: #be664d;
+      }
+    </style>
+  </defs>
+  <g id="Component_81_1" data-name="Component 81 – 1" transform="translate(0.5 0.5)">
+    <path id="Fill_1" data-name="Fill 1" class="cls-1" d="M0,21.446H11.388V0H0Z" transform="translate(0 40.014)"/>
+    <path id="Stroke_2" data-name="Stroke 2" class="cls-2" d="M0,21.314H11.388V0H0Z" transform="translate(0 40.014)"/>
+    <path id="Fill_4" data-name="Fill 4" class="cls-3" d="M3.5,0,0,9.473H11.388L7.889,0Z" transform="translate(0 30.541)"/>
+    <path id="Stroke_5" data-name="Stroke 5" class="cls-4" d="M11.388,9.473H0L3.5,0H7.889Z" transform="translate(0 30.541)"/>
+    <path id="Fill_7" data-name="Fill 7" class="cls-3" d="M0,3.158H4.271V.789L4.146,0H0Z" transform="translate(3.559 27.383)"/>
+    <path id="Stroke_8" data-name="Stroke 8" class="cls-4" d="M0,3.158H4.271V0H0Z" transform="translate(3.559 27.383)"/>
+    <path id="Fill_9" data-name="Fill 9" class="cls-5" d="M0,11.841H11.388V0H0Z" transform="translate(0 40.014)"/>
+    <path id="Stroke_10" data-name="Stroke 10" class="cls-4" d="M0,11.841H11.388V0H0Z" transform="translate(0 40.014)"/>
+    <path id="Fill_15" data-name="Fill 15" class="cls-6" d="M0,6.567V1.66C0,.742.988,0,2.214,0S4.429.742,4.429,1.66V6.567Z" transform="translate(3.46 54.893)"/>
+    <path id="Stroke_16" data-name="Stroke 16" class="cls-4" d="M0,6.435V1.627C0,.727.988,0,2.214,0S4.429.727,4.429,1.627V6.435Z" transform="translate(3.46 54.893)"/>
+    <path id="Fill_17" data-name="Fill 17" class="cls-6" d="M0,8.972V1.748A2.02,2.02,0,0,1,2.214,0,2.024,2.024,0,0,1,4.429,1.748V8.972Z" transform="translate(3.46 42.884)"/>
+    <path id="Stroke_18" data-name="Stroke 18" class="cls-4" d="M0,8.972V1.748A2.02,2.02,0,0,1,2.214,0,2.024,2.024,0,0,1,4.429,1.748V8.972Z" transform="translate(3.46 42.884)"/>
+    <path id="Stroke_20" data-name="Stroke 20" class="cls-2" d="M0,40.6H11.542V0H0Z" transform="translate(34.56 20.726)"/>
+    <path id="Fill_21" data-name="Fill 21" class="cls-3" d="M11.542,11.327H0L3.544,0h4.45Z" transform="translate(34.56 9.399)"/>
+    <path id="Stroke_22" data-name="Stroke 22" class="cls-4" d="M11.542,11.327H0L3.544,0h4.45Z" transform="translate(34.56 9.399)"/>
+    <path id="Fill_23" data-name="Fill 23" class="cls-3" d="M0,3.5H4.468V0H0Z" transform="translate(38.096 5.895)"/>
+    <path id="Stroke_24" data-name="Stroke 24" class="cls-4" d="M0,3.5H4.468V0H0Z" transform="translate(38.096 5.895)"/>
+    <path id="Fill_25" data-name="Fill 25" class="cls-1" d="M0,5.894V0" transform="translate(40.33)"/>
+    <path id="Stroke_26" data-name="Stroke 26" class="cls-4" d="M0,5.894V0" transform="translate(40.33)"/>
+    <path id="Stroke_29" data-name="Stroke 29" class="cls-7" d="M0,6.192H3.957V0H0Z" transform="translate(38.096 55.013)"/>
+    <path id="Fill_30" data-name="Fill 30" class="cls-6" d="M4.414,6.564v-4.9C4.414.739,3.428,0,2.205,0S0,.739,0,1.662v4.9Z" transform="translate(38.096 32.844)"/>
+    <path id="Stroke_31" data-name="Stroke 31" class="cls-4" d="M4.414,6.564v-4.9C4.414.739,3.428,0,2.205,0S0,.739,0,1.662v4.9Z" transform="translate(38.096 32.844)"/>
+    <path id="Fill_32" data-name="Fill 32" class="cls-5" d="M0,12.01H11.542V0H0Z" transform="translate(34.531 39.407)"/>
+    <path id="Stroke_33" data-name="Stroke 33" class="cls-4" d="M0,12.01H11.542V0H0Z" transform="translate(34.531 39.407)"/>
+    <path id="Fill_34" data-name="Fill 34" class="cls-6" d="M4.414,8.53V1.659C4.414.739,3.428,0,2.205,0S0,.739,0,1.659V8.53Z" transform="translate(38.096 42.887)"/>
+    <path id="Stroke_35" data-name="Stroke 35" class="cls-4" d="M4.414,8.53V1.659C4.414.739,3.428,0,2.205,0S0,.739,0,1.659V8.53Z" transform="translate(38.096 42.887)"/>
+    <path id="Fill_36" data-name="Fill 36" class="cls-6" d="M4.048,2.224A2.129,2.129,0,0,1,2.027,4.447,2.131,2.131,0,0,1,0,2.224,2.13,2.13,0,0,1,2.027,0,2.128,2.128,0,0,1,4.048,2.224" transform="translate(38.28 24.767)"/>
+    <path id="Stroke_37" data-name="Stroke 37" class="cls-4" d="M4.048,2.224A2.129,2.129,0,0,1,2.027,4.447,2.131,2.131,0,0,1,0,2.224,2.13,2.13,0,0,1,2.027,0,2.128,2.128,0,0,1,4.048,2.224Z" transform="translate(38.28 24.767)"/>
+    <path id="Fill_38" data-name="Fill 38" class="cls-1" d="M0,22.051H11.571V0H0Z" transform="translate(69.146 39.409)"/>
+    <path id="Fill_40" data-name="Fill 40" class="cls-3" d="M0,9.457H11.571L8.016,0H3.553Z" transform="translate(69.146 29.952)"/>
+    <path id="Stroke_41" data-name="Stroke 41" class="cls-4" d="M0,9.457H11.571L8.016,0H3.553Z" transform="translate(69.146 29.952)"/>
+    <path id="Fill_42" data-name="Fill 42" class="cls-3" d="M0,3.5H4.5V0H0Z" transform="translate(72.682 26.448)"/>
+    <path id="Stroke_43" data-name="Stroke 43" class="cls-4" d="M0,3.5H4.5V0H0Z" transform="translate(72.682 26.448)"/>
+    <path id="Fill_44" data-name="Fill 44" class="cls-5" d="M0,12.008H11.571V0H0Z" transform="translate(69.146 39.409)"/>
+    <path id="Stroke_45" data-name="Stroke 45" class="cls-4" d="M0,12.008H11.571V0H0Z" transform="translate(69.146 39.409)"/>
+    <path id="Stroke_47" data-name="Stroke 47" class="cls-2" d="M0,9.911H11.571V0H0Z" transform="translate(69.146 51.417)"/>
+    <path id="Stroke_49" data-name="Stroke 49" class="cls-8" d="M4.426,6.435V1.627C4.426.727,3.438,0,2.212,0S0,.727,0,1.627V6.435H4.426Z" transform="translate(72.717 54.893)"/>
+    <path id="Fill_50" data-name="Fill 50" class="cls-6" d="M4.426,8.534V1.663C4.426.743,3.438,0,2.212,0S0,.743,0,1.663V8.534Z" transform="translate(72.717 42.884)"/>
+    <path id="Stroke_51" data-name="Stroke 51" class="cls-4" d="M4.426,8.534V1.663C4.426.743,3.438,0,2.212,0S0,.743,0,1.663V8.534Z" transform="translate(72.717 42.884)"/>
+    <g id="Stroke_53" data-name="Stroke 53" transform="translate(46.37 39.409)">
+      <path id="Stroke_53-2" data-name="Stroke 53" class="cls-2" d="M0,21.92H22.776V0H0Z"/>
+      <path id="Stroke_53-3" data-name="Stroke 53" class="cls-9" d="M0,21.92H22.776V0H0Z"/>
+    </g>
+    <path id="Fill_54" data-name="Fill 54" class="cls-3" d="M0,5.022H23.071V0H0Z" transform="translate(46.075 39.41)"/>
+    <path id="Stroke_55" data-name="Stroke 55" class="cls-4" d="M0,5.022H23.071V0H0Z" transform="translate(46.075 39.41)"/>
+    <path id="Fill_58" data-name="Fill 58" class="cls-5" d="M0,8.065H23.071V0H0Z" transform="translate(46.075 44.432)"/>
+    <path id="Stroke_59" data-name="Stroke 59" class="cls-4" d="M0,8.065H23.071V0H0Z" transform="translate(46.075 44.432)"/>
+    <path id="Fill_60" data-name="Fill 60" class="cls-6" d="M4.953,1.177h0Z" transform="translate(50.384 55.88)"/>
+    <path id="Stroke_61" data-name="Stroke 61" class="cls-7" d="M0,4.737H4.953V0H0Z" transform="translate(50.535 56.592)"/>
+    <path id="Fill_62" data-name="Fill 62" class="cls-6" d="M4.9,5.384V1.474C4.9.66,3.8,0,2.447,0S0,.66,0,1.474v3.91Z" transform="translate(50.412 47.113)"/>
+    <path id="Stroke_63" data-name="Stroke 63" class="cls-4" d="M4.9,5.384V1.474C4.9.66,3.8,0,2.447,0S0,.66,0,1.474v3.91Z" transform="translate(50.412 47.113)"/>
+    <path id="Fill_64" data-name="Fill 64" class="cls-6" d="M4.953,1.177h0Z" transform="translate(59.838 55.879)"/>
+    <path id="Stroke_65" data-name="Stroke 65" class="cls-7" d="M0,4.737H4.953V0H0Z" transform="translate(59.788 56.592)"/>
+    <path id="Fill_66" data-name="Fill 66" class="cls-6" d="M4.9,5.384V1.474C4.9.66,3.8,0,2.449,0S0,.66,0,1.474v3.91Z" transform="translate(59.863 47.111)"/>
+    <path id="Stroke_67" data-name="Stroke 67" class="cls-4" d="M4.9,5.384V1.474C4.9.66,3.8,0,2.449,0S0,.66,0,1.474v3.91Z" transform="translate(59.863 47.111)"/>
+    <g id="Fill_68" data-name="Fill 68" transform="translate(11.457 39.409)">
+      <path id="Fill_68-2" data-name="Fill 68" class="cls-1" d="M0,22.051H23.074V0H0Z"/>
+      <path id="Fill_68-3" data-name="Fill 68" class="cls-5" d="M0,22.051H23.074V0H0Z"/>
+    </g>
+    <path id="Stroke_69" data-name="Stroke 69" class="cls-4" d="M0,21.92H23.071V0H0Z" transform="translate(11.46 39.409)"/>
+    <path id="Fill_70" data-name="Fill 70" class="cls-3" d="M0,5.022H23.074V0H0Z" transform="translate(11.457 39.41)"/>
+    <path id="Stroke_71" data-name="Stroke 71" class="cls-4" d="M0,5.022H23.074V0H0Z" transform="translate(11.457 39.41)"/>
+    <path id="Fill_74" data-name="Fill 74" class="cls-5" d="M0,8.065H23.074V0H0Z" transform="translate(11.457 44.432)"/>
+    <path id="Stroke_75" data-name="Stroke 75" class="cls-4" d="M0,8.065H23.074V0H0Z" transform="translate(11.457 44.432)"/>
+    <path id="Stroke_77" data-name="Stroke 77" class="cls-7" d="M0,4.4H4.953V0H0Z" transform="translate(25.502 56.592)"/>
+    <path id="Fill_78" data-name="Fill 78" class="cls-6" d="M0,5.384V1.474C0,.66,1.1,0,2.449,0S4.9.66,4.9,1.474v3.91Z" transform="translate(25.295 47.113)"/>
+    <path id="Stroke_79" data-name="Stroke 79" class="cls-4" d="M0,5.384V1.474C0,.66,1.1,0,2.449,0S4.9.66,4.9,1.474v3.91Z" transform="translate(25.295 47.113)"/>
+    <path id="Stroke_81" data-name="Stroke 81" class="cls-7" d="M0,4.4H4.955V0H0Z" transform="translate(15.785 56.592)"/>
+    <path id="Fill_82" data-name="Fill 82" class="cls-6" d="M0,5.384V1.474C0,.66,1.1,0,2.447,0S4.9.66,4.9,1.474v3.91Z" transform="translate(15.844 47.111)"/>
+    <path id="Stroke_83" data-name="Stroke 83" class="cls-4" d="M0,5.384V1.474C0,.66,1.1,0,2.447,0S4.9.66,4.9,1.474v3.91Z" transform="translate(15.844 47.111)"/>
+  </g>
+</svg>
