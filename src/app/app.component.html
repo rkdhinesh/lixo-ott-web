@@ -1,0 +1,186 @@
+<!--Mobile view-->
+<!-- <div class="d-block d-lg-none" style="overflow-x: hidden;">
+    <div class="row mb-0 mb-md-2 px-3">
+        <div class="col col-md-8 my-auto pr-0 pr-md-5 text-md-right">
+            <img src="/assets/images/img/Group 23.png" class="pr-0 pr-md-5" style="height: 2.6rem;" role="button"> -->
+            <!-- <i class="fa-solid fa-bars text-white pl-3 pt-3" style="font-size: x-large;" (click)="openNav()"></i>       -->
+        <!-- </div> -->
+        <!-- <div class="col text-right">
+            
+        </div>
+        <div class="col text-right">
+            
+        </div> -->
+        <!-- <div class="col col-md-4 py-3 d-flex justify-content-around justify-content-md-end">
+            <img src="\assets\images\img\Group 34.png" role="button" class="mx-0 mx-md-4" style="height: 3.5rem;" routerLink="/">
+            <img src="\assets\images\img\mdi_movie-open-outline.png" role="button" class="mx-0 mx-md-4">
+            <img src="\assets\images\img\Group 26.png" role="button" (click)="openModal(login,'login')" class="mx-0 mx-md-4"> -->
+            <!-- <i class="fa-regular fa-bell text-white pr-3 pt-3 float-right" style="font-size: x-large;"></i> -->
+        <!-- </div>
+    </div>
+</div>
+
+<div (click)="closeNav()" [ngClass]="{'sidenav-overlay': widthCondition}"></div>
+  <div id="mySidebar"  class="sidebar" [ngClass]="{'nav-width': widthCondition}" #excludeDiv>
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <div class="row bg-0F1628 m-3 p-3">
+        <div class="col">
+            <button class="btn btn-primary float-right rounded-pill px-5" style="font-size: x-large;" (click)="openModal(login,'login')">Login</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary float-left rounded-pill px-5" style="font-size: x-large;">Sign up</button>
+        </div>
+    </div>
+    <div class="mt-5 pt-5">
+    <div class="row bg-0F1628 mx-4">
+        <div class="col text-center">
+            <p class="text-white" style="font-size: x-large;">Home</p>
+        </div>
+    </div>
+    <div class="row bg-0F1628 m-4">
+        <div class="col text-center">
+            <p class="text-white" style="font-size: x-large;">Movies</p>
+        </div>
+    </div>
+    <div class="row bg-0F1628 mx-4">
+        <div class="col text-center">
+            <p class="text-white" style="font-size: x-large;">Profile</p>
+        </div>
+    </div>
+    <div class="row bg-0F1628 m-4">
+        <div class="col text-center">
+            <p class="text-white" style="font-size: x-large;">Settings</p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="sidenav p-3 d-none d-xl-block">
+    <div class="row" style="height: 20%;">
+        <div class="col">
+            <img src="\assets\images\img\arrow_down.png" role="button"> -->
+            <!-- <i class="fa-solid fa-chevron-down text-white" style="font-size: xx-large;"></i> -->
+        <!-- </div>
+    </div>
+    <div class="row" style="height: 10%;">
+        <div class="col">
+            <img src="\assets\images\img\Group 34.png" role="button"> -->
+            <!-- <i class="fa-solid fa-house text-white" style="font-size: xx-large;"></i> -->
+        <!-- </div>
+    </div>
+    <div class="row" style="height: 50%;">
+        <div class="col">
+            <img src="\assets\images\img\mdi_movie-open-outline.png" role="button"> -->
+            <!-- <i class="fa-solid fa-film text-white" style="font-size: xx-large;"></i> -->
+        <!-- </div>
+    </div>
+    <div class="row" style="height: 10%;">
+        <div class="col">
+            <img src="\assets\images\img\Group 26.png" role="button" (click)="openModal(login,'login')"> -->
+            <!-- <i class="fa-regular fa-user text-white" style="font-size: xx-large;"></i> -->
+        <!-- </div>
+    </div> -->
+    <!-- <div class="row">
+        <div class="col">
+            <img src="\assets\images\img\clarity_settings-line.png" role="button">
+        </div>
+    </div> -->
+
+<!-- </div> -->
+<div class="main" style="overflow-x: hidden;">
+    <router-outlet></router-outlet>
+    <mp-footer></mp-footer>
+</div>
+
+<!-- <div class="container-fluid">
+    <div class="row"> -->
+        <!-- <div class="col-1 position-fixed pl-2 pr-1" id="sticky-sidebar" style="background-color: #0F1628; width: 50px;">
+            <div class="nav flex-column flex-nowrap vh-100 overflow-auto text-white">
+                <i class="fa-solid fa-chevron-down" style="font-size: 40px;"></i>
+                <div class="d-flex flex-column" style="margin-top: 100%;">
+                    <a class=""><i class="fa-solid fa-house" style="font-size: 30px;"></i></a>
+                    <span class="border mt-2 mr-2" style="border-color: #0aa5ae;"></span>
+                    <i class="fa-solid fa-film mt-5" style="font-size: 30px;"></i>
+                    <span class="border mt-2 mr-2" style="border-color: #0aa5ae;"></span>
+                </div>
+                <div class="d-flex flex-column fixed-bottom ml-2">
+                    <i class="fa-regular fa-user" style="font-size: 30px;"></i>
+                    <i class="fa-solid fa-gear mt-5 mb-3" style="font-size: 30px;"></i>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="col-12 pl-0" id="main" style="position: relative;">
+            <div class="position-relative" id="content" style="
+           
+            z-index: 1;">
+                <router-outlet> -->
+                    <!-- Content inside router outlet goes here -->
+                <!-- </router-outlet>
+            </div>
+            <div class="position-fixed pr-1" id="sidebar" style="z-index: 2; background-color: #0F1628;">
+                <div class="nav flex-column flex-nowrap vh-100 overflow-auto text-white">
+                    <i class="fa-solid fa-chevron-down" style="font-size: 40px;"></i>
+                    <div class="d-flex flex-column" style="margin-top: 100%;">
+                        <a class=""><i class="fa-solid fa-house" style="font-size: 30px;"></i></a>
+                        <span class="border mt-2 mr-2" style="border-color: #0aa5ae;"></span>
+                        <i class="fa-solid fa-film mt-5" style="font-size: 30px;"></i>
+                        <span class="border mt-2 mr-2" style="border-color: #0aa5ae;"></span>
+                    </div>
+                    <div class="d-flex flex-column fixed-bottom ml-2">
+                        <i class="fa-regular fa-user" style="font-size: 30px;"></i>
+                        <i class="fa-solid fa-gear mt-5 mb-3" style="font-size: 30px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        
+        <!-- <div class="col-12" id="main">
+            <div class="position-relative fixed-left pl-2 pr-1" id="sticky-sidebar" style="background-color: #0F1628; width: 50px; z-index: 2;">
+            <div class="nav flex-column flex-nowrap vh-100 overflow-auto text-white">
+                <i class="fa-solid fa-chevron-down" style="font-size: 40px;"></i>
+                <div class="d-flex flex-column" style="margin-top: 100%;">
+                    <a class=""><i class="fa-solid fa-house" style="font-size: 30px;"></i></a>
+                    <span class="border mt-2 mr-2" style="border-color: #0aa5ae;"></span>
+                    <i class="fa-solid fa-film mt-5" style="font-size: 30px;"></i>
+                    <span class="border mt-2 mr-2" style="border-color: #0aa5ae;"></span>
+                </div>
+                <div class="d-flex flex-column fixed-bottom ml-2">
+                    <i class="fa-regular fa-user" style="font-size: 30px;"></i>
+                    <i class="fa-solid fa-gear mt-5 mb-3" style="font-size: 30px;"></i>
+                </div>
+            </div>
+        </div>
+            <router-outlet>
+            </router-outlet>
+        </div> -->
+    <!-- </div>
+    <div class="row">
+        <div class="col ml-5 p-0">
+            <mp-footer></mp-footer>
+        </div>
+    </div>
+</div> -->
+<!-- <ng-template #login>
+    <div class="row">
+        <div class="col modal-cus">
+            <div class="row">
+                <div class="col text-center">
+                    <img src="/assets/images/img/Group 23.png" height="31" width="132" role="button" class="" style=" margin-top: 1%;">
+                </div>
+            </div>
+            <div class="row my-5 my-md-0">
+                <div class="col modal-cus">
+                    <mp-login></mp-login>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mp-footer></mp-footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+</ng-template> -->
