@@ -1,0 +1,244 @@
+// .modal{
+//     display:flex;
+//     top:40%;
+//   }
+//   .my-modal {
+//     top:40%;
+//   }
+// .modal-close {
+//     position: absolute;
+//     width: 13%;
+//     border-radius: 100%;
+//     background: #3f3f3f;
+//     margin-left: 38.3rem;
+//     font-size: 45px;
+//     font-weight: bold;
+//     text-align: center;
+//     border: none;
+//     margin-top: -11rem;
+// }
+// .login-container {
+//     background: #0a0a0a;
+//     width: 50.3rem;
+//     margin: -9.7rem;
+// }
+// .image-holder {
+//     position: relative;
+//     display: block;
+// }
+// .logo-image {
+//     left: 79%;
+//     top: 61%;
+//     position: absolute;
+//     margin-top: -50%;
+//     margin-left: -50%;
+// }
+// .facebook {
+//     cursor: pointer;
+//     position: relative;
+//     width: 23.6rem;
+//     height: 54px;
+//     top: 2.5rem;
+//     border-radius: 10px;
+//     background: url(../../../assets/images/img/facebook.png);
+// }
+// .google {
+//     cursor: pointer;
+//     position: relative;
+//     width: 23.6rem;
+//     height: 54px;
+//     top: 5.5rem;
+//     border-radius: 10px;
+//     background: url(../../../assets/images/img/google.png);
+// }
+// .input-text {
+//     width: 23.6rem;
+//     height: 52px;
+//     background: #0e132b;
+//     border-radius: 10px;
+//     color:white;
+// }
+// .btn-prim {
+//     position: absolute;
+//     width: 149px;
+//     height: 47px;
+//     background: #f2a72a;
+//     border-radius: 10px;
+//     color: black;
+//     font-weight: bold;
+// }
+// .div-mt{
+//     // margin-top: 11.5rem;
+// }
+// #eyeicon{
+//     position: relative;
+//     float: left;
+//     left: 340px;
+//     bottom: 35px;
+// }
+// #btn{
+//     position:relative;
+//     right: 50%;
+// }
+// #errorstyle{
+// position: relative;
+//  right: 60%;
+// }
+// #btns{
+//     position: relative;
+//     right: 50%;
+//     top: 260px;
+// }
+// #alignment{
+//     position: relative;
+//     right: 60%;
+//     top: 220px;
+// }
+.border-2 {
+    border-width: 2px !important;
+}
+
+.col-xl-8 {
+    flex: 0 0 66.66666667%;
+    max-width: 54.666667%;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0aa5ae;
+    border-color: #0aa5ae;
+    text-align: left;
+}
+
+.btn-primary:hover {
+    color: #0aa5ae;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.gradient-button {
+    margin: 10px;
+    font-size: 10px;
+    padding: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #FFF;
+    box-shadow: 0 0 23px #eee;
+    border-radius: 10px;
+    width: 70px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.12), 0 0px 0px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.gradient-button-4 {
+    background-image: linear-gradient(to right, #0AA5AE 10%, #1CACB4 47%, #BEEDEF 100%);
+}
+
+.gradient-button-4:hover {
+    background-position: right center;
+}
+
+.logo .mobile {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .logo .mobile {
+        display: block;
+    }
+    .logo .desktop {
+        display: none;
+    }
+}
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 0;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2.2rem;
+    width: 2.2rem;
+    background-color: #0F1628;
+      border: 2px solid #0aa5ae;
+      border-radius: 5px;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #0F1628;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 0.8rem;
+    top: 0.5rem;
+    width: 0.5rem;
+    height: 0.9rem;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  ::ng-deep .modal-bg {
+    backdrop-filter: none !important;
+  }
+
+//   input[type=checkbox] {
+//     outline-color: #0aa5ae !important;
+//     border-radius: 20px !important;
+//     background-color: #0F1628 !important;
+//   }
+@media only screen and (max-width: 600px){
+  .modal-content {
+    background-color: transparent !important;
+    border: transparent;
+    display: block;
+    height: fit-content !important;
+}
+}

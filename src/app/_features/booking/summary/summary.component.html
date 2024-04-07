@@ -1,0 +1,674 @@
+<!-- old ui -->
+<!-- <div class="container-fluid"> 
+  <div class="row">
+    <div class="col-1">
+      <div class="container d-flex flex-column mt-5">
+        <svg [routerLink]="['/shows']" class="bi bi-chevron-left" width="50px" height="50px" viewBox="0 0 16 16"
+          fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="col-8 pt-5">
+      <div class="d-flex flex-column">
+        <div class="container">
+          <div class="p-2 summary-card-border">
+            <h3 class="text-white">{{ movie.movieName }}</h3>
+          </div>
+        </div>
+        <div class="container">
+          <div class="mt-5">
+            <h4 class="text-white"> {{"app.booking.payment selection" | translate}}</h4>
+          </div>
+        </div>
+        <div *ngIf="paymentService.paymentModes | async as paymentModes">
+          <div class="d-flex mt-5" *ngFor="let payment of paymentModes">
+            <div class="container" *ngIf="walletService.walletStatus | async as walletStatus">
+              <nav class="navbar navbar-dark bg-dark">
+                <label class="btn btn-default active text-white label-style font-size20 mt-3 text-center">
+                  <input type="radio" id="q156" name="quality[25]" [value]="payment" [checked]="payment.id === 1"
+                    (change)="paymentType(payment.id,login)" />
+                  &nbsp; {{ payment.modeName }} <span *ngIf="payment.id === 2"> - ₹{{walletStatus.balance}}
+                    <span>{{errorMsgs}}</span></span>
+                </label>
+
+                <svg class="bi bi-credit-card text-yellow" width="40px" height="30px" viewBox="0 0 16 16"
+                  fill="currentColor" xmlns="http://www.w3.org/2000/svg" *ngIf="payment.modeName === 'CASHFREE'">
+                  <path fill-rule="evenodd"
+                    d="M14 3H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z" />
+                  <rect width="3" height="3" x="2" y="9" rx="1" />
+                  <path d="M1 5h14v2H1z" />
+                </svg>
+                <svg *ngIf="payment.modeName === 'WALLET'" class="bi bi-wallet2 text-yellow" width="40px" height="30px"
+                  viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 4l10-3A1.5 1.5 0 0 1 14 2.5v2h-1v-2a.5.5 0 0 0-.5-.5L5.833 4H2.5z" />
+                  <path fill-rule="evenodd"
+                    d="M1 5.5A1.5 1.5 0 0 1 2.5 4h11A1.5 1.5 0 0 1 15 5.5v8a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 13.5v-8zM2.5 5a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-11z" />
+                </svg>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-2"></div>
+        <div class="p-2"></div>
+        <div class="container mt-5">
+          <form ngNoForm #myFormPost name="data" method="POST"
+            action="https://test.cashfree.com/billpay/checkout/post/submit" name="data" method="POST"
+            onsubmit="window.open('about:blank','_self','width=900,height=500');" style="height: 200px;">
+            <textarea name="orderNote" id="orderNote" ng-model="orderNote" [(ngModel)]="order.orderNote"
+              hidden></textarea>
+            <textarea name="customerName" id="customerName" ng-model="customerName" [(ngModel)]="order.customerEmail"
+              hidden></textarea>
+            <input type="hidden" name="vendorSplit" [(ngModel)]="order.vendorSplit" />
+            <div [formGroup]="summayform">
+              <div>{{ errorMsg }}</div>
+              <div class="d-flex justify-content-between">
+                <div class="input-group input-group-lg">
+                  <input type="text" class="form-control input-text" aria-label="Large" name="customerEmail"
+                    formControlName="email" aria-describedby="inputGroup-sizing-sm"
+                    placeholder=' {{"app.booking.enter email" | translate}}' [(ngModel)]="order.customerEmail" />
+
+                </div>
+                <div class="p-5"></div>
+                <div class="input-group input-group-lg">
+                  <input type="text" class="form-control input-text" (keypress)="keyPress($event)" digitOnly
+                    maxlength="10" aria-label="  " name="customerPhone" formControlName="number"
+                    aria-describedby="inputGroup-sizing-sm" placeholder=' {{"app.booking.enter number" | translate}}'
+                    [(ngModel)]="order.customerPhone" />
+
+                </div>
+              </div>
+              <span class="left-alert">
+                <div class="text-danger" *ngIf="
+                summayform.controls['email'].hasError('required') &&
+                  (summayform.controls['email'].dirty ||
+                  summayform.controls['email'].touched)
+                ">This field is required</div>
+                <div class="text-danger" *ngIf="
+                summayform.controls['email'].hasError('pattern') &&
+                  (summayform.controls['email'].dirty ||
+                  summayform.controls['email'].touched)
+                ">Please enter valid email address
+                </div>
+              </span>
+              <span class="right-alert">
+                <div class="text-danger" *ngIf="
+                summayform.controls['number'].hasError('required') &&
+                  (summayform.controls['number'].dirty ||
+                  summayform.controls['number'].touched)
+                ">This field is required</div>
+                <div class="text-danger" *ngIf="
+                summayform.controls['email'].hasError('pattern') &&
+                  (summayform.controls['email'].dirty ||
+                  summayform.controls['email'].touched)
+                ">Please enter valid phone number</div>
+              </span>
+            </div>
+            <textarea name="orderAmount" id="orderAmount" ng-model="orderAmount" [(ngModel)]="order.orderAmount"
+              hidden></textarea>
+            <textarea name="orderId" id="orderId" ng-model="orderId" [(ngModel)]="order.orderId" hidden></textarea>
+            <textarea name="returnUrl" id="returnUrl" ng-model="returnUrl" [(ngModel)]="order.redirectUrl"
+              hidden></textarea>
+            <textarea name="notifyUrl" id="notifyUrl" ng-model="notifyUrl" [(ngModel)]="order.notifyUrl"
+              hidden></textarea>
+            <textarea name="appId" id="appId" ng-model="appId" [(ngModel)]="order.key" hidden></textarea>
+            <textarea name="orderCurrency" id="orderCurrency" ng-model="orderCurrency"
+              [(ngModel)]="order.customerCurrency" hidden></textarea>
+            <textarea name="signature" id="signature" ng-model="signature" [(ngModel)]="order.hash" hidden></textarea>
+          </form>
+        </div>
+      </div>
+      <div class="container mt-6">
+        <div class="d-flex flex-row-reverse mt-5">
+          <button *ngIf="!confirmWallet" (click)="confirmPayment()" class="btn btn-primary btn-lg">
+            {{"app.booking.proceed" | translate}}
+          </button>
+          <button *ngIf="confirmWallet" (click)="confirmWalletPayment()" class="btn btn-primary btn-lg">
+            {{"app.booking.proceed" | translate}}
+          </button>
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
+      </div>
+    </div>
+
+    <div class="col-3 summary-container">
+      <div class="align-content-stretch">
+        <div class="d-flex justify-content-center summary-card-border">
+          <h3 class="mt-3 text-white"> {{"app.booking.booking summary" | translate}}</h3>
+        </div>
+        <div class="row mt-5">
+          <div class="col">
+            <div class="card">
+              <img src="{{ movie.posterUrl }}" style="height: 150px;" />
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex flex-column">
+              <div class="p-2 text-white">{{ movie.movieName }}</div>
+              <div class="p-2 text-white">{{ movie.language }}</div>
+              <div class="p-2 text-white-75">
+                {{ booking.venueName }}
+              </div>
+            </div>
+          </div>
+          <div class="col"></div>
+        </div>
+        <div class="d-flex flex-column mt-2">
+          <div>
+            <div class="d-flex flex-column mt-5 summary-item-border">
+              <div class="p-2 text-white"> {{"app.booking.show date" | translate}} &
+                {{"app.booking.show time" | translate}}</div>
+              <div class="p-2 text-white-75">
+                {{ selectedDate}}
+                {{ showTime }}
+              </div>
+            </div>
+            <div *ngIf="paymentService.fareDeatils | async as fareDeatils">
+              <div class="d-flex flex-column mt-3 summary-item-border">
+                <div class="p-2 text-white">
+                  {{"app.booking.seats" | translate}} - {{ booking.seatCount }}
+                </div>
+                <span class="p-2 text-white-75">
+                  {{ booking.className }} -
+                  <ng-container *ngFor="let seat of fareDeatils.seats">{{ seat.seatNumber }} &nbsp;</ng-container>
+                </span>
+
+                <div class="p-2 text-white"></div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="paymentService.fareDeatils | async as fareDeatils">
+            <div class="p-2 text-white mt-3">
+              <h6> {{"app.booking.fare details" | translate}}</h6>
+            </div>
+            <div class="d-flex justify-content-between" *ngIf="paymentService.total | async as total">
+              <div class="p-2 text-white-75"> {{"app.booking.base fare" | translate}}</div>
+              <div class="p-2 text-white-75">
+                {{ total.baseFareTotal }}
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="p-2 text-white-75">Aditional Charges</div>
+              <div class="p-2 text-white-75">
+                {{ fareDeatils.fareResponseDetails.extraFare }}
+              </div>
+            </div>
+         <div class="d-flex justify-content-between"> 
+              <div class="p-2 text-white-75"> {{"app.booking.internet handling charges" | translate}}</div>
+              <div class="p-2 text-white-75">
+                {{ fareDeatils.handling_charges }}
+              </div>
+            </div>
+            <div class="d-flex justify-content-between" *ngIf="paymentService.total | async as total">
+              <div class="p-2 text-white-75"> {{"app.booking.tax" | translate}}</div>
+              <div class="p-2 text-white-75">
+                {{ total.taxTotal }}
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+              <div class="p-2 text-white">
+                <h6> {{"app.booking.total" | translate}}</h6>
+              </div>
+              <div class="p-2 text-white">
+                <h6>{{ fareDeatils.fareResponseDetails.subTotal }}</h6>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #login>
+    <mp-login></mp-login>
+  </ng-template>   -->
+<!-- OLD UI CODE ENDS HERE -->
+
+<!-- NEW UI CODE -->
+<mp-header></mp-header>
+<div class="container-fluid px-lg-5">
+  <div class="row px-5 bg-0F1628 shadow-custom-5 py-4 mt-5 d-none d-lg-block">
+    <div class="col-xl-12">
+      <div class="row align-items-center">
+        <div class="col-xl-1">
+          <div class="back-btn position-relative z-index-99 outline-none">
+            <svg id="Component_49_32" (click)="unBlockSeatStatus()" data-name="Component 49 – 32"
+              xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+              <circle id="Ellipse_39" data-name="Ellipse 39" class="cls-1" cx="19" cy="19" r="19"></circle>
+              <g id="Group_450" data-name="Group 450" transform="translate(-134.505 -201.219)">
+                <path id="Polygon_9" data-name="Polygon 9" class="cls-2" d="M5.5,0,11,6H0Z"
+                  transform="translate(142.505 226.219) rotate(-90)"></path>
+                <rect id="Rectangle_60" data-name="Rectangle 60" class="cls-2" width="17.492" height="2.018"
+                  transform="translate(147.683 219.709)"></rect>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <!-- <div class="col-xl-3 position-absolute text-center">
+                    <img class="w-35 pt-3" src="assets/images/img/user.svg">
+                </div> -->
+        <div class="offset-2 col-xl-6 text-center">
+          <span class="go-book text-white h4 font-weight-bolder">
+            {{"app.booking.booking summary"|translate}}
+          </span>
+        </div>
+        <div class="col-xl-3 text-right pointer">
+          <img class="mw-100 w-9 hdr-ico outline-none" src="assets/images/img/home.svg" [routerLink]="['/']">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row shadow-custom-5">
+    <div class="offset-lg-1 col-xl-5 pr-5">
+      <div class="container-fluid pt-lg-4 pb-4 px-lg-5 mt-1">
+        <div class="row align-items-start">
+          <div class="col-xl-3 col-6">
+            <!-- <img class="w-100 mw-100 shadow-custom-2" src="{{ movie.posterUrl }}" alt="home-play"> -->
+            <ngx-picture src="{{movie.posterUrl|splitAndGet:'~':0}}" alt="Movie Poster" class="" [lazyLoad]="false">
+              <ng-template #imgTemplate let-imageData>
+                <img class="w-100 mw-100 shadow-custom-2 height" [src]="imageData.src" [alt]="imageData.alt" />
+              </ng-template>
+            </ngx-picture>
+            <div class="overlay-40 position-absolute text-center">
+            </div>
+          </div>
+          <div class="pl-lg-5 col-xl-8 col-6">
+            <h3 class="go-medium text-white font-1-1 mb-0">{{ movie.movieName }}
+            </h3>
+            <p class="mb-0">
+              <a class="text-decoration-none">
+                <span class="go-book font-1-1 text-primary">{{ movie.language }} / {{ movie.dimension }} / </span>
+                <!-- <span class="go-book font-1-1 text-primary mx-1">{{ movie.dimension }}</span> -->
+                <span class="go-book font-1-1 text-primary mx-1"
+                  *ngFor="let genre of movie.genres; let isLast=last">{{genre.genreName}}{{isLast ? '' :','}}</span>
+              </a>
+            </p>
+            <p>
+              <span class="go-book font-1 text-primary">{{ booking.duration }}</span>
+            </p>
+            <p class="go-medium text-white font-1 mb-0">{{ booking.venueName }}</p>
+            <p class="go-book text-white font-0-875"></p>
+            <div class="d-lg-inline-block align-middle">
+              <img class="w-100 mw-100 sna-ico-bur d-none d-lg-block" src="assets/images/img/burger.svg">
+            </div>
+            <div class="d-inline-block align-middle mx-2">
+              <img class="w-100 mw-100 sna-ico-tic d-none d-lg-block" src="assets/images/img/ticket.svg">
+            </div>
+            <!-- <div class="d-inline-block align-middle">
+              <img class="w-100 mw-100 sna-ico-loc d-none d-lg-block" src="assets/images/img/tlocation.svg">
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid pt-lg-4 pb-lg-4 px-lg-5">
+        <div class="row">
+          <div class="col-xl-6">
+            <div class="mb-lg-4">
+              <p class="go-medium text-primary font-1-1">{{"app.booking.show date" | translate}} & {{"app.booking.show
+                time" | translate}}</p>
+              <div class="row col-12">
+                <p>
+                  <span class="go-medium text-ADADBE font-1-1 mr-4">
+                    <img class="mr-2" src="assets/images/img/calendar-ADADBE.svg">
+                    {{ selectedDate}}
+                  </span>
+                </p>
+                <p>
+                  <span class="go-book text-ADADBE font-1-1 mr-4 ">
+                    <img class="mr-2" src="assets/images/img/time-ADADBE.svg">
+                    {{ showTime }}
+                  </span>
+                </p>
+              </div>
+            </div>
+            <p class="text-primary go-medium font-1-1">Seat Details</p>
+            <div class="row no-gutters align-items-start">
+              <p class="col-xl-3 col-2 go-medium text-ADADBE font-1-1">Seat -</p>
+              <p class="col-xl-7 col-1 go-medium text-ADADBE font-1-1">{{ totalSeatsBooked }}</p>
+            </div>
+            <div class="row no-gutters align-items-start">
+              <p class="col-xl-5 col-1 go-book text-ADADBE lead">{{ booking.className }}-</p>
+              <div *ngFor="let seats of seatNumber">
+                <ng-container> <span class="rounded go-book text-white font-1 font-weight-bolder p-1 bg-primary">{{
+                    seats.seatNumber }} </span></ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="offset-lg-1 col-xl-5 pr-lg-5">
+      <div class="container-fluid pt-lg-4 pb-lg-4 px-lg-5 mt-lg-4 bg-0F1628 border-bottom border-707070">
+        <div class="row">
+          <div class="col-xl-12 col-12">
+            <p class="go-medium text-white font-1-2 mt-lg-4">Payment Details</p>
+            <div class="novopay-response-modal modal fade" role="dialog" [ngClass]="{'show': showModal}"
+              id="response-modal" [ngStyle]="{'display': 'none'}">
+              {{response}}
+            </div>
+
+            <div class="novopay-response-modal modal fade" role="dialog" [ngClass]="{'show': showModal}"
+              id="razorpay-response" [ngStyle]="{'display': 'none'}">
+              {{razorpayResponse}}
+            </div>
+            <form class="mt-lg-5" ngNoForm #myFormPost name="data" method="POST"
+              action="https://test.cashfree.com/billpay/checkout/post/submit" name="data" method="POST"
+              onsubmit="window.open('about:blank','_self','width=900,height=500');">
+              <!--  <form class="mt-5" ngNoForm #myFormPost name="data" method="POST" action="https://www.ces.api.cashfree.com/checkout/post/submit" name="data" method="POST" onsubmit="window.open('about:blank','_self','width=900,height=500');"> -->
+              <textarea name="orderNote" id="orderNote" ng-model="orderNote" [(ngModel)]="order.orderNote"
+                hidden></textarea>
+              <textarea name="customerName" id="customerName" ng-model="customerName" [(ngModel)]="order.customerEmail"
+                hidden></textarea>
+              <input type="hidden" name="vendorSplit" [(ngModel)]="order.vendorSplit" />
+              <div [formGroup]="summayform">
+                <div>{{ errorMsg }}</div>
+                <div class="form-group row">
+                  <label class="col-xl-3 col-3 col-form-label go-medium text-ADADBE font-1-1 ">Email <span
+                      class="text-danger">*</span></label>
+                  <div class="col-xl-7 col-9">
+                    <input type="text" name="customerEmail" formControlName="email" [(ngModel)]="order.customerEmail"
+                      class="form-control form-control-lg go-book text-primary border border-primary bg-0F1628 rounded"
+                      placeholder=' {{"app.booking.enter email" | translate}}'>
+
+
+                    <span class="text-danger" *ngIf="
+                          summayform.controls['email'].hasError('pattern') &&
+                            (summayform.controls['email'].dirty ||
+                            summayform.controls['email'].touched)
+                          ">Please enter valid email address
+                    </span>
+
+
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-xl-3 col-3 col-form-label go-medium text-ADADBE font-1-1">Mobile <span
+                      class="text-danger">*</span></label>
+                  <div class="col-xl-7 col-9">
+                    <input inputmode="numeric" type="tel" (keypress)="keyPress($event)" maxlength="10" minlength="10"
+                      [(ngModel)]="order.customerPhone" name="customerPhone" formControlName="number"
+                      class="form-control form-control-lg go-book text-primary border border-primary bg-0F1628 rounded"
+                      placeholder='{{"app.booking.enter number" | translate}}'>
+
+
+                    <span class="text-danger" *ngIf="
+                          summayform.controls['number'].hasError('pattern') &&
+                            (summayform.controls['number'].dirty ||
+                            summayform.controls['number'].touched)
+                          ">Please enter valid phone number</span>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <textarea name="orderAmount" id="orderAmount" ng-model="orderAmount" [(ngModel)]="order.orderAmount"
+                hidden></textarea>
+              <textarea name="orderId" id="orderId" ng-model="orderId" [(ngModel)]="order.orderId" hidden></textarea>
+              <textarea name="returnUrl" id="returnUrl" ng-model="returnUrl" [(ngModel)]="order.redirectUrl"
+                hidden></textarea>
+              <textarea name="notifyUrl" id="notifyUrl" ng-model="notifyUrl" [(ngModel)]="order.notifyUrl"
+                hidden></textarea>
+              <textarea name="appId" id="appId" ng-model="appId" [(ngModel)]="order.key" hidden></textarea>
+              <textarea name="orderCurrency" id="orderCurrency" ng-model="orderCurrency"
+                [(ngModel)]="order.customerCurrency" hidden></textarea>
+              <textarea name="signature" id="signature" ng-model="signature" [(ngModel)]="order.hash" hidden></textarea>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid pt-lg-4 pb-lg-4 px-lg-5 bg-0F1628 border-bottom border-707070">
+        <ng-container *ngIf="!paymentService.isErrorFares else noFares">
+          <ng-container *ngIf=" loader else loaded">
+            <div class="col-xl-12 pt-lg-3 pb-lg-2 mt-lg-5 " *ngFor="let number of [0,1]">
+              <div class="row">
+                <ng-container>
+                  <div class="col-xl-3">
+                  </div>
+                  <div class="col-xl-8 mx-4 px-4">
+                    <div class="d-inline-block align-middle mr-2 mb-2" *ngFor="let number of [0,1]">
+                      <a class="btn go-medium text-ADADBE lead timing-btn placeholder-a placeholder-bar"></a>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #loaded>
+            <div class="row" *ngIf="!isLoading">
+              <div class="col-xl-12 col-12">
+                <p class="go-medium text-ADADBE lead">{{"app.booking.fare details" | translate}}</p>
+              </div>
+              <div class="col-xl-12 col-12">
+                <div class="row">
+                  <div class="col-xl-6 col-6">
+                    <p class="go-book text-white mb-0 lead">{{"app.booking.ticket fare" | translate}}</p>
+                  </div>
+                  <div class="col-xl-6 col-6 text-right">
+                    <p class="go-book text-white mb-0 lead">{{ ticketFare | number : '1.2-2' }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-12 col-12">
+                <div class="row">
+                  <div class="col-xl-6 col-8">
+                    <p class="go-book text-white mb-0 lead">{{"app.booking.internet handling charges" | translate}}</p>
+                  </div>
+                  <div class="col-xl-6 col-4 text-right">
+                    <p class="go-book text-white mb-0 lead">{{ handlingCharges | number : '1.2-2' }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-12 col-12">
+                <div class="row no-gutters mt-lg-2 pt-lg-2">
+                  <div class="col-xl-6 col-6">
+                    <p class="go-medium text-primary mb-0 lead">{{"app.booking.total" | translate}}</p>
+                  </div>
+                  <div class="col-xl-6 col-6 text-right">
+                    <p class="go-medium text-primary mb-0 lead">{{ totalAmount | number : '1.2-2' }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-12 col-12">
+                <a class="lead go-medium text-ADADBE text-decoration-none dropdown-toggle pointer" aria-expanded="true"
+                  aria-controls="total" (click)="showMoreDetails();doToggle()">{{toggle ? 'Hide Details':'More
+                  Details'}}
+
+                </a>
+              </div>
+
+              <ng-container *ngIf="moreDetails">
+                <div class="col-xl-12 col-12">
+                  <div class="row no-gutters mt-lg-2 pt-lg-2">
+                    <div class="col-xl-6 col-6">
+                      <p class="go-book text-white mb-0 lead">Sub Total</p>
+                    </div>
+                    <div class="col-xl-6 col-6 text-right">
+                      <p class="go-book text-white mb-0 lead">{{ ticketFare | number : '1.2-2' }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xl-12 col-12">
+                  <div class="row">
+                    <div class="col-xl-6 col-6">
+                      <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">
+                        Base Fare</p>
+                    </div>
+                    <div class="col-xl-6 col-6 text-right">
+                      <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">
+                        {{baseFare | number : '1.2-2'}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-12">
+                  <div class="row"  *ngIf="extraFare > 0">
+                    <div class="col-xl-6 col-6">
+                      <p class="go-book text-8A8A8A mb-0 lead">Extra Fare</p>
+                    </div>
+                    <div class="col-xl-6 col-6 text-right">
+                      <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">
+                        {{extraFare | number : '1.2-2'}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-12">
+                  <div class="row" *ngIf="discountFare != 0">
+                    <div class="col-xl-6 col-6">
+                      <p class="go-book text-8A8A8A mb-0 lead">Discount Fare</p>
+                    </div>
+                    <div class="col-xl-6 col-6 text-right">
+                      <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">
+                        {{discountFare | number : '1.2-2'}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-12">
+                  <div class="row">
+                    <div class="col-xl-6 col-6">
+                      <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">{{taxName}}</p>
+                      <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">{{taxNames}}</p>
+                    </div>
+                    <div class="col-xl-6 col-6 text-right">
+                      <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">{{taxAmount | number : '1.2-2'}}</p>
+                      <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">{{taxAmounts | number : '1.2-2'}}</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-12">
+                  <div class="row">
+                    <div class="col-xl-6 col-8">
+                      <p class="go-book text-white mb-0 lead">{{"app.booking.internet handling charges" | translate}}
+                      </p>
+                    </div>
+                    <div class="col-xl-6 col-4 text-right">
+                      <p class="go-book text-white mb-0 lead">{{ handlingCharges | number : '1.2-2' }}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-12">
+                  <div>
+                    <div class="row">
+                      <div class="col-xl-6 col-8">
+                        <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">{{chargeName}}</p>
+                      </div>
+                      <div class="col-xl-6 col-4 text-right">
+                        <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">{{chargeAmount | number : '1.2-2'}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-12">
+                  <div>
+                    <div class="row">
+                      <div class="col-xl-6 col-8">
+                        <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">{{chargeTaxName}}</p>
+                      </div>
+                      <div class="col-xl-6 col-4 text-right">
+                        <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">{{chargeTaxAmount | number : '1.2-2'}}</p> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-12 col-12">
+                  <div class="row no-gutters mt-2 pt-2">
+                    <div class="col-xl-6 col-7">
+                      <p class="go-medium text-primary mb-0 lead">{{"app.booking.total" | translate}}</p>
+                    </div>
+                    <div class="col-xl-6 col-5 text-right">
+                      <p class="go-medium text-primary mb-0 lead">{{ totalAmount | number : '1.2-2' }}</p>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+              <div class="col-xl-12 text-right my-4">
+                <button (click)="confirmPayment()" class="btn gradient-button gradient-button-4 go-book lead px-4"
+                  [disabled]="!summayform.valid">
+                  {{"app.booking.proceed" | translate}}</button>
+
+
+
+                <!-- <button *ngIf="confirmPaymentFlag == false"
+                class="btn gradient-button gradient-button-4 go-book font-weight-bolder lead px-4" disabled>
+                <span class="spinner-grow spinner-grow-sm"></span>
+                Loading..
+              </button> -->
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+
+      </div>
+      <ng-template #noFares>
+        <div class="offset-lg-1 mt-lg-4">
+          <div class="container-fluid mt-lg-4 pt-lg-5 px-lg-5 pb-lg-5 bg-3e4453 border-2 border-bottom border-primary">
+            <div class="row">
+              <div class="col-xl-12">
+                <p class="go-medium text-white font-1-5  row text-center pt-lg-3">oops! <br /> Service unavailable.
+                  Please try again later.</p>
+                <p class="text-center py-4-1">
+                  <img class="w-50 mw-100" src="assets/images/img/service-err.svg">
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+
+    </div>
+  </div>
+
+</div>
+<!-- <div *ngIf=isLoading>
+    <div id="pause" class="d-flex align-items-center justify-content-center">
+        <img src="../../../assets/images/img/Preloader-03.gif" id="spinner" />
+
+    </div>
+</div> -->
+<ng-template #errorPopup>
+  <div class="" id="terms" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="termsLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-custom-26 bg-373D4A">
+      <div
+        class="modal-content bg-3e4453 shadow-custom-9 border-bottom border-primary border-2 border-top-0 border-left-0 border-right-0 h-75">
+        <div class="container-fluid bg-373D4A py-4">
+          <div class="row">
+            <div class="col-xl-12 text-center">
+              <span class="modal-title go-medium text-primary text-center  h3" id="termsLabel">Your session was Timed
+                out</span>
+              <!-- <button type="button" class="close text-right text-707070 text-shadow-0" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button> -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-body text-left pt-5 px-5 border-top border-primary border-2">
+          <div class="go-light text-white font-14-a">
+
+          </div>
+        </div>
+        <div class="modal-footer border-top-0 m-auto">
+          <div class="row">
+            <div class="col-xl-12 text-center my-4">
+              <button type="button" class="btn btn-modal go-medium font-weight-bolder lead rounded-pill px-5 mx-3"
+                (click)="navigateToHome()">Start Again</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<mp-footer></mp-footer>
+<mp-card *ngIf=isLoading></mp-card>

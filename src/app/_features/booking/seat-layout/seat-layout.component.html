@@ -1,0 +1,271 @@
+<div class="container-fluid px-5">
+    <div class="row px-4 pt-2 shadow-custom-4 pb-lg-5"></div>
+</div>
+
+<div class="container-fluid px-lg-5 mt-lg-3 ">
+    <div class="row px-lg-5  shadow-custom-5 py-lg-1">
+        <div class="col-xl-12" *ngIf="showTimeService.venues | async as venues">
+            <div class="row align-items-center" *ngFor="let venue of venues">
+                <ng-container *ngIf="venue.venueId === venueId">
+                    <div class="col-xl-1">
+                        <div class="back-btn position-relative z-index-99 d-none d-lg-block">
+                            <svg id="Component_49_32" data-name="Component 49 – 32" xmlns="http://www.w3.org/2000/svg"
+                                width="38" height="38" viewBox="0 0 38 38">
+                                <circle id="Ellipse_39" data-name="Ellipse 39" class="cls-1" cx="19" cy="19" r="19"
+                                    [routerLink]="['/shows']"></circle>
+                                <g id="Group_450" data-name="Group 450" transform="translate(-134.505 -201.219)">
+                                    <path id="Polygon_9" data-name="Polygon 9" class="cls-2" d="M5.5,0,11,6H0Z"
+                                        transform="translate(142.505 226.219) rotate(-90)"></path>
+                                    <rect id="Rectangle_60" data-name="Rectangle 60" class="cls-2" width="17.492"
+                                        height="2.018" transform="translate(147.683 219.709)"></rect>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 position-absolute text-center px-5 z-index-1">
+                        <div class="position-relative d-none d-lg-block">
+                            <ngx-picture src="{{ posterUrl | splitAndGet: '~':0 }}" alt="Movie Poster" class=""
+                                [lazyLoad]="false">
+                                <ng-template #imgTemplate let-imageData>
+                                    <img class="w-89 mw-100 shadow-custom-2 posterimg" [src]="imageData.src"
+                                        [alt]="imageData.alt" />
+                                </ng-template>
+                            </ngx-picture>
+
+                            <div class="overlay-40 position-absolute text-center d-none d-lg-block">
+                                <img class="w-9 mw-100" src="assets/images/img/play.svg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offset-lg-1 col-xl-3 pl-lg-5 py-lg-2 height-sm">
+                        <h2 class="go-medium font-1-5 text-white mb-0">{{ movieName }}</h2>
+
+                        <p class="mb-0 my-2">
+                            <a class="text-decoration-none">
+                                <span class="go-book font-1-1 text-white">{{ venue.venueName }}, {{ venue.addressLine1
+                                    }}</span>
+
+                            </a>
+                        </p>
+                        <img class="w-16 mw-100 d-lg-none px-1 logomobile" src="assets/images/img/logo.svg"
+                            [routerLink]="['/']" alt="logo">
+                        <!-- <img class="w-20 mw-100" src="assets/images/img/logo.svg" alt="logo"> -->
+                        <p class="mb-0 d-inline-block align-middle">
+                            <span class="go-medium text-primary font-1-1 mr-4 d-none d-lg-block">
+                                <img class="mr-2" src="assets/images/img/calendar.svg" />
+                                {{ selectedDate | date: 'MMM dd, yyyy' }}
+                            </span>
+                        </p>
+                        <p class="mb-0 d-inline-block align-middle">
+                            <span class="go-book text-ADADBE font-1-1 d-none d-lg-block">
+                                <img class="mr-2" src="assets/images/img/time-grey.svg" />
+                                {{ showTime }}
+                            </span>
+                        </p>
+                    </div>
+
+                    <div class="col-xl-1 px-lg-5">
+                        <a class="btn btn-primary px-3">
+                            <p class="go-medium font-0-875 mb-0 line-height-1">{{ selectedDate | date: 'EEE' }}
+                            </p>
+                            <p class="go-book font-0-875 mb-0 line-height-1 ">{{ selectedDate | date: 'dd' }}</p>
+                            <p class="go-book font-0-875 mb-0 line-height-1 ">{{ selectedDate | date: 'MMM' }}
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-xl-5 pl-lg-5 py-2">
+                        <div *ngIf="!isLoading">
+                            <ng-container *ngFor="let show of venue.shows; let i = index">
+                                <button class="btn btn-modal go-book font-0-875z px-3 mr-2"
+                                    [ngClass]="show.showTime == showTime ? ' btn-primary' : 'btn-6A6A78'"
+                                    (click)="onShowTimeSelection(show)">
+                                    {{ show.showTime }}</button>
+                            </ng-container>
+                            <a class="go-medium text-decoration-none pointer">
+                                <span class="go-medium font-1-1 text-primary ml-5"
+                                    (click)="proceedSeatSelection(selectSeatCount)">{{
+                                    seatCount }} Seats
+                                    <i class="chevron bottom"></i>
+                                </span>
+
+                            </a>
+                            <ng-template #selectSeatCount>
+                                <mp-seatcount (onSeatCountSelect)="setSeatCount($event)"></mp-seatcount>
+                            </ng-template>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-1 text-right">
+                        <img class="w-35 mw-100 hdr-ico hdr-ico outline-none d-none d-lg-block" [routerLink]="['/']"
+                            src="assets/images/img/home.svg" />
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- header changes end -->
+<ng-container *ngIf="!reservationService.isErroFetchingSeatLayout; else noSeats">
+    <div class="container-fluid px-lg-5 bg-020A1C">
+        <div class="row px-lg-5 shadow-custom-5 pt-3">
+            <div class="position-relative video d-none d-lg-block">
+                <!-- <img class="w-100 mw-100" src="./assets/images/img/seat-screen.png" alt="seat-screen"> -->
+                <iframe height="345" width="100%" [src]="movieTrailerUrl" style="border: none" allowfullscreen autoplay
+                    allow="autoplay">
+                </iframe>
+                <div class="overlay-40 position-absolute text-center">
+                    <!-- <img class="w-5 mw-100" src="./assets/images/img/seat-play.png"> -->
+                </div>
+            </div>
+            <div class="col-xl-12 text-center mt-n6">
+                <div class="go-medium text-white font-1-1">Click to select your seats</div>
+
+                <!-- <ng-container> -->
+                <div class="mx-18 my-lg-5 d-flex justify-content-center horizontal-scrollable">
+                    <table class="row table table-1 table-borderless text-centered">
+                        <tbody>
+                            <ng-container *ngFor="let class of seatLayout?.classes">
+                                <ng-container *ngIf="true">
+                                    <tr>
+                                        <td colspan="2" style="text-align: left; padding-top: 15px; color: white">
+                                            <label class="go-medium text-white lead">{{ class.className }} - ₹{{
+                                                class.baseFare }}</label>
+                                            <label></label>
+                                        </td>
+                                    </tr>
+                                    <ng-container *ngFor="let row of class.labels">
+                                        <tr>
+                                            <td class="go-book text-primary font-weight-bolder h4 p-2">
+                                                {{ row.groupId != 'DUMMY' && !row.groupId.startsWith("space") ?
+                                                row.groupId
+                                                : '' }}
+                                            </td>
+                                            <td class="font-0 p-2 text-center">
+                                                <ng-container *ngFor="let seat of row.seats; index as i">
+                                                    <div class="seat d-inline-block align-middle pointer" *ngIf="
+                            (seat.bookingStatus == 'AVAILABLE' && seat.seatNumber) ||
+                            (seat.bookingStatus == 'NEW_BY_CANCEL' && seat.seatNumber)
+                          " [ngClass]="
+                            seat.selectedstatus_ui == 0 ||
+                            seat.selectedstatus_ui == '' ||
+                            seat.selectedstatus_ui == null
+                              ? 'available-seat'
+                              : 'selected-seat'
+                          " (click)="selectSeat(row.seats, class, i);hideShow()">
+                                                        <label>{{ seat.seatNumber }}</label>
+                                                    </div>
+                                                    <div class="seat d-inline-block align-middle pointer" *ngIf="
+                                                                                (seat.bookingStatus == 'BOXOFFICE' && seat.seatNumber) ||
+                                                                                (seat.bookingStatus == 'BOXOFFICE_HIDDEN' && seat.seatNumber)
+                                                                              " [ngClass]="
+                                                                                seat.selectedstatus_ui == 0 ||
+                                                                                seat.selectedstatus_ui == '' ||
+                                                                                seat.selectedstatus_ui == null
+                                                                                  ? 'booked-seat'
+                                                                                  : 'selected-seat'
+                                                                              "
+                                                        (click)="selectSeat(row.seats, class, i);hideShow()">
+                                                        <label>{{ seat.seatNumber }}</label>
+                                                    </div>
+                                                    <div *ngIf="(seat.bookingStatus == 'AVAILABLE' && !seat.seatNumber) ||
+                                                                (seat.bookingStatus == 'BOXOFFICE' && !seat.seatNumber) ||
+                                                                (seat.bookingStatus == 'BOXOFFICE_HIDDEN' && !seat.seatNumber)"
+                                                        class="seat d-inline-block align-middle"
+                                                        (click)="selectSeat(row.seats, class, i)">
+                                                        {{ seat.seatNumber }}
+                                                    </div>
+                                                    <div *ngIf="seat.bookingStatus == SeatStatus.DEFAULT_BLOCKED"
+                                                        class="seat booked-seat d-inline-block align-middle">
+                                                        {{ seat.seatNumber }}
+                                                    </div>
+                                                    <div *ngIf="seat.bookingStatus == SeatStatus.BOOKED"
+                                                        class="seat booked-seat d-inline-block align-middle">
+                                                        {{ seat.seatNumber }}
+                                                    </div>
+
+                                                    <div *ngIf="seat.bookingStatus == SeatStatus.SOLDOUT"
+                                                        class="seat booked-seat d-inline-block align-middle">
+                                                        {{ seat.seatNumber }}
+                                                    </div>
+                                                    <div *ngIf="seat.bookingStatus == SeatStatus.SOCIAL_DISTANCE"
+                                                        class="seat social-distance d-inline-block align-middle">
+                                                        {{ seat.seatNumber }}
+                                                    </div>
+                                                    <div *ngIf="seat.bookingStatus == SeatStatus.LOCKED"
+                                                        class="seat booked-seat d-inline-block align-middle">
+                                                        {{ seat.seatNumber }}
+                                                    </div>
+                                                    <div *ngIf="seat.bookingStatus == SeatStatus.BLOCKED"
+                                                        class="seat booked-seat d-inline-block align-middle">
+                                                        {{ seat.seatNumber }}
+                                                    </div>
+                                                </ng-container>
+                                            </td>
+                                            <td class="go-book text-primary font-weight-bolder h4 p-2">
+                                                {{ row.groupId != 'DUMMY' && !row.groupId.startsWith("space") ?
+                                                row.groupId
+                                                : '' }}
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+                                </ng-container>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mx-lg-18 text-center fixed-bottom footer bg-0F1628 border-2" *ngIf="showProceed">
+                    <button href="" class="btn gradient-button gradient-button-4 go-book font-0-875 px-4 mobile"
+                        *ngIf="seatselect" (click)="proceed()">
+                        {{ 'app.booking.proceed' | translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<!-- fooder for seatlayout -->
+<div *ngIf="hideFooter">
+    <div class="container-fluid py-4 footer bg-0F1628 border-2">
+        <div class="row align-items-center text-center">
+            <div class="col-xl-12">
+                <div class="mx-lg-18 text-center">
+                    <div class="d-inline-block align-middle">
+                        <img class="w-15 mw-100" src="/assets/images/img/available_seat.svg" />
+                        <span class="go-medium text-primary font-weight-bolder lead ml-2">Available</span>
+                    </div>
+                    <div class="d-inline-block align-middle">
+                        <img class="w-15 mw-100" src="/assets/images/img/selected_seat.svg" />
+                        <span class="go-medium text-primary font-weight-bolder lead ml-2">Selected</span>
+                    </div>
+                    <div class="d-inline-block align-middle">
+                        <img class="w-15 mw-100" src="/assets/images/img/booked_seat.svg" />
+                        <span class="go-medium text-primary font-weight-bolder lead ml-2">Booked</span>
+                    </div>
+                    <div class="d-inline-block align-middle">
+                        <img class="w-10 mw-50" src="/assets/images/img/social-distance.svg" />
+                        <span class="go-medium text-primary font-weight-bolder lead ml-2">Social Distance</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- failuer screen -->
+<ng-template #noSeats>
+    <div class="container-fluid px-lg-5 bg-272c38">
+        <div class="row px-lg-5 pt-5">
+            <div class="col-xl-12">
+                <p class="go-medium text-white font-1-5 text-center pt-3">
+                    oops! <br /> Service unavailable. Please try again later.
+                </p>
+                <p class="text-center py-4-1">
+                    <img class="w-20 mw-100" src="assets/images/img/service-err.svg" />
+                </p>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!-- end -->
+<mp-card *ngIf="isLoading"></mp-card>

@@ -1,0 +1,340 @@
+<!-- <nav class="navbar navbar-expand-lg fixed-top"> 
+  <div class="container-fluid mx-4">
+    <a href="#" class="navbar-brand">
+      <img src="assets/images/panda.png" width="45" alt="" class="d-inline-block align-middle mr-5" />
+      <span class="text-uppercase font-weight-bold">Movie Panda</span>  
+  </div>
+</nav>
+<ng-container *ngIf="reservationService.ticket | async as ticket">
+  <div class="row mt-100">
+    <div class="container mt-5 container-bg position-relative">
+      <div class="overlay position-absolute"></div>
+      <div class="row ml-5 mt-5">
+        <h3>Ticket Booked Successfully!</h3>
+      </div>
+      <div class="row borderline">
+        <div class="col-7 border-right" style="border-color: #000;">
+          <div class="row">
+            <div class="col-6 my-5 px-5">
+              <img src="{{ ticket.posterUrl }}" class="imgcontrol" />
+            </div>
+            <div class="col-6 my-5 px-5">
+              <h5 class="font-weight-bold pt-2 display-inline">
+                {{ ticket.movieName }}
+              </h5>
+              <span>{{ ticket.language }}</span>
+              <div class="pt-5">
+                <span>{{ ticket.showDate }} - {{ ticket.showTime }} </span>
+              </div>
+              <div class="pt-5">
+                <span class="font-weight-bold">{{ ticket.venueName }}</span>
+              </div>
+              <div class="pt-5">
+                <span class="font-weight-bold">{{ ticket.screenName }}</span>
+              </div>
+
+              <div class="d-flex justify-content-between pt-5 w-50">
+                <div class="d-flex flex-column">
+                  <span>{{ ticket.className }}</span><span>{{ ticket.seatCount }}</span>
+                </div>
+                <div class="d-flex flex-column">
+                  <span>Seats</span><span *ngFor="let x of ticket.seats">{{
+                    x.seatNumber
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5 my-5 px-5">
+          <div class="d-flex flex-row">
+            <div class="d-flex justify-content-center"></div>
+            <span> QR Code</span>
+            <div>
+              <img src="{{ ticket.qrFile }}" class="imgcontrol" />
+            </div>
+
+          </div>
+          <div (click)="resendNotification()">ResendNotification</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+ </ng-container>  -->
+
+
+<!-- new UI -->
+<mp-header></mp-header>
+<div class="container-fluid px-lg-5">
+    <div class="row px-lg-5 bg-0F1628 shadow-custom-5 py-3">
+        <div class="col-xl-12">
+            <div class="row align-items-center">
+                <div class="col-xl-1">
+                    <div class="back-btn position-relative z-index-99 d-none d-lg-block">
+                        <svg id="Component_49_32" data-name="Component 49 – 32" xmlns="http://www.w3.org/2000/svg"
+                            width="38" height="38" viewBox="0 0 38 38">
+                            <circle id="Ellipse_39" [routerLink]="['/']" data-name="Ellipse 39" class="cls-1" cx="19"
+                                cy="19" r="19">
+                            </circle>
+                            <g id="Group_450" data-name="Group 450" transform="translate(-134.505 -201.219)">
+                                <path id="Polygon_9" data-name="Polygon 9" class="cls-2" d="M5.5,0,11,6H0Z"
+                                    transform="translate(142.505 226.219) rotate(-90)"></path>
+                                <rect id="Rectangle_60" data-name="Rectangle 60" class="cls-2" width="17.492"
+                                    height="2.018" transform="translate(147.683 219.709)"></rect>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <!--<div class="col-xl-3 position-absolute text-center d-none d-lg-block">
+                    <img class="w-35 pt-3" src="assets/images/img/user.svg">
+                </div>-->
+                <div class="offset-lg-3 col-xl-5">
+                    <span>
+                        <img class="w-9" src="assets/images/img/tick.svg">
+                    </span>
+                    <span class="go-book text-white h4 ml-4">
+                        Thank you for your purchase!
+                    </span>
+                </div>
+                <div class="col-xl-3 text-right pointer d-none d-lg-block">
+                    <img src="assets/images/img/home.svg" [routerLink]="['/']">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row px-lg-5 shadow-custom-5">
+        <div class="container-fluid mx-18">
+            <div class="row m-lg-4 mb-lg-6 px-lg-5 pt-lg-5  bg-0F1628 border-bottom border-primary border-2">
+                <div class="col-xl-12 col-12">
+                    <div class="row">
+                        <ng-container *ngIf="!reservationService.isErrorBooking else bookingFailer">
+
+                            <div class="col-xl-3 pr-3 col-4" *ngIf="reservationService.ticket | async as ticket">
+                                <!-- <img class="w-100 mw-100 shadow-custom-2" src="{{ ticket.posterUrl }}" alt="home-play"> -->
+                                <ngx-picture src="{{ticket.posterUrl|splitAndGet:'~':0}}" alt="Movie Poster" class=""
+                                    [lazyLoad]="false">
+                                    <ng-template #imgTemplate let-imageData>
+                                        <img class="w-100 mw-100 shadow-custom-2" [src]="imageData.src"
+                                            [alt]="imageData.alt" />
+                                    </ng-template>
+                                </ngx-picture>
+                                <!-- <div class="overlay-12-5 position-absolute text-center">
+                                    <img class="w-50 mw-100" src="assets/images/img/play.svg">
+                                </div> -->
+                                <div class="mt-3">
+                                    <img class="w-100 mw-100 m-auto" src="{{ ticket.qrFile }}">
+                                </div>
+                                <div class="mt-3">
+                                    <p class="go-medium text-white text-center font-1-1">{{ticket.bookingReferenceId}}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <ng-container *ngIf="reservationService.ticket | async as ticket">
+                                <div class="col-xl-9 col-8 pl-lg-5">
+                                    <div class="row no-gutters">
+                                        <div class="col-xl-7 col-6">
+                                            <h3 class="go-medium text-white font-1-2 mb-0">{{ ticket.movieName }}
+                                            </h3>
+                                            <p class="mb-0">
+                                                <a class="text-decoration-none">
+                                                    <span class="go-medium text-primary font-1-1">{{ ticket.language
+                                                        }} / {{MovieGenreName}} / {{ticket.dimension}}</span>
+                                                </a>
+                                            </p>
+                                            <p>
+                                                <span class="go-medium text-primary">{{Timeduration}}</span>
+                                            </p>
+                                            <p class="go-medium text-white font-1-1 mb-0">
+                                                {{ ticket.venueName }}</p>
+                                            <p class="go-medium text-white font-1-1 mb-0">
+                                                {{LocalityName}}</p>
+                                            <p class="go-book text-white"></p>
+                                            <p class="go-medium text-ADADBE font-1">Show Date & Time</p>
+                                            <p>
+                                                <span class="go-medium text-primary mr-4 font-1">
+                                                    <img class="mr-lg-2" src="assets/images/img/calendar.svg">
+                                                    {{ ticket.showDate }}
+                                                </span>
+                                                <span class="go-book text-white font-1">
+                                                    <img class="mr-lg-2" src="assets/images/img/time.svg">
+                                                    {{ ticket.showTime }}
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="col-xl-5 col-6">
+                                            <p class="text-ADADBE go-medium font-1">Seat Details</p>
+                                            <p class="go-medium text-primary font-1">Seat - {{ticket.seatCount}}
+                                            </p>
+                                            <div class="row no-gutters align-items-start">
+                                                <p class="go-book text-white font-1 col-xl-3">
+                                                    {{ticket.className}} - </p>
+                                                <ng-container class="col-xl-9 ">
+                                                    <span
+                                                        class=" rounded go-book text-white font-1 p-lg-1 bg-primary mx-1"
+                                                        *ngFor="let seat of ticket.seats">{{seat.seatNumber}}</span>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <p class="go-medium  text-ADADBE font-1-1">Fare Details</p>
+                                        </div>
+                                        <div class="col-xl-12 col-12">
+                                            <div class="row">
+                                                <div class="col-xl-6 col-6">
+                                                    <p class="go-book  text-white mb-0 font-1">
+                                                        {{"app.booking.ticket fare" | translate}}</p>
+                                                </div>
+                                                <div class="col-xl-6 col-6 text-right">
+                                                    <p class="go-book  text-white mb-0 font-1">
+                                                        {{ticket.bookingTransaction.ticketFare}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-12 col-12">
+                                            <div class="row">
+                                                <div class="col-xl-6 col-9">
+                                                    <p class="go-book  text-white font-1">{{"app.booking.internet
+                                                        handling charges" | translate}}</p>
+                                                </div>
+                                                <div class="col-xl-6 col-3 text-right">
+                                                    <p class="go-book  text-white font-1">{{
+                                                        ticket.bookingTransaction.handlingCharges }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-12 col-12">
+                                            <div
+                                                class="row no-gutters border border-right-0 border-left-0 border-ADADBE my-2 py-2">
+                                                <div class="col-xl-6 col-6">
+                                                    <p class="go-medium  text-primary mb-0 font-1">{{"app.booking.total"
+                                                        | translate}}</p>
+                                                </div>
+                                                <div class="col-xl-6 col-6 text-right">
+                                                    <p class="go-medium  text-primary mb-0 font-1">
+                                                        {{ticket.bookingTransaction.totalAmount}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-12 col-12">
+                                            <div class="row">
+                                                <div class="col-xl-6 col-6">
+                                                    <p class="go-medium text-primary font-1 text-uppercase">
+                                                        {{"app.booking.amount paid" | translate}}</p>
+                                                </div>
+                                                <div class="col-xl-6 col-6 text-right">
+                                                    <p class="go-medium text-primary font-1">
+                                                        {{ticket.bookingTransaction.totalAmount}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-12 col-12">
+                                            <div class="row">
+                                                <div class="col-xl-7 col-7">
+                                                    <p class="go-book text-white font-1" *ngIf="!timer && !settimer">If
+                                                        you do not received the ticket , <span>
+
+                                                            <a class="go-medium text-primary text-decoration-none font-1 pointer"
+                                                                (click)="resendNotification();startTimer()">Click here</a> to resend
+                                                        </span>
+                                                    </p>
+                                                    <span *ngIf="settimer">
+                                                        <p class="go-book text-white lead">Notification sent to your
+                                                            registered Number and Email !</p>
+                                                        <a id="time"
+                                                            class="go-medium  text-primary text-decoration-none lead ">
+                                                            00:{{ timeLeft }}
+                                                        </a>
+                                                    </span>
+
+                                                </div>
+
+                                                <div class="col-xl-5 col-5 text-right">
+                                                    <p><a class="btn btn-primary go-book" [routerLink]="['/']">Book
+                                                            Another Ticket</a></p>
+                                                </div>
+                                            </div>
+                                            <!-- Resend Confirmation Modal -->
+                                            <div class="modal fade" id="resend" data-backdrop="static"
+                                                data-keyboard="false" tabindex="-1" aria-labelledby="resendLabel"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                    <div
+                                                        class="modal-content shadow-custom-9 bg-3e4453 border-bottom border-primary border-2 border-top-0 border-left-0 border-right-0">
+                                                        <div class="container-fluid py-4 bg-373D4A">
+                                                            <div class="row">
+                                                                <div class="col-xl-12 text-center">
+                                                                    <span
+                                                                        class="modal-title go-medium text-primary text-center h3"
+                                                                        id="resendLabel">Resend Confirmation</span>
+                                                                    <button type="button"
+                                                                        class="close text-right text-9F9F9F text-shadow-0"
+                                                                        aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="modal-body text-left px-5 border-top border-primary border-2">
+                                                            <div class="row">
+                                                                <div class="col-xl-12 text-center my-4">
+                                                                    <p class="go-medium h4 text-white mb-4">Lost your
+                                                                        confirmation details?</p>
+                                                                    <p class="go-book text-ADADBE">No worries, we've got
+                                                                        you covered! Simply enter the info you used
+                                                                        while booking &amp; we'll send it to you in a
+                                                                        jiffy!</p>
+                                                                </div>
+                                                                <div class="offset-1 col-xl-10">
+                                                                    <form>
+                                                                        <div class="form-group row">
+                                                                            <div class="offset-1 col-xl-10">
+                                                                                <input type="text"
+                                                                                    class="form-control form-control-lg go-book text-primary border-0  bg-373D4A rounded"
+                                                                                    value="abcd@xyz.com" readonly="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group row">
+                                                                            <div class="offset-1 col-xl-10">
+                                                                                <input type="text"
+                                                                                    class="form-control form-control-lg go-book text-primary border-0  bg-373D4A rounded"
+                                                                                    value="1234567890" readonly="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group my-5 text-center">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary go-book lead px-4">Resend</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <ng-template #bookingFailer>
+                            Confirm Booking Failed,Please try again!
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<mp-footer></mp-footer>
