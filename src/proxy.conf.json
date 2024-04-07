@@ -1,0 +1,7 @@
+{
+    "/services": {
+      "target": "https://dev.moviepanda.in",
+      "secure": true,
+      "changeOrigin": true
+    }
+  }
