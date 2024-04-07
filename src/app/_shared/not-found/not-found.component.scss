@@ -1,0 +1,58 @@
+.container-404{
+    background: url(/assets/images/img/404-bg.svg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+}
+
+.error-container{
+    margin-left: 15%;
+    margin-top: 12%;
+}
+
+.status-code {
+    position: absolute;
+    width: 893px;
+    height: 414px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 393px;
+    text-align: center;
+    opacity: 0.5;
+    color: #B3B3B3;
+    z-index: 3;
+    margin-left: 7%;
+}
+.img-1 {
+    position: relative;
+    top: 10px;
+    left: 28%;
+    z-index: 1;
+ 
+}
+.img-2 {
+    position:relative;
+    top: 25px;
+    left: 0%;
+    z-index: 2;
+ 
+}
+.img-404{
+    z-index: 999;
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 19%;
+}
+.margin-left-50{
+    margin-left: 50%;
+    margin-top: 50%;
+    
+}
+.margin-left-40{
+    margin-left: 40%;
+}

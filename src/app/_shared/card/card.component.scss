@@ -1,0 +1,88 @@
+// .roundedImg {
+//     height: 315px;
+//     width: 100%;
+// }
+// .cardoverlay {
+//     position: relative;
+//     &:before {
+//         content: '';
+//         top: 0;
+//         left: 0;
+//         height: 315px;
+//         width: 100%;
+//         position: absolute;
+//         background: rgba(66, 70, 87, 0.2);
+//     }
+// }
+// .card {
+//     //--duration: 2.5s;
+//     border: none;
+//     background: rgba(66, 70, 87, 0.26);
+//     animation: fadeInUp;
+//     // animation-duration: var(--duration);
+//     //animation-delay: 1s;
+// }
+// .cardbodycnt {
+//     background: rgba(37, 39, 52, 0.17);
+//     border-radius: 10px;
+// }
+// .ratingcnt {
+//     position: absolute;
+//     top: 0px;
+//     right: 0;
+// }
+////////////////loaders old//////////
+// #spinner {
+//     background: transparent;
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     z-index: 999;
+// }
+// #pause {
+//     display: block;
+//     background: rgba(0, 0, 0, 0.66) no-repeat 0 0;
+//     width: 100%;
+//     height: 100%;
+//     position: fixed;
+//     bottom: 0;
+//     left: 0;
+//     z-index: 1000;
+//     background: #48D1CC transparent;
+// }
+#spinner {
+    -webkit-animation: frames 1s infinite linear;
+    animation: frames 1s infinite linear;
+    background: transparent;
+    border: 1.00vw solid #fff;
+    border-radius: 50%;
+    border-top-color: #3b21104d;
+    width: 7vw;
+    height: 7vw;
+    opacity: 0.6;
+    padding: 0;
+    position: absolute;
+    z-index: 999;
+}
+
+@keyframes frames {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+#pause {
+    display: block;
+    background: rgba(0, 0, 0, 0.66) no-repeat 0 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}

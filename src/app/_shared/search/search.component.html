@@ -1,0 +1,74 @@
+<!-- <input type="text" [(ngModel)]="searchText" name="searchText" class="searchtext searchbar ui-autocomplete-input"
+    autocomplete="off" placeholder="{{placeholder}}" />
+<div [ngClass]="
+    searchText !== undefined && searchText != ''
+      ? 'search'
+      : 'displaynone'
+  " (mouseleave)="searchText = ''">
+
+    <ul class="searchCnt">
+        <li *ngFor="let data of searchData | search: searchText:searchField" style="display: block">
+            <ng-template #defaultTemplate let-data>
+                <div>
+                    {{data[searchField]}}</div>
+            </ng-template>
+            <ng-container [ngTemplateOutlet]="locationTemplateRef || defaultTemplate"
+                [ngTemplateOutletContext]="{ $implicit: data }">
+            </ng-container>
+
+        </li>
+    </ul>
+
+</div> -->
+
+<div class="modal-body text-left px-5">
+    <div class="row">
+        <div class="col-xl-10 mx-auto">
+            <div class="input-group my-3">
+                <input
+                    class="form-control p-4 go-book text-primary font-weight-bolder border border-primary border-right-0 bg-secondary border-2 border-radius-top-left font-1-4"
+                    type="search" placeholder="Search" id="example-search-input"
+                    autocomplete="off" [(ngModel)]="searchText">
+                    
+                <span class="input-group-append" >
+                    <div
+                        class="input-group-text bg-secondary border-2 border-primary border-left-0 border-radius-top-right">
+                        <img src="assets/images/img/search-primary.svg">
+                    </div>
+                </span>
+                   
+                    
+            </div>
+        </div>
+        <div class="modal-bg bg-373D4A">
+        
+        <div class="col-xl-12 my-4 fix-height overflow-auto" [ngClass]="
+        searchText !== undefined && searchText != ''
+          ? 'search'
+          : 'displaynone'
+      " (mouseleave)="searchText = ''">
+            <div class="row" >
+                    <div class="col-xl-4" *ngFor="let data of searchData | search: searchText:searchField">
+                        <div *ngIf="data.success!= false" >
+                            <div class="bg-373d4b">
+                                <p class="pt-3 pb-3 pl-5 form-check-label go-book lead text-white pointer">
+                                    <ng-template #defaultTemplate let-data>
+                                        
+                                            {{data[searchField]}}
+                                    </ng-template>
+                                    <ng-container [ngTemplateOutlet]="locationTemplateRef || defaultTemplate"
+                                        [ngTemplateOutletContext]="{ $implicit: data }">
+                                    </ng-container>
+                                </p>
+                            </div>
+                        </div>
+                        <div *ngIf="data.success== false">
+                            <p class="pt-3 pb-3 pl-5 form-check-label go-book lead text-white">
+                                No Result Found
+                            </p>
+                        </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>

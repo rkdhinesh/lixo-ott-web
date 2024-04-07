@@ -1,0 +1,106 @@
+.btn-primary {
+    color: #fff;
+    background-color: #0aa5ae;
+    border-color: #0aa5ae;
+}
+
+.btn-primary:hover {
+    color: #0aa5ae;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.gradient-button {
+    margin: 10px;
+    font-size: 11px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #FFF;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    width: 125px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.gradient-button:hover {
+    box-shadow: 0 10px 20px rgba(33, 243, 243, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin: 8px 10px 12px;
+    color: #FFF;
+}
+
+.gradient-button-4 {
+    background-image: linear-gradient(to right, #0AA5AE 10%, #1CACB4 47%, #BEEDEF 100%);
+    opacity: 1;
+}
+
+.gradient-button-4:hover {
+    background-position: right center;
+}
+
+.checkbox-container {
+    
+    position: inherit;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    display: none; /* Hide the default checkbox */
+}
+
+.checkmark {
+    position: absolute;
+    top: 5;
+    left: 0;
+    height: 20px; /* Custom height */
+    width: 20px; /* Custom width */
+    background-color: black; /* Custom background color */
+    border: 1px solid #0AA5AE;
+    border-radius: 5px;
+}
+
+
+
+/* Create the checkmark inside the custom checkbox */
+.checkmark:after {
+    content: "";
+    position: relative;
+    display: none;
+}
+
+/* Show the checkmark when the checkbox is checked */
+.checkbox-container input:checked + .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark */
+.checkbox-container .checkmark:after {
+    left: 7px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+::ng-deep .dropdown-toggle::after {
+color: #0AA5AE;
+}
+
+::ng-deep .dropdown-menu.show {
+    border-radius: 5px !important;
+    border: 1px solid #0AA5AE !important;
+    background-color: #0f1628 !important;
+    transform: translate3d(0px, 45px, 0px);
+}
+
+.dropdown-menu {
+    min-width: 65px;
+    height: 30px;
+}

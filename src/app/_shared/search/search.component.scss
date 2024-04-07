@@ -1,0 +1,78 @@
+// input {
+//     border-radius: 10px;
+//     box-shadow: 1px 1px 10px #ccc;
+//     outline: none;
+//     border: none;
+//     padding: 10px 25px;
+//   }
+
+//   .searchCnt {
+//     padding: 10px;
+//     box-shadow: 1px 1px 10px #ccc;
+//     margin: 10px;
+//     background: #1b212c;
+//     cursor: pointer;
+//   }
+//   .searchBox {
+//     width: 96%;
+//     background-color: white;
+//     position: absolute;
+//     top: 75px;
+//     cursor: pointer;
+//     overflow: scroll;
+//     border-radius: 2px 2px 2px 2px;
+//     z-index: 1;
+//     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+//       0 0 40px rgba(0, 0, 0, 0.1) inset;
+//     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+//       0 0 40px rgba(0, 0, 0, 0.1) inset;
+//     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+//   }
+
+.removeCursor {
+  cursor: default;
+}
+
+//   .search {
+//     // background-color: white;
+//     padding-top: 12px;
+//     // position: absolute;
+//     width: 300px;
+//   }
+
+//   .searchcontainer {
+//     padding-left: 0px;
+//   }
+
+.displaynone {
+  display: none;
+}
+//   .menuentry:hover .submenu {
+//     display: block;
+//   }
+
+//   .menuentry:hover .fa-search {
+//     padding: 5px;
+//     background: #303030;
+//     color: #fff;
+//     border-radius: 5px;
+//   }
+//   .searchBoxLocation {
+//     width: 96%;
+//     background-color: white;
+//     position: absolute;
+//     top: 75px;
+//     cursor: pointer;
+//     overflow: scroll;
+//     border-radius: 2px 2px 2px 2px;
+//     z-index: 1;
+//     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+//       0 0 40px rgba(0, 0, 0, 0.1) inset;
+//     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+//       0 0 40px rgba(0, 0, 0, 0.1) inset;
+//     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+//   }
+.fix-height {
+  height: 400px;
+  width: 100%;
+}
