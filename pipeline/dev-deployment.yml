@@ -1,0 +1,21 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - develop
+resources:
+  repositories:
+    - repository: library
+      type: git
+      name: Moviepanda/pipeline-library
+      ref: refs/heads/master
+pool:
+  vmImage: 'ubuntu-latest'
+stages:
+  - template: /pipeline/front-end-continuous-integration.yml@library
+    parameters:
+      applicationName: 'movie-reservation-web'
+      environment: 'Dev'
+      targetFolder: '/var/www/dev.moviepanda.in/public_html'
+      buildOutputFolder: 'dist/movie-reservation-web'
+      sshEndpoint: 'godwin'

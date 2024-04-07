@@ -1,0 +1,25 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+trigger:
+  - none
+resources:
+  pipelines:
+    - pipeline: integration-pipeline  # identifier for the resource used in pipeline resource variables, fixed value now
+      source: frontend/movie-reservation-web-integration  # name of the pipeline that produces an artifact
+      trigger: # triggers are not enabled by default unless you add trigger section to the resource
+        branches:
+          - master
+  repositories:
+    - repository: library
+      type: git
+      name: Moviepanda/pipeline-library
+      ref: refs/heads/master
+
+
+
+stages:
+  - template: /pipeline/front-end-continuous-deployment.yml@library
+    parameters:
+      applicationName: 'movie-reservation-web'
+      bucketName: 'www.moviepanda.in'
