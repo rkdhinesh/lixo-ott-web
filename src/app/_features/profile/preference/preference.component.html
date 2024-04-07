@@ -1,0 +1,301 @@
+<div class="tab-pane" id="preference" role="tabpanel" aria-labelledby="preference-tab">
+    <div class="row no-gutters align-items-center">
+        <div class="col-xl-10 shadow-custom hm-pos-bg">
+            <div class="row no-gutters">
+                <div class="col-xl-12  pt-lg-4 pb-lg-3 px-lg-5 border-bottom border-ADADBE">
+                    <form>
+                        <div class="row pl-lg-5 mb-lg-2">
+                            <div class="col-xl-12">
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <p class="go-medium font-1-1 text-primary font-weight-bolder">Genre</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group row pl-lg-5 mb-2 col-12">
+                            <ng-container *ngIf=" loader else loaded">
+                                <div class="col-xl-12 pt-lg-3 pb-lg-2 mt-lg-5" *ngFor="let number of [0,1,2]">
+                                    <div class="row">
+                                        <ng-container>
+                                            <div class="col-xl-3">
+                                                <div class="text-right placeholder-fandb placeholder-bar">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-8">
+                                                <div class="d-inline-block align-middle mr-2 mb-2" *ngFor="let number of [0,1,2]">
+                                                    <a class="btn go-book font-weight-bolder timing-btn placeholder-a placeholder-bar"></a>
+                                                    <a class="btn go-book font-weight-bolder timing-btn placeholder-a placeholder-bar"></a>
+
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-template #loaded>
+                                <div class="input-group col-xl-2 my-lg-4 col-4" *ngFor="let genre of genresresponse.genres">
+                                    <div class="input-group-checkbox">
+                                        <div class="custom-control custom-checkbox custom-checkbox-green">
+                                            <input type="checkbox" class="custom-control-input custom-control-input-green pointer" id="{{ genre.genreName }}" [(ngModel)]="
+                      genre.selectedGenre" [ngModelOptions]="{standalone: true}" (change)=" userSelectedGenre($event,
+                      genre.genreId)" />
+                                            <label class="custom-pro-check custom-control-label go-book text-white font-weight-bolder pl- custom-pro-check pointer" for="{{ genre.genreName }}">
+                                            {{ genre.genreName }}
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl-12  pt-lg-4 pb-3 px-lg-5 ">
+                    <form>
+                        <div class="row pl-lg-5 mb-lg-2">
+                            <div class="col-xl-12">
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <p class="go-medium font-1-1 text-primary font-weight-bolder">Venue</p>
+                                    </div>
+                                    <div class="col-xl-4 ml-auto text-right">
+                                        <a class="btn gradient-button gradient-button-4 rounded-pill px-4 go-book font-0-875" id="venues-tab" role="tab" aria-controls="venues" aria-selected="false" (click)="openVenueModal()">Add Venue</a>
+                                    </div>
+
+                                    <!-- <div class="col-xl-4 ml-auto text-right"> -->
+
+                                    <!-- <mp-search *ngIf="venueService.venuescity | async as venuescity" [searchData]=venuescity [searchField]=searchField [placeholder]=placeholder>
+
+                                            <ng-template #searchResultTemplate let-search>
+                                                <span class="text-center cast-review-font mt-3  text-white" (click)="addvenues(search.venueId)">{{search.venueName}}</span>
+
+                                            </ng-template>
+
+                                        </mp-search> -->
+                                    <!-- <a class="btn btn-primary rounded-pill px-4 go-book lead"
+                    >Add Venue</a> -->
+                                    <!-- </div> -->
+                                    <!-- Venue Modal -->
+                                    <!-- <div class="modal fade" id="venue" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                    aria-labelledby="venueLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-lg modal-dialog-centered modal-dialog-scrollable">
+                      <div
+                        class="modal-content shadow-custom-9 bg-3e4453 border-bottom border-primary border-2 border-top-0 border-left-0 border-right-0 h-50">
+                        <div class="container-fluid py-4 bg-373D4A">
+                          <div class="row">
+                            <div class="col-xl-12 text-center">
+                              <span class="modal-title go-medium text-primary text-center font-weight-bolder h3"
+                                id="venueLabel">Add Venue</span>
+                              <button type="button" class="close text-right text-707070 text-shadow-0"
+                                aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div> -->
+
+
+
+                                    <!-- </div>
+              </div>
+            </div> -->
+                                    <div class="container-fluid">
+                                        <div class="tab-content">
+                                            <div class="tab-pane" [ngClass]="{'active': activeElem == 'venues'}" id="venues" role="tabpanel" aria-labelledby="venue-tab">
+                                                <mp-venue *ngIf="activeElem == 'venues'" [eventFromDashboard]="fromDashboard.asObservable()">
+                                                </mp-venue>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <ng-template #venueTemplate>
+                                        <div class="modal-bg bg-373D4A" id="venue" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="venueLabel" aria-hidden="true">
+                                            <div class="">
+                                                <div class="modal-content shadow-custom-9 bg-3e4453 border-bottom border-primary border-4 border-top-0 border-left-0 border-right-0">
+                                                    <div class="container-fluid py-4 bg-373D4A">
+                                                        <div class="row">
+                                                            <div class="col-xl-12 text-center">
+                                                                <span class="modal-title go-medium text-primary text-center font-weight-bolder h3" id="venueLabel">Venue</span>
+                                                                <button type="button" class="close fs-20 text-right text-9F9F9F text-shadow-0" (click)="close()">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <ng-container *ngIf="!venueService.isErrorVenuebyCity else showVenues">
+                                                        <div class="modal-body text-left px-5 border-top border-primary border-2">
+                                                            <div class="row">
+                                                                <div class="col-xl-10 mx-auto">
+                                                                    <!-- <div class="input-group my-3">
+                                            <input
+                                                class="form-control p-4 go-book text-primary font-weight-bolder border border-primary border-right-0 bg-secondary border-2 border-radius-top-left font-1-4"
+                                                type="search" placeholder="Search" id="example-search-input" [(ngModel)]="query"
+                                                autocomplete="off" >
+                                            <span class="input-group-append">
+                                                <div
+                                                    class="input-group-text bg-secondary border-2 border-primary border-left-0 border-radius-top-right">
+                                                    <img src="assets/images/img/search-primary.svg">
+                                                </div>
+                                            </span>
+                                        </div> -->
+                                                                </div>
+                                                                <div class="col-xl-12 my-4 fix-height overflow-auto">
+                                                                    <div class="row">
+                                                                        <ng-container *ngIf="venueService.venuescity | async as venuescity">
+                                                                            <div class="col-xl-4" *ngFor="let venuess of venuescity | search:query:'venueName'">
+                                                                                <div *ngIf="venuess.success!= false">
+                                                                                    <div class="bg-373d4b">
+                                                                                        <p class="pt-3 pb-3 pl-5 form-check-label go-book lead text-white pointer" (click)="onVenueSelect(venuess.venueId, venuess.venueName,venuess.addressLine1,venuess.addressLine2)" (click)="addvenues(venuess.venueId)">
+                                                                                            {{venuess.venueName}}
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div *ngIf="venuess.success== false">
+                                                                                    <p class="pt-3 pb-3 pl-5 form-check-label go-book lead text-white">
+                                                                                        No Result Found
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </ng-container>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+                                                    <ng-template #showVenues>
+                                                        <div class="modal-body text-left px-5 border-top border-primary border-2 my-10">
+                                                            <div class="row">
+                                                                <div class="col-xl-12 text-center">
+                                                                    <p class="go-medium text-white h4">No Venue Available</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="input-group row pl-lg-5 mb-lg-2 col-12">
+                            <!-- <ng-container *ngIf=" loader else loaded">
+                            <div class="col-xl-12 pt-3 pb-2 mt-5 " *ngFor="let number of [0,1,2]">
+                                <div class="row">
+                                    <ng-container>
+                                        <div class="col-xl-3">
+                                    <div class="text-right placeholder-fandb placeholder-bar">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8">
+                                            <div class="d-inline-block align-middle mr-2 mb-2" *ngFor="let number of [0,1,2]">
+                                                <a class="btn go-book font-weight-bolder timing-btn placeholder-a placeholder-bar"></a>
+                                                <a class="btn go-book font-weight-bolder timing-btn placeholder-a placeholder-bar"></a>
+                                                
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </ng-container> -->
+
+                            <div class="input-group col-xl-2 my-lg-4 col-6" *ngFor="let venue of preferenceVenue; let i = index">
+                                <div class="row mb-3" *ngFor="let preferenceModel of venue.venues">
+                                    <div class="form-control go-book bg-transparent border-0 text-white font-weight-bolder">
+                                        <div>
+
+                                            <h5 input type="text" class="card-title go-book bg-transparent border-0 text-white font-weight-bolder">
+                                                {{ preferenceModel.venueName }}
+                                            </h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">
+                                                {{ preferenceModel.locality.localityName }}
+                                            </h6>
+                                            <!-- <p class="card-text">
+                        {{ preferenceModel.locality.city }}
+                      </p> -->
+                                            <div class="d-flex flex-column">
+                                                <div class="d-flex justify-content-end">
+                                                    <!-- <svg class="bi bi-trash-fill" width="20px" height="20px" viewBox="0 0 16 16"
+                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                              d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
+                          </svg> -->
+                                                    <!-- <label class="test-primary" let i="index;"
+                            (click)="setvenues(preferenceModel.venueId, i,CancelVenue)">×</label> -->
+                                                    <a class="text-decoration-none pointer" let i="index;" (click)="setvenues(preferenceModel.venueId, i,CancelVenue)">
+                                                        <span class="h2 mx-2 mb-0 text-dark">&times;</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <ng-template #CancelVenue>
+
+                                                <div class="modal-content  shadow-custom-9 border-bottom border-primary border-4 border-top-0 border-left-0 border-right-0 ">
+                                                    <div class="container-fluid pt-4 pb-2 bg-2e323e">
+                                                        <div class="row">
+                                                            <div class="col-xl-12 text-center">
+                                                                <h6 class="modal-title go-medium text-primary text-center h3" allign="center">
+                                                                    "Are you sure you want to remove preference?"
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-body text-left px-5 border-top border-primary border-2 bg-3e4453">
+                                                        <div class="modal-footer border-top-0 m-auto bg-3e4453">
+                                                            <button type="reset" class="btn btn-modal go-medium  lead rounded-pill px-5 mx-3" (click)="hideModal()">
+                                                        {{"app.common.no" | translate}}
+                                                    </button>
+                                                            <button type="submit" class="btn btn-primary go-medium  lead rounded-pill px-5" let i="index;" (click)="confirmDelete();preferenceVenue.splice(indexPreference, 1);hideModal()">
+                                                        {{"app.common.yes" | translate}}
+                                                    </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="row pl-5 mb-2">
+                            <div class="input-group col">
+                                <div class=" input-group-prepend">
+                                    <div class="input-group-text bg-transparent border-0 p-0">
+
+                                    </div>
+                                </div>
+                                <!-- <input type="text" class="form-control go-book bg-transparent border-0 text-white font-weight-bolder"
+                  value="Sangam Cinemas" readonly> -->
+                                <div class="input-group-append">
+                                    <a class="text-decoration-none">
+                                        <!-- <span class="h2 mx-2 mb-0 text-dark">&times;</span> -->
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <!-- <div class="col-xl-2">
+            <div class="row">
+                <div class="col-xl-12">
+                    <img class="w-100 mw-100" src="assets/images/img/profile_panda.png">
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+<mp-card *ngIf=isLoading></mp-card>

@@ -1,0 +1,309 @@
+<mp-header></mp-header>
+
+<div class="container-fluid mt-n6 shadow-custom-1">
+  <div class="row ">
+    <img class="w-100 mw-100" *ngIf="largePoster == ''" src="/assets/images/img/movie-detail.png" alt="home-banner" />
+    <ngx-picture *ngIf="largePoster != ''" src="{{largePoster}}" alt="Movie Poster" class="" [lazyLoad]="false">
+      <ng-template #imgTemplate let-imageData>
+        <img class="w-100 mw-100 banner" [src]="imageData.src" [alt]="imageData.alt" />
+        <div class="overlay-40 position-absolute text-center pointer" (click)="onClickPlay(trailerPlayer)">
+          <a class="w-10 mw-50 play-btn d-lg-none mobile"></a>
+        </div>
+      </ng-template>
+    </ngx-picture>
+  </div>
+</div>
+<div class="bg-020A1C">
+  <div class="container-fluid bg-020A1C mt-13">
+    <div class="row mx-lg-5 mt-lg-4 px-lg-5 align-items-center ">
+      <div class="col-xl-6">
+        <div class="back-btn d-lg-inline-block align-middle mr-lg-4 pointer outline-none backdesktop"
+          [routerLink]="['/']">
+          <svg id="Component_49_32" data-name="Component 49 – 32" xmlns="http://www.w3.org/2000/svg" width="36"
+            height="36" viewBox="0 0 38 38">
+            <circle id="Ellipse_39" data-name="Ellipse 39" class="cls-1" cx="19" cy="19" r="19" />
+            <g id="Group_450" data-name="Group 450" transform="translate(-134.505 -201.219)">
+              <path id="Polygon_9" data-name="Polygon 9" class="cls-2" d="M5.5,0,11,6H0Z"
+                transform="translate(142.505 226.219) rotate(-90)" />
+              <rect id="Rectangle_60" data-name="Rectangle 60" class="cls-2" width="17.492" height="2.018"
+                transform="translate(147.683 219.709)" />
+            </g>
+          </svg>
+        </div>
+        <div class="pointer outline-none d-lg-none backmobile " style="fill: #fff" [routerLink]="['/']">
+          <svg id="Component_49_32" data-name="Component 49 – 32" xmlns="http://www.w3.org/2000/svg" width="36"
+            height="36" viewBox="0 0 38 38">
+            <g id="Group_450" data-name="Group 450" transform="translate(-134.505 -201.219)">
+              <path id="Polygon_9" data-name="Polygon 9" class="cls-2" d="M5.5,0,11,6H0Z"
+                transform="translate(142.505 226.219) rotate(-90)" />
+              <rect id="Rectangle_60" data-name="Rectangle 60" class="cls-2" width="17.492" height="2.018"
+                transform="translate(147.683 219.709)" />
+            </g>
+          </svg>
+        </div>
+        <div class="d-lg-inline-block d-none align-middle w-30 position-relative card px-lg-3">
+          <ngx-picture src="{{movie.posterUrl|splitAndGet:'~':0}}" alt="Movie Poster" class="d-none d-lg-flex"
+            [lazyLoad]="false">
+            <ng-template #imgTemplate let-imageData>
+              <img class="w-100 mw-100 shadow-custom-2 posterimg moviecard d-none d-lg-flex" [src]="imageData.src"
+                [alt]="imageData.alt" />
+            </ng-template>
+          </ngx-picture>
+          <div class="overlay-40 position-absolute text-center pointer" (click)="onClickPlay(trailerPlayer)">
+            <a class="w-25 mw-100 play-btn d-none d-lg-flex"></a>
+          </div>
+        </div>
+        <div class="d-lg-inline-block align-bottom w-50 mx-lg-3">
+          <div>
+            <h2 class="go-medium text-white text-truncate font-1-5">
+              {{movie.movieName}}
+            </h2>
+            <p class="d-lg-block d-inline-block">
+              <a class="text-decoration-none">
+                <span class="go-book text-primary font-1-1">{{movie.language}}
+                  {{movie.censorCertificate}}</span>
+              </a>
+            </p>
+            <p class="d-lg-block d-inline-block">
+              <a class="text-decoration-none">
+                <span class="go-book text-primary mx-1 font-1-1"
+                  *ngFor="let genre of movie.genres; let isLast=last">{{genre.genreName}}{{isLast ? '' :
+                  '/'}}</span></a>
+            </p>
+            <p class="d-lg-block d-inline-block">
+              <span class="go-book text-primary font-1-1">{{movie.dimension}}
+              </span>
+            </p>
+            <p class="d-lg-block d-inline-block">
+              <span class="go-book text-primary font-1-1">{{movie.duration}}</span>
+            </p>
+            <p class="d-lg-block d-inline-block button">
+              <span class="btn button-primary go-book font-0-875 mobiles" (click)="showMovieDetails()">Know
+                More</span>
+            </p>
+          </div>
+      <!--   <div class="font-0 ml-5 mt-5 d-none d-lg-block">
+            <div class="d-inline-block align-top w-25">
+              <img class="w-100 mw-100 border-dark border-right px-3" src="./assets/images/img/<imdb>.svg" alt="imdb" />
+              <p class="lead text-primary text-center font-weight-bolder go-book mt-1 mb-0">
+                7.2
+              </p>
+            </div>
+
+          </div>--> 
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <p class="font-1 text-white go-book pt-5 d-none d-lg-block">
+          {{ movie.synopsis }}
+        </p>
+        <p class="button">
+          <a class="gradient-button gradient-button-4 go-book px-lg-3 font-0-875 desktops"
+            (click)="showMovieDetails()">Know
+            More</a>
+        </p>
+        <div class="text-right outline-none mt-n4 d-none d-lg-block">
+          <img class="mw-100 hdr-ico outline-none pointer" src="./assets/images/img/home.svg" [routerLink]="['/']"
+            alt="home-button" />
+        </div>
+        <div class="container-fluid mt-5-1 ">
+          <div class="row">
+            <div class="offset-lg-1 col-xl-10  pointer" *ngIf="!showsTimeService.isErrorMovieShowDate">
+              <ngx-slick-carousel *ngIf="showsTimeService.movieShowDates | async as movieShowDates"
+                class="carousel date-slider" #slickModal="slick-carousel" [config]="slideConfig">
+                <ng-container *ngFor="let show of movieShowDates; index as i">
+                  <div ngxSlickItem (click)="getMovieShowTimes(show.showDate)" class="slide"
+                    [ngClass]="show.showDate == activeElement ? 'active' : 'text-noactive'">
+                    <div class="item">
+                      <h3 class="go-medium font-1-2 text-center font-weight-bolder mb-0 pointer">{{ show.day | titlecase
+                        }}
+                      </h3>
+                      <!-- <span [ngClass]="show.showDate == activeElement ? 'active' : 'text-ADADBE'"> -->
+                      <p class="go-bold text-center font-1-1  mb-0 pointer">{{ show.showDate | date: "dd" }}</p>
+                      <p class="go-medium text-center font-0-875  font-weight-bolder mb-0 pointer">
+                        {{ show.showDate | date: "MMM" }}
+                      </p>
+                      <!-- </span> -->
+                    </div>
+                  </div>
+                </ng-container>
+              </ngx-slick-carousel>
+            </div>
+            <div class="legend">
+
+              <div class="dot available-status"></div>
+              <div class="text-legend">Available</div>
+              <div class="dot fast filling-status"></div>
+              <div class="text-legend">Fast Filling</div>
+              <div class="dot soldout-status"></div>
+              <div class="text-legend">Sold Out</div>
+              <div class="dot boxofficeonly-status"></div>
+              <div class="text-legend">Box Office Only</div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid bg-020A1C">
+    <div class="row mx-4 mt-4 mb-5">
+      <ng-container
+        *ngIf="!showsTimeService.isErrorMovieShowDate && !showsTimeService.isErrorMovieShowTime else noShows">
+        <ng-container *ngIf=" loader else loaded">
+          <div class=" col-xl-12 pt-3 pb-2 mt-5 ther-list bg-0F1628" *ngFor="let number of [0,1,2,3,4,5,6,7]">
+            <div class="row">
+              <ng-container>
+                <div class="col-xl-3 d-flex d-lg-block justify-content-between">
+                  <p
+                    class=" font-1-5 text-white go-book text-right font-weight-bolder paceholder-venuename placeholder-bar">
+
+                  </p>
+                  <p
+                    class="font-0-875 text-white go-book text-right font-weight-bolder placeholder-address placeholder-bar">
+
+                  </p>
+                  <div class="text-right placeholder-fandb placeholder-bar">
+
+                  </div>
+                </div>
+                <div class="col-xl-8 mx-lg-4 px-lg-4">
+                  <div class="d-inline-block align-middle mr-2 mb-2" *ngFor="let number of [0,1,2,3,4,5,6,7]">
+                    <a class="btn go-book font-weight-bolder timing-btn placeholder-a placeholder-bar"></a>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-template #loaded>
+          <div class="col-xl-12 pt-3 pb-2  mt-5 ther-list bg-0F1628"
+            *ngFor="let venue of preferredVenues; let i = index">
+            <div class="row">
+              <ng-container>
+                <div class="col-xl-3 d-flex d-lg-block justify-content-between">
+                  <div>
+                    <p class="font-1-4 text-white go-light text-lg-right mb-1 pointer d-inline-block d-lg-block"
+                      (click)="onVenueSelect(venue.venueId, venue.venueName,venue.addressLine1,venue.addressLine2)">
+                      {{ venue.venueName }}
+                    </p>
+                    <p class="font-0-875 text-white go-light text-lg-right d-lg-block">
+                      {{ venue.addressLine1}}
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="d-inline-block align-middle">
+                      <img class="w-100 mw-100 sna-ico-bur" src="./assets/images/img/burger.svg" />
+                    </div>
+                    <div class="d-inline-block align-middle mx-2">
+                      <img class="w-100 mw-100 sna-ico-tic" src="./assets/images/img/ticket.svg" />
+                    </div>
+                    <!-- <div class="d-inline-block align-middle">
+                      <img class="w-100 mw-100 sna-ico-loc" src="./assets/images/img/tlocation.svg" />
+                    </div> -->
+                  </div>
+                </div>
+                <div class="col-xl-8 mx-lg-4 px-lg-4 py-3">
+                  <div class="d-inline-block align-middle mr-2 mb-2" *ngFor="let show of venue.shows">
+                    <div *ngFor="let saw of show.classes;let i = index">            
+                      <div *ngIf="i<1">
+                        <span style="display: inline-block; border-radius: 6px;" [ngClass]="{'available':(show.classesValues / show.totalClassesValues) * 100 >=
+                        50,
+                        'fastfilling':(show.classesValues / show.totalClassesValues) * 100 >
+                        10 &&
+                        (show.classesValues / show.totalClassesValues)* 100 <
+                        60 || (show.classesValues / show.totalClassesValues) * 100 < 10 ,
+                        'soldout':(show.classesValues / show.totalClassesValues) * 100 <=
+                          0
+                      }">
+                      <button class="btn btn-primary go-book font-weight-bolder timing-btn" 
+                      [tooltip]="tooltip" 
+                      (mouseover)='over(show)' [ngClass]="show.showTime|daynight"
+                        (click)="proceedSeatSelection(venue,show)"   
+                        [disabled]="show.soldoutDisable">  
+                        
+                        <span
+                        [ngClass]="{'text-available':(saw.availableSeats / saw.totalSeats) * 100 >=
+                                50,
+                                'text-fastfilling':(saw.availableSeats / saw.totalSeats) * 100 >
+                                10 &&
+                            (saw.availableSeats / saw.totalSeats) * 100 <
+                                50 ,
+                                'text-soldout':(saw.availableSeats / saw.totalSeats) * 100 <=
+                                  0 
+                              }"> {{ show.showTime }}</span>
+                             </button>
+                            
+                  </span>
+               
+                </div>
+              </div>
+            </div>
+          </div>   
+         
+               <ng-template #tooltip>
+                  <mp-show-tooltip [classes]="classes" [legend]="legends" [boxOfficeOnlyFlag]="boxOfficeOnlyFlag"></mp-show-tooltip>
+                </ng-template>
+              </ng-container>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+      <ng-template #noShows>
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="container-fluid px-0 pt-5 pb-5">
+            <div class="row no-gutters">
+              <div class="offset-1 col-xl-10 py-3">
+                <p class="go-medium text-white font-1-5 text-center pt-3">oops! <br /> Service unavailable. Please try
+                  again later.</p>
+                <p class="text-center py-4-1">
+                  <img class="w-40 mw-100" src="assets/images/img/no-date.svg">
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<ng-template #trailerPlayer>
+  <div class="" id="trailerPlayer" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="termsLabel" aria-hidden="true">
+    <button type="button" class="closelarge close fs-20 text-right text-white text-shadow-0 mx-4 pointer"
+      (click)="close()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <div class="position-relative video">
+      <iframe height="500" width="100%" [src]="trailerUrl" style="border: none;" allowfullscreen autoplay
+        allow='autoplay'>
+      </iframe>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #login>
+  <mp-login></mp-login>
+</ng-template>
+<ng-template #movieTerm>
+  <mp-movie-shows-terms></mp-movie-shows-terms>
+</ng-template>
+
+<ng-template #venueTerm>
+  <mp-venue-shows-terms></mp-venue-shows-terms>
+</ng-template>
+
+<ng-template #MovieDetails>
+  <mp-movie></mp-movie>
+</ng-template>
+<ng-template #UserReview>
+  <mp-userreview></mp-userreview>
+</ng-template>
+<ng-template #selectSeatCount>
+  <mp-seatcount></mp-seatcount>
+</ng-template>
+<mp-footer></mp-footer>

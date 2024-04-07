@@ -1,0 +1,239 @@
+.jumbotron {
+    background-image: url("../../../../assets/images/img/venue.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    margin-top: 80px;
+    animation: fadeIn;
+    animation-duration: 3s;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.roundedImg {
+    height: 315px;
+    width: 100%;
+}
+
+.cardoverlay {
+    position: relative;
+    &:before {
+        content: "";
+        top: 0;
+        left: 0;
+        height: 315px;
+        width: 100%;
+        position: absolute;
+        background: rgba(66, 70, 87, 0.2);
+    }
+}
+
+.trailerPlay {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 1;
+    img {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+.detailscnt {
+    animation: fadeInRight;
+    animation-duration: 2.5s;
+}
+
+div#moviedate.active {
+    color: #f2a72a;
+}
+
+#moviedate:hover {
+    color: #f2a72a;
+    cursor: pointer;
+}
+
+.show-dates {
+    background: linear-gradient(180deg, #2f323b, #383c47);
+    box-shadow: 38px 38px 76px #15161a3d, -38px -38px 76px #20252f54;
+    border-bottom: 1px solid transparent;
+}
+
+.venuecnt {
+    background: linear-gradient(180deg, #2f323b, #383c47);
+    box-shadow: 38px 38px 76px #15161a3d, -38px -38px 76px #20252f54;
+    border-bottom: 1px solid transparent;
+}
+
+.venuecnt:hover {
+    -o-border-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff) 3;
+    border-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff) 3;
+}
+
+.tooltip {
+    opacity: 100;
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+    border-right: none;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    background: white;
+}
+
+.active {
+    color: white;
+    background-color: #0aa5ae;
+    }
+    
+    .text-noactive {
+    
+        color: white;
+    }
+    
+    .text-noactive:hover {
+    
+        color: #0aa5ae;
+    }
+    .text-white {
+    color: black;
+    }
+    .active:hover {
+    
+        color: white !important;
+    
+    }
+    .nonactive {
+    
+        color: #fff;
+    
+    }
+
+.btn-primary {
+    color: #fff;
+    background-color: #0aa5ae;
+    border-color: #0aa5ae;
+}
+
+.btn-primary:hover {
+    color: #0aa5ae;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.btn-dark {
+    color: #fff;
+    background-color: #464646;
+    border-color: #464646;
+}
+
+.btn-dark:hover {
+    color: #0aa5ae;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.placeholder-fandb {
+    width: 72%;
+    height: 15px;
+    background: #383e4b9e;
+    float: right;
+}
+
+.placeholder-address {
+    width: 72%;
+    height: 20px;
+    background: #383e4b9e;
+    float: right;
+}
+
+.paceholder-venuename {
+    width: 100%;
+    height: 25px;
+    background: #383e4b9e;
+}
+
+.placeholder-bar {
+    overflow: hidden;
+    position: relative;
+}
+
+.placeholder-bar::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(to right, transparent 0%, #2d323d 50%, transparent 100%);
+    animation: load 1s infinite;
+}
+
+@keyframes load {
+    from {
+        left: -150px;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.border-right {
+    border-right: 1px solid #a8aaac!important;
+}
+
+.legend {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.text-legend {
+    color: #FFFFFF;
+    font-size: 12px;
+    padding-right: 18px;
+    padding-left: 16px;
+}
+
+.available-status {
+    background-color: #007116;
+}
+
+.filling-status {
+    background-color: #C85A07;
+}
+
+.soldout-status {
+    background-color: #910202;
+}
+.fastfilling {
+    border: 3px solid;
+    border-color: #C85A07;
+    color: #C85A07;
+}
+.available {
+    border: 2px solid;
+    border-color: #007116;
+    color: #007116;
+}
+.soldout {
+    border: 3px solid;
+    border-color: #910202;
+    color: #910202;
+}
+.dot {
+    height: 19px;
+    width: 19px;
+    border-radius: 50%;
+    display: inline-block;
+}

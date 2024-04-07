@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let class of classes">
+            <div class="d-flex flex-column ml-2">
+                <div class="align-self-center">
+
+                    <div [style.color]="class.statusColor">
+                        <b> {{class.statusMessage}} </b>
+                    </div>
+                </div>           
+                <div>{{ class.className }}</div>
+                <div>{{ class.baseFare | currency: 'Rs.' }}</div>
+            </div>
+        </ng-container>
+    </div>
+</div>

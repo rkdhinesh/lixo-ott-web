@@ -1,0 +1,159 @@
+<div *ngIf="!wallet">
+    <div class="container-fluid px-5">
+        <div class="row no-gutters align-items-start">
+            <div class="col-xl-10 shadow-custom hm-pos-bg" *ngIf="walletService.walletStatus | async as walletStatus">
+                <div class="col-xl-4">
+                    <p class="mb-0 text-ADADBE font-weight-bolder lead go-book">Wallet Balance: <span
+                            class="text-primary">{{walletStatus.balance}} </span></p>
+                </div>
+                <div class="col-xl-4">
+                    <a class="btn btn-primary font-weight-bolder lead go-book rounded-pill px-4">
+                        Add Money to Wallet
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <form ngNoForm #myFormPost name="data" method="POST"
+                        action="https://test.cashfree.com/billpay/checkout/post/submit" name="data" method="POST"
+                        onsubmit="window.open('about:blank','_self','width=900,height=500');" style="height: 200px;">
+                        <textarea name="orderNote" id="orderNote" ng-model="orderNote" [(ngModel)]="order.orderNote"
+                            hidden></textarea>
+                        <textarea name="customerName" id="customerName" ng-model="customerName"
+                            [(ngModel)]="order.customerName" hidden></textarea>
+                        <textarea name="customerEmail" id="customerEmail" ng-model="customerEmail"
+                            [(ngModel)]="order.customerEmail" hidden></textarea>
+                        <textarea name="customerPhone" id="customerPhone" ng-model="customerPhone"
+                            [(ngModel)]="order.customerPhone" hidden></textarea>
+
+                        <input class="form-control" name="orderAmount" id="orderAmount" ng-model="orderAmount"
+                            [(ngModel)]="order.orderAmount" />
+
+                        <textarea name="orderId" id="orderId" ng-model="orderId" [(ngModel)]="order.orderId"
+                            hidden></textarea>
+                        <textarea name="returnUrl" id="returnUrl" ng-model="returnUrl" [(ngModel)]="order.redirectUrl"
+                            hidden></textarea>
+                        <textarea name="notifyUrl" id="notifyUrl" ng-model="notifyUrl" [(ngModel)]="order.notifyUrl"
+                            hidden></textarea>
+                        <textarea name="appId" id="appId" ng-model="appId" [(ngModel)]="order.key" hidden></textarea>
+                        <textarea name="orderCurrency" id="orderCurrency" ng-model="orderCurrency"
+                            [(ngModel)]="order.customerCurrency" hidden></textarea>
+                        <textarea name="signature" id="signature" ng-model="signature" [(ngModel)]="order.hash"
+                            hidden></textarea>
+
+
+
+                    </form>
+
+                </div>
+
+            </div>
+            <div class="row mt-5" *ngIf="walletService.walletTransaction | async as walletTransaction">
+                <div class="col-md-12 align-self-center">
+                    <div class="row">
+                        <div class="col-md-3 table-head">
+                            Ticket Details
+                        </div>
+                        <div class="col-md-3 table-head">
+                            Withdraw
+                        </div>
+                        <div class="col-md-3 table-head">
+                            Deposit
+                        </div>
+                        <div class="col-md-3 table-head">
+                            Status
+                        </div>
+                    </div>
+                    <div class="row wallet-card wallet-card-font" *ngFor="let transaction of walletTransaction.content">
+                        <div class="col-md-3">
+                            {{transaction.usageName}}
+                        </div>
+                        <div class="col-md-3">
+                            {{transaction.transactionAmount}}
+                        </div>
+                        <div class="col-md-3">
+                            06/15/2020
+                        </div>
+                        <div class="col-md-3">
+                            Success
+                        </div>
+                    </div>
+                </div>
+                <button class="wallet-button" (click)="unEnrollment()">Wallet Deactivate</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="enrollments">
+        <div class="container-fluid summary-container">
+            <div class="row mt-5">
+                <div class="col-md-2">
+                    <button class="wallet-button" (click)="openModal(enrollment)">Enrollment button</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="kycUpload">
+        <div class="container-fluid summary-container">
+            <!-- <div class="row mt-5"> -->
+            <div>
+                <input type="file" id="file" multiple (change)="getFileDetails($event)">
+
+
+            </div>
+            <div>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="terms" (click)="acceptanceFlag()" value=""
+                    id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Acceptance
+                </label>
+            </div>
+            <!-- </div> -->
+            <button class="wallet-button" (click)="enrollmentClick()">Submit</button>
+        </div>
+    </div>
+    <ng-template #enrollment>
+        <div *ngIf="!passwordOtp">
+            <h5>Your Wallet Number</h5>
+            <input type="email" placeholder="Phone Number" autofocus="" [(ngModel)]="accountNumber"
+                class="form-control rounded-pill border-0 shadow-sm px-8" />
+            <button class="btn btn-primary" (click)="confirmAccountNumber()">Confirm</button>
+        </div>
+        <div *ngIf="passwordOtp">
+            <div>
+                6 digit code
+                <span style="color: #0378ff;
+                 ">
+
+                </span>
+                <div class="password-field show-password" style=" padding: 30px 15px 0;">
+                    <input type="text"
+                        class="ms-TextField-field form-control Login_inputWidth form-control Details_inputWidth"
+                        #clearInput name="otp" placeholder="Enter OTP" [(ngModel)]="otp" maxlength="6"
+                        minlength="6" /><br />
+                    <div *ngIf="timer">
+                        <div style="padding: 30px 15px 0;">
+                            <span id="spnResendOtp">didn't receive otp
+                                <a style="color: #0378ff;" (click)="startTimer()">
+                                    Resend otp</a></span>
+                        </div>
+                    </div>
+                    <div *ngIf="settimer">
+                        <p id="time" class="text-primary">
+                            resend otp 00:{{ timeLeft }}
+                        </p>
+                    </div>
+                    <button type="submit" style="position:relative" class="btn btn-primary btn-block"
+                        (click)="authenticateOtp()">
+                        submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #updatenumber>
+        <div>
+            <h5>Update your primary Number</h5>
+            <input type="email" placeholder="Phone Number" autofocus="" [(ngModel)]="accountNumber"
+                class="form-control rounded-pill border-0 shadow-sm px-8" />
+            <button class="btn btn-primary" (click)="updatePrimaryNumber()">Update Number</button>
+        </div>
+    </ng-template>

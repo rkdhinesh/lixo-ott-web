@@ -1,0 +1,255 @@
+<!-- <div class="container-fluid px-5"> -->
+<!-- <div class="row px-4 pt-2 shadow-custom-4 pb-5">
+    <div class="col-xl-12"> -->
+<!-- <div class="row align-items-start">
+          <div class="col-xl-1">
+            <img class="mw-100 w-75" src="assets/images/logo.svg" alt="logo">
+          </div>
+          <div class="col-xl-6 ml-auto text-right">
+            <div class="d-inline-block align-middle px-2">
+              <div class="input-group">
+                <input class="form-control border-right-0 border go-light p-4 font-weight-bolder" type="search"
+                  value="Search" id="example-search-input">
+                <span class="input-group-append">
+                  <div class="input-group-text bg-transparent">
+                    <img src="assets/images/search.svg">
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="d-inline-block align-middle">
+              <h5 class="go-book text-white font-weight-bold">EN</h5>
+            </div>
+            <div class="d-inline-block align-middle px-2">
+              <img class="w-100 mw-100" src="assets/images/user.svg" alt="user">
+            </div>
+            <div class="d-inline-block align-middle text-center">
+              <img class="w-25 mw-100" src="assets/images/location.svg" alt="location">
+              <p class="go-book text-white mb-0 font-weight-bolder">chennai</p>
+            </div>
+          </div>
+        </div> -->
+<!-- </div>
+  </div> -->
+<!-- </div> -->
+<!-- <div class="container-fluid px-5"> -->
+<!-- <div class="row px-5 bg-secondary shadow-custom-5 py-3">
+    <div class="col-xl-12">
+      <div class="row align-items-center">
+        <div class="col-xl-1">
+          <div class="back-btn position-relative z-index-99">
+            <svg id="Component_49_32" data-name="Component 49 – 32" xmlns="http://www.w3.org/2000/svg" width="38"
+              height="38" viewBox="0 0 38 38">
+              <circle id="Ellipse_39" [routerLink]="['/shows']" data-name="Ellipse 39" class="cls-1" cx="19" cy="19"
+                r="19"></circle>
+              <g id="Group_450" data-name="Group 450" transform="translate(-134.505 -201.219)">
+                <path id="Polygon_9" data-name="Polygon 9" class="cls-2" d="M5.5,0,11,6H0Z"
+                  transform="translate(142.505 226.219) rotate(-90)"></path>
+                <rect id="Rectangle_60" data-name="Rectangle 60" class="cls-2" width="17.492" height="2.018"
+                  transform="translate(147.683 219.709)"></rect>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="col-xl-3 position-absolute text-center">
+          <img class="w-35" src="assets/images/user.svg">
+        </div>
+        <div class="offset-2 col-xl-6 text-center">
+          <span class="go-book text-white h3 font-weight-bolder">
+            Profiles
+          </span>
+        </div>
+        <div class="col-xl-3 text-right">
+          <img src="assets/images/home.svg">
+        </div>
+      </div>
+    </div>
+  </div> -->
+<!-- <div class="row px-5 shadow-custom-5"> -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="">
+            <div>
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- <ul class="nav nav-tabs nav-justified offset-1 col-xl-10 hm-tab border-0 mt-6" id="myTab" role="tablist">
+  
+              </ul> -->
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!isLoading" class="container-fluid">
+                <div class="row mb-5">
+                    <div class="col-xl-12 mb-5">
+                        <div class="tab-content">
+                            <div class="tab-pane active show" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row align-items-start">
+                                    <div class="col-xl-8 pt-lg-5 pb-3 px-lg-5 shadow-custom hm-pos-bg mx-auto mb-5 pb-5">
+                                        <div class="row no-gutters">
+                                            <div class="offset-lg-1 col-xl-10 col-12">
+                                                <form [formGroup]="profile" (ngSubmit)="onSubmit()">
+                                                    <ng-container>                                                       
+
+                                                        <div *ngIf="successFlag &&  !profileService.isErrorUpdateProfile" class="form-control font-1-1 go-book text-white">{{errorMsg}}</div>
+                                                        <div *ngIf="profileService.isErrorUpdateProfile" class="form-control-lg go-book text-white">
+                                                            Profile update not allowed. User exist with the given phoneNumber or EmailID</div>
+
+                                                          
+                                                        <div class="form-group row">
+                                                            <div class="col-xl-5 col-md-12 pt-4">
+                                                                <input type="text" class="form-control form-control-lg go-book text-primary font-weight-bolder border border-primary bg-secondary rounded font-0-875" type="text" formControlName="firstName" maxlength="30" placeholder='First Name'
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" style="height: 40px; width: 100%;"> <!--{{"app.profile.first-name" | translate}}-->
+                                                                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                                                    <div *ngIf="f.firstName.errors.required">
+                                                                        {{"app.profile.first-name-required" | translate}}</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="offset-lg-2 col-xl-5 col-md-12 pt-4">
+                                                                <input class="form-control form-control-lg go-book text-primary font-weight-bolder border border-primary bg-secondary rounded font-0-875" type="text" formControlName="lastName" maxlength="30" placeholder='Last Name' [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+                                                                style="height: 40px; width: 100%;"/>
+                                                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                                                    <div *ngIf="f.lastName.errors.required">
+                                                                        {{"app.profile.last-name-required" | translate}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row my-lg-5">
+                                                            <div class="col-xl-5 col-md-12 pt-4">
+                                                                <input class="form-control form-control-lg go-book text-primary font-weight-bolder border border-primary bg-secondary rounded font-0-875" type="text" formControlName="primaryEmail" placeholder='Email' [ngClass]="{ 'is-invalid': submitted && f.primaryEmail.errors }"  style="height: 40px; width: 100%;">
+                                                                <div *ngIf="submitted && f.primaryEmail.errors" class="invalid-feedback">
+                                                                    <!-- <div *ngIf="f.primaryEmail.errors.required">
+                                                                    {{"app.profile.email-required" | translate}}</div> -->
+                                                                    <div *ngIf="f.primaryEmail.errors.primaryEmail">
+                                                                        {{"app.profile.email-validation-error" | translate}}</div>
+                                                                    <span class="text-danger" *ngIf="
+                                                                    profile.controls['primaryEmail'].hasError('required') &&
+                                                                    (profile.controls['primaryEmail'].dirty ||
+                                                                    profile.controls['primaryEmail'].touched)
+                                                                  ">This field is required</span>
+                                                                    <span class="text-danger" *ngIf="
+                                                                                      profile.controls['primaryEmail'].hasError('pattern') &&
+                                                                    (profile.controls['primaryEmail'].dirty ||
+                                                                    profile.controls['primaryEmail'].touched)
+                                                                  ">Please enter valid email address
+                                                                                      </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="offset-lg-2 col-xl-5 col-md-12 pt-4">
+                                                                <input class="form-control form-control-lg go-book text-primary font-weight-bolder border border-primary bg-secondary rounded font-0-875" type="text" formControlName="primaryPhoneNumber" digitOnly placeholder='Phone'
+                                                                    maxlength="10" [ngClass]="{ 'is-invalid': submitted && f.primaryPhoneNumber.errors }" (keypress)="keyPress($event)" style="height: 40px; width: 100%;">
+                                                                <div *ngIf="submitted && f.primaryPhoneNumber.errors" class="invalid-feedback">
+                                                                    <div *ngIf="f.primaryPhoneNumber.errors.required">
+                                                                        {{"app.profile.phone-number-required" | translate}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="form-group row my-lg-5">
+                                                            <div class="col-xl-5 col-6">
+                                                                <input class="form-control-lg go-book font-0-875 text-primary font-weight-bolder border border-primary bg-secondary rounded" #datepickerFull="bsDatepicker" bsDatepicker formControlName="dateOfBirth" [bsConfig]="{ dateInputFormat: 'DD-MMM-YYYY' }" placeholder='{{"app.profile.birthday" | translate}}'
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }">
+                                                                <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
+                                                                    <div *ngIf="f.dateOfBirth.errors.required">
+                                                                        {{"app.profile.dob-required" | translate}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
+                                                        <div class="row">
+                                                            <div class="col-xl-12 col-12">
+                                                                <p class="go-ligt font-0-875 text-white font-weight-bolder ">
+                                                                    <label>Gender</label></p> <!--{{"app.profile.gender" | translate}}-->
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="form-check form-check-inline col-xl-1 col-6">
+                                                                <input type="radio" formControlName="gender" class="form-check-input pointer" id="male" value="male" name="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" />
+                                                                <label class="custom-pro-check form-check-label form-check-label  go-light text-white font-weight-bolder ml-2 font-0-875 pointer" for="male">Male
+                                                            </label> <!--{{"app.profile.Male" | translate}}-->
+                                                            </div>
+                                                            <div class="form-check form-check-inline col-xl-1 col-6">
+                                                                <input type="radio" formControlName="gender" class="form-check-input pointer" id="female" value="female" name="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" />
+                                                                <label class="custom-pro-check form-check-label form-check-label go-light text-white font-weight-bolder ml-2 font-0-875 pointer" for="female">Female
+                                                                </label>
+                                                                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                                                                    <div class="col-xl-1" *ngIf="f.gender.errors.required">
+                                                                    {{"app.profile.gender-required" | translate}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group my-lg-5">
+                                                            <div class="form-check form-check-inline col-xl-2">
+                                                                <button type="submit" class="btn gradient-button gradient-button-4 go-book col-xl-12 py-2 ml-0 font-0-875" style="border-radius: 5px;">
+                                                            Submit</button><!--{{"app.common.submit" | translate}}-->
+                                                            <button type="button" class="btn gradient-button rounded gradient-button-4 go-book col-xl-12 py-2 font-0-875" style="border-radius: 5px;">
+                                                                Cancel</button>
+                                                            </div>
+                                                            <!-- <div class="form-check form-check-inline col-xl-2">
+                                                            <button type="submit" class="btn btn-modal
+                                                             go-book lead font-weight-bolder col-xl-12 font-0-875">Cancel</button>
+                                                        </div> -->
+                                                        </div>
+                                                    </ng-container>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xl-4">
+                                        <div class="row">
+                                            <div class="offset-1 col-xl-11">
+                                                <img class="w-100 mw-100" src="assets/images/img/profile_panda.png">
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-xl-10 shadow-custom bg-2d323E">
+                                        <div class="row no-gutters">
+                                            <div class="col-xl-12  pt-4 pb-3 px-5 border-bottom border-707070">
+                                                <form>
+                                                    <div class="row pl-5 mb-2">
+                                                        <div class="col-xl-12">
+                                                            <div class="row">
+                                                                <div class="col-xl-5">
+                                                                    <p class="go-medium font-1-1 text-primary font-weight-bolder">Genre</p>
+                                                                </div>
+                                                                <div class="col-xl-4 ml-auto text-right">
+                                                                    <a class="btn btn-primary rounded-pill px-4 go-book lead font-0-875">Add Genre</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #noShows>
+    <div class="modal-body text-left border-top border-primary border-2">
+        <div class="row">
+            <div class="col-xl-12">
+                <p class="go-medium text-white font-1-5 text-center">oops! <br /> Service unavailable. Please try again later.</p>
+                <p class="text-center">
+                    <img class="w-50 mw-100" src="assets/images/img/service-err.svg">
+                </p>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!-- <div *ngIf=isLoading>
+    <div id="pause" class="d-flex align-items-center justify-content-center">
+        <img src="../../../assets/images/img/Preloader-03.gif" id="spinner" />
+
+    </div>
+</div> -->
+<mp-card *ngIf=isLoading></mp-card>
+<!-- </div> -->

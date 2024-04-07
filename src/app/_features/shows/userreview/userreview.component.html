@@ -1,0 +1,80 @@
+<div
+    class="modal-content shadow-custom-9 bg-modal-lin border-bottom border-primary border-4 border-top border-left border-right">
+
+    <div class="col-xl-12 text-center mb-4">
+        <div class="col-xl-10 mx-auto">
+        </div>
+        <div class="col-xl-3 mx-auto ">
+            <img class="w-40 mw-40" src="assets/images/img/logo.svg" alt="logo">
+        </div>
+    </div>
+
+    <div class="col-xl-12 text-center mb-4">
+        <div class="col-xl-10 mx-auto">
+            <div class="go-medium font-1-1 text-white">
+
+                <div>Movie Name:{{ booking.movieName }}</div>
+                {{"app.shows.how was movie" | translate}} <br />
+                <section id="like" class="rating mw-25">
+
+                    <input
+                        class="form-control form-control-lg go-book text-primary font-weight-bolder border border-right-0 border-primary bg-secondary border-2 "
+                        type="radio" id="heart_5" name="like" />
+                    <label for="heart_5" title="Five" (click)="onClick(100)">&#10084;</label>
+                    <input type="radio" id="heart_4" name="like" />
+                    <label for="heart_4" title="Four" (click)="onClick(80)">&#10084;</label>
+                    <input type="radio" id="heart_3" name="like" />
+                    <label for="heart_3" title="Three" (click)="onClick(60)">&#10084;</label>
+                    <input type="radio" id="heart_2" name="like" />
+                    <label for="heart_2" title="Two" (click)="onClick(40)">&#10084;</label>
+                    <input type="radio" id="heart_1" name="like" />
+                    <label for="heart_1" title="One" (click)="onClick(20)">&#10084;</label>
+
+                </section>Percentage:{{rating}}%
+
+                <br />
+                <div [formGroup]="login_form">
+                    <div class="form-group">
+                        <input type="text"
+                            class="form-control form-control-lg go-book text-primary font-weight-bolder border border-right border-primary bg-secondary border-2"
+                            size="40" maxlength="20" placeholder='{{"app.common.title" | translate}}'
+                            formControlName="title" [(ngModel)]="titleComment" />
+                    </div>
+                    <span class="text-danger" *ngIf="
+      login_form.controls['title'].hasError('required') &&
+      (login_form.controls['title'].dirty ||
+        login_form.controls['title'].touched)
+    ">This field is required</span>
+                    <div class="form-group">
+                        <textarea
+                            class="form-control form-control-lg go-book text-primary font-weight-bolder border border-right border-primary bg-secondary border-2"
+                            rows="8" cols="40" minlength="0" maxlength="500" placeholder="Description..."
+                            formControlName="description" [(ngModel)]="description"></textarea><br>
+                    </div>
+                    <span class="text-danger" *ngIf="
+                  login_form.controls['description'].hasError('required') &&
+                  (login_form.controls['description'].dirty ||
+                    login_form.controls['description'].touched)
+                ">This field is required</span>
+                    <br>
+                    <div class="col-xl-12 text-center my-4">
+                        <button type="button" class="btn btn-primary  font-weight-bolder lead rounded-pill px-5"
+                            (click)="
+                            userReviewComments(booking.movieId)">
+                            {{"app.common.submit" | translate}}
+                        </button>
+
+                        <button type="button" class="btn btn-modal font-weight-bolder lead rounded-pill px-5 mx-3"
+                            (click)="
+                            closeUserReviewModal()">{{"app.common.cancel" | translate}}</button>
+                    </div>
+                    <div>
+                        <span style="position: relative;
+                bottom: 60px;left:40%;">{{"app.shows.characters left" | translate}} {{description.length}}/500 </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

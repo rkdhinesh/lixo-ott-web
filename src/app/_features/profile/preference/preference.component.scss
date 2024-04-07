@@ -1,0 +1,139 @@
+// .summary-container {
+//   background: #2f303b;
+// }
+// .form-control {
+//   border: 0;
+// }
+// .checkbox-lg .custom-control-label::before,
+// .checkbox-lg .custom-control-label::after {
+//   top: 0.8rem;
+//   width: 1.55rem;
+//   height: 1.55rem;
+// }
+// .checkbox-lg .custom-control-label {
+//   padding-top: 13px;
+//   padding-left: 6px;
+// }
+// .checkbox-xl .custom-control-label::before,
+// .checkbox-xl .custom-control-label::after {
+//   top: 1.2rem;
+//   width: 1.85rem;
+//   height: 1.85rem;
+// }
+// .checkbox-xl .custom-control-label {
+//   padding-top: 23px;
+//   padding-left: 10px;
+// }
+// .active-pink-2 input.form-control[type="text"]:focus:not([readonly]) {
+//   border-bottom: 1px solid #f48fb1;
+//   box-shadow: 0 1px 0 0 #f48fb1;
+// }
+// .rounded {
+//   border-radius: 5% !important;
+//   background: rgba(50, 17, 107, 0.17);
+//   border: 0.5px;
+// }
+// .footer{
+//   background: #333646;
+//   box-shadow: 0px -18px 27px rgba(0, 0, 0, 0.32);
+//   border-radius: 0px 0px 10px 10px;
+//   border: none;
+// }
+// .btn-select{
+//   background: #F2A72A;
+//   border-radius: 10px;
+//   border-color: #F2A72A;
+//   width: 114px;
+//   height: 35px;
+//   color: black;
+//   font-weight: bold;
+// }
+// .btn-cancel{
+//   background: rgba(131, 54, 54, 0.68);
+//   border-radius: 10px;
+//   width: 114px;
+//   height: 35px;
+//   font-weight: bold;
+// }
+// .modal-container{
+// background: #252734;
+// }
+.placeholder-fandb {
+    width: 72%;
+    height: 15px;
+    background: #383e4b9e;
+    float: right;
+}
+
+.placeholder-address {
+    width: 72%;
+    height: 20px;
+    background: #383e4b9e;
+    float: right;
+}
+
+.paceholder-venuename {
+    width: 100%;
+    height: 25px;
+    background: #383e4b9e;
+}
+
+.placeholder-bar {
+    overflow: hidden;
+    position: relative;
+}
+
+.placeholder-bar::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(to right, transparent 0%, #2d323d 50%, transparent 100%);
+    animation: load 1s infinite;
+}
+
+@keyframes load {
+    from {
+        left: -150px;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.gradient-button {
+    margin: 10px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+    padding: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #FFF;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    width: 89px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.gradient-button:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin: 8px 10px 12px;
+    color: #FFF;
+}
+
+.gradient-button-4 {
+    background-image: linear-gradient(to right, #0AA5AE 10%, #1CACB4 47%, #BEEDEF 100%);
+}
+
+.gradient-button-4:hover {
+    background-position: right center;
+}

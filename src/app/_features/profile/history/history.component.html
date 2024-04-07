@@ -1,0 +1,798 @@
+<div class="pb-5">
+  <div class="row no-gutters align-items-start">
+    <div class="col-xl-8 shadow-custom hm-pos-bg" style="margin: auto;">
+      <div class="row no-gutters px-lg-5 pt-lg-5 pb-lg-4 text-center shadow-custom-6" style="background-color: #363c49;">
+        <div class="col">
+          <p class="mb-0 text-ADADBE font-weight-bolder font-1 go-book">Movie Name</p>
+        </div>
+        <div class="col">
+          <p class="mb-0 text-ADADBE font-weight-bolder font-1 go-book">Purchased On</p>
+        </div>
+        <div class="col">
+          <p class="mb-0 text-ADADBE font-weight-bolder font-1 go-book">Valid From</p>
+        </div>
+        <div class="col">
+          <p class="mb-0 text-ADADBE font-weight-bolder font-1 go-book">Valid Till</p>
+        </div>
+        <!-- <div class="col">
+          <p class="mb-0 text-ADADBE font-weight-bolder font-1 go-book">{{"app.booking.seats" | translate}}</p>
+        </div> -->
+        <div class="col">
+          <p class="mb-0 text-ADADBE font-weight-bolder font-1 go-book">Amount Paid</p>
+        </div>
+      </div>
+      <ng-container *ngIf="!profileService.isErrorBooking && !profileService.isErrorHistoryNotAvailable else nohistory">
+        <ng-container *ngIf=" loader else loaded">
+          <div class="col-xl-12 pt-3 pb-2 mt-5 " *ngFor="let number of [0,1,2,3,4]">
+            <div class="row">
+              <ng-container>
+
+                <div class="col-xl-13">
+                  <div class="d-inline-block align-middle mr-2 mb-2" *ngFor="let number of [0,1,2,3,4]">
+                    <a
+                      class="btn go-book font-weight-bolder text-right timing-btn loader-width placeholder-fandb placeholder-bar"></a>
+
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #loaded>
+          <tbody>
+
+            <!-- <tr *ngFor="let historyModel of bookingHistoryDetails.history_details.content">
+              <div class="row no-gutters pl px-lg-5 py-3 border-bottom border-ADADBE text-center"> -->
+                <!-- <div class="row no-gutters px-5 py-3 text-center"> -->
+
+                <!-- <div class="col">
+                  <p class="mb-0 text-white font-weight-bolder font-0-875 go-book px-5 py-3 pointer "
+                    (click)="openModal(bookinfo,historyModel)">
+                    {{ historyModel.movie_name }}</p>
+                </div>
+                <div class="row no-gutters px-lg-5 py-3 text-center"></div>
+                <div class="col">
+                  <p class="mb-0 text-white font-weight-bolder font-0-875 go-book px-5 py-3 ">
+                    {{ historyModel.venue_name }}</p>
+                </div>
+                <div class="row no-gutters px-lg-5 py-3 text-center"></div>
+                <div class="col">
+                  <p class="mb-0 text-white font-weight-bolder font-0-875 go-book px-lg-5 py-3 ">
+                    {{ historyModel.show_date }}</p>
+                </div>
+                <div class="row no-gutters px-lg-5 py-3 text-center"></div>
+                <div class="col">
+                  <p class="mb-0 text-white font-weight-bolder font-0-875 go-book px-lg-5 py-3 ">
+                    {{ historyModel.city }}</p>
+                </div>
+                <div class="row no-gutters px-lg-5 py-3 text-center"></div>
+                <div class="col">
+                  <p class="mb-0 text-white font-weight-bolder font-0-875 go-book px-lg-5 py-3 ">
+                    {{ historyModel.seat_count }}</p>
+                </div>
+                <div class="row no-gutters px-5 py-3 text-center"></div>
+                <div class="col">
+                  <p class="mb-0 text-white font-weight-bolder font-0-875 go-book  px-lg-5 py-3">
+                    ₹ {{ historyModel.transaction_amount }} </p>
+                </div> -->
+                <!-- </div> -->
+              <!-- </div>
+            </tr> -->
+
+          </tbody>
+        </ng-template>
+      </ng-container>
+
+      <ng-template #nohistory>
+        <div class="modal-body text-left border-top border-primary border-2">
+          <div class="row">
+            <div class="col-xl-12">
+              <div *ngIf="profileService.isErrorBooking && profileService.isErrorHistoryNotAvailable">
+                <p class="go-medium text-white font-1-5 text-center pt-3">History <br /> Not Available.</p>
+              </div>
+              <div *ngIf="profileService.isErrorBooking && !profileService.isErrorHistoryNotAvailable">
+                <p class="go-medium text-white font-1-5 text-center pt-3">oops! <br /> Not Available.</p>
+              </div>
+              <p class="text-center py-4-1">
+                <img class="w-50 mw-100" src="assets/images/img/err.svg">
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </div>
+    <!-- <div class="col-xl-2">
+      <div class="row">
+        <div class="col-xl-12">
+          <img class="w-100 mw-100" src="assets/images/img/profile_panda.png">
+        </div>
+      </div>
+    </div> -->
+    <!-- Booking Information Modal -->
+    <ng-template #bookinfo>
+      <div id="bookinfo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bookinfoLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-custom-40 bg-3e4453">
+          <div
+            class="modal-content shadow-custom-9 bg-3e4453 border-bottom border-primary border-4 border-top-0 border-left-0 border-right-0">
+            <div class="container-fluid py-4 bg-373D4A">
+              <div class="row">
+                <div class="col-xl-12 text-center">
+                  <span class="modal-title go-medium text-primary text-center h3" id="bookinfoLabel">Booking
+                    Information</span>
+                  <button type="button" class="close fs-20 text-right text-9F9F9F text-shadow-0" aria-label="Close"
+                    (click)="close()">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-body text-left border-top border-primary border-2">
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="container-fluid pt-4 pb-4 mt bg-3e4453 border-bottom border-ADADBE">
+                    <tbody *ngIf="reservationService.ticket | async as ticket">
+                      <tr>
+                        <div class="container-fluid pt-4 pb-4 mt bg-3e4453 border-bottom border-ADADBE">
+                          <div class="row">
+                            <div class="col-xl-3">
+                              <!-- <img class="w-100 mw-100 shadow-custom-2 posterimg" src="{{ ticket.posterUrl }}"
+                                alt="home-play"> -->
+                              <ngx-picture src="{{ticket.posterUrl|splitAndGet:'~':0}}" alt="Movie Poster" class=""
+                                [lazyLoad]="false">
+                                <ng-template #imgTemplate let-imageData>
+                                  <img class="w-100 mw-100 shadow-custom-2" [src]="imageData.src"
+                                    [alt]="imageData.alt" />
+                                </ng-template>
+                              </ngx-picture>
+                            </div>
+                            <div class="pl-5 col-xl-6">
+                              <h3 class="go-medium text-white mb-0 font-0-875">{{ ticket.movieName }}
+                              </h3>
+                              <p class="mb-0">
+                                <a class="text-decoration-none">
+                                  <span class="go-medium font-weight-bolder text-primary font-0-875">{{ ticket.language
+                                    }}
+                                    <span>/</span> {{ ticket.dimension }}</span>
+                                </a>
+                              </p>
+                              <!-- <p>
+                                                                <span class="go-medium text-primary font-weight-bolder">2 hrs 15 mins</span>
+                                                            </p> -->
+                              <p class="go-medium text-white lead font-weight-bolder mb-0 font-0-875">{{
+                                ticket.venueName }}
+                              </p>
+                              <!-- <p class="go-book text-white">Velachery</p> -->
+                              <div class="d-inline-block align-middle">
+                                <img class="w-100 mw-100" src="assets/images/img/burger.svg">
+                              </div>
+                              <div class="d-inline-block align-middle mx-2">
+                                <img class="w-100 mw-100" src="assets/images/img/ticket.svg">
+                              </div>
+                              <div class="d-inline-block align-middle">
+                                <img class="w-100 mw-100" src="assets/images/img/tlocation.svg">
+                              </div>
+                            </div>
+                            <div class="col-xl-3">
+                              <img class="w-100 mw-100" src="{{ticket.qrFile}}">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="container-fluid pt-4 pb-4 px-5 bg-3e4453 border-bottom border-ADADBE">
+                          <div class="row">
+                            <div class="col-xl-6">
+                              <p class="text-ADADBE go-medium  lead">Seat Details</p>
+                              <p class="go-medium text-primary  lead">SEATS {{ ticket.seatCount }}
+                              </p>
+                              <div class="row no-gutters align-items-start">
+                                <p class="go-book text-white font-weight-bolder col-xl-3">
+                                  {{ ticket.className }}-</p>
+                                <div class="col-xl-9">
+                                  <span class="rounded mx-1 go-book text-white font-weight-bolder  p-1 bg-primary "
+                                    *ngFor="let seat of ticket.seats">{{ seat.seatNumber }}
+                                  </span>
+                                </div>
+                              </div>
+                              <!-- <div class="row no-gutters align-items-start"> -->
+                              <!-- <p class="col-xl-3 go-book text-white font-weight-bolder lead">Gold - </p> -->
+                              <!-- <div class="col-xl-9"> -->
+                              <!-- <span class="rounded go-book text-white font-weight-bolder p-1 bg-primary"></span>
+                                <span class="rounded go-book text-white font-weight-bolder p-1 bg-primary"></span> -->
+                              <!-- <span class="rounded go-book text-white font-weight-bolder p-1 bg-primary">E21</span>
+                                  <span class="rounded go-book text-white font-weight-bolder p-1 bg-primary">E22</span>
+                                  <span class="rounded go-book text-white font-weight-bolder p-1 bg-primary">E23</span> -->
+                              <!-- <span
+                                    class="line-height-2-5 rounded go-book text-white font-weight-bolder p-1 bg-primary">A19</span>
+                                  <span
+                                    class="line-height-2-5 rounded go-book text-white font-weight-bolder p-1 bg-primary">E13</span>
+                                  <span
+                                    class="line-height-2-5 rounded go-book text-white font-weight-bolder p-1 bg-primary">E14</span>
+                                  <span
+                                    class="line-height-2-5 rounded go-book text-white font-weight-bolder p-1 bg-primary">E25</span>
+                                  <span
+                                    class="line-height-2-5 rounded go-book text-white font-weight-bolder p-1 bg-primary">E26</span> -->
+                              <!-- </div> -->
+                              <!-- </div> -->
+                            </div>
+                            <div class="offset-2 col-xl-4">
+                              <div class="row">
+                                <p class="go-medium text-ADADBE font-weight-bolder lead">Show Date & Time</p>
+                                <p>
+                                  <span class="go-medium text-primary lead mr-4">
+                                    <img class="mr-2" src="assets/images/img/calendar.svg">
+                                    {{ ticket.showDate }} </span>
+                                </p>
+                                <p>
+                                  <span class="go-book text-white font-weight-bolder lead">
+                                    <img class="mr-2" src="assets/images/img/time.svg">
+                                    {{ ticket.showTime }}</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="container-fluid pt-4 pb-4 px-5 bg-3e4453">
+                          <div class="row">
+                            <div class="col-xl-12">
+                              <p class="go-medium font-weight-bolder text-ADADBE lead">Fare Details</p>
+                            </div>
+                            <!-- <div class="col-xl-12">
+                              <div class="row">
+                                <div class="col-xl-6">
+                                  <p class="go-book font-weight-bolder text-white mb-0 lead">Sub Total</p>
+                                </div>
+                                <div class="col-xl-6 text-right">
+                                  <p class="go-book font-weight-bolder text-white mb-0 lead">3272.00</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-xl-12">
+                              <div class="row">
+                                <div class="col-xl-6">
+                                  <p class="go-book font-weight-bolder text-white lead">  {{"app.booking.tax" | translate}}</p>
+                                </div>
+                                <div class="col-xl-6 text-right">
+                                  <p class="go-book font-weight-bolder text-white lead">{{total.taxTotal}}</p>
+                                </div>
+                              </div>
+                            </div> -->
+                            <div class="col-xl-12">
+                              <div class="row no-gutters my-2 py-2">
+                                <div class="col-xl-6 text-left">
+                                  <p class="go-medium font-weight-bolder text-primary mb-0 lead">Total</p>
+                                </div>
+                                <div class="col-xl-6 text-right">
+                                  <p class="go-medium font-weight-bolder text-primary mb-0 lead">₹ {{
+                                    ticket.bookingTransaction.totalAmount }}</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-xl-12">
+                              <!-- <p>
+                                                                <a class="lead go-medium text-ADADBE text-decoration-none dropdown-toggle" aria-expanded="false" aria-controls="total">
+                                  More Details
+                                </a>
+                                                            </p> -->
+
+
+
+
+
+                              <!-- <div class="collapse" id="total">
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-white lead">Sub Total</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-white lead">3272.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">Base Fare</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">3000.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">Extra Fare</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">200.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">Discount Fare</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">0.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">CGST - Ticket</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">36.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-8A8A8A lead">SGST - Ticket</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-8A8A8A lead">36.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-white lead">Processing Charges</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-white lead">200.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">Charge Amount</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">200.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">CGST - Ticket</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">36.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-8A8A8A lead">SGST - Ticket</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-8A8A8A lead">36.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-white lead">Tax</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-white lead">72.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">CGST - Ticket</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead">36.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-book font-weight-bolder text-8A8A8A lead">SGST - Ticket</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-book font-weight-bolder text-8A8A8A lead">36.00</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-6">
+                                    <p class="go-medium font-weight-bolder text-primary lead text-uppercase">Total</p>
+                                  </div>
+                                  <div class="col-xl-6 text-right">
+                                    <p class="go-medium font-weight-bolder text-primary lead"></p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xl-12 text-right my-4">
+                                    <a href="#"
+                                      class="btn btn-secondary lead font-weight-bolder px-4 go-book rounded-pill"
+                                     
+                                     >Cancellation</a>
+                                  </div>
+                                </div>
+                              </div> -->
+                            </div>
+                          </div>
+                        </div>
+                      </tr>
+                    </tbody>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!-- Cancel Ticket Modal -->
+    <div class="modal fade" id="cancelticket" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="cancelticketLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div
+          class="modal-content shadow-custom-9 bg-3e4453 border-bottom border-primary border-2 border-top-0 border-left-0 border-right-0">
+          <div class="container-fluid py-4 bg-373D4A">
+            <div class="row">
+              <div class="col-xl-12 text-center">
+                <span class="modal-title go-medium text-primary text-center font-weight-bolder h3"
+                  id="cancelticketLabel">Cancel Ticket</span>
+                <button type="button" class="close text-right text-9F9F9F text-shadow-0" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body text-left border-top border-primary border-2">
+            <div class="">
+              <div class="col-xl-12">
+                <div class="container-fluid pt-4 pb-4 mt-4 bg-3e4453 border-bottom border-ADADBE">
+                  <tbody *ngIf="reservationService.ticket | async as ticket">
+                    <tr>
+                      <div class="container-fluid pt-4 pb-4 mt-4 bg-3e4453 border-bottom border-ADADBE">
+                        <div class="row">
+                          <div class="col-xl-3">
+                            <img class="w-100 mw-100 shadow-custom-2" src="{{ ticket.posterUrl }}" alt="home-play">
+                          </div>
+                          <div class="pl-5 col-xl-6">
+                            <h3 class="go-medium text-white mb-0">{{ ticket.movieName }}
+                            </h3>
+                            <p class="mb-0">
+                              <a class="text-decoration-none">
+                                <span class="go-medium font-weight-bolder">{{ ticket.language }}
+                                  {{ ticket.dimension }}</span>
+                              </a>
+                            </p>
+                            <!-- <p>
+                                                                <span class="go-medium text-primary font-weight-bolder">2 hrs 15 mins</span>
+                                                            </p> -->
+                            <p class="go-medium text-white lead font-weight-bolder mb-0">{{ ticket.venueName }}
+                            </p>
+                            <!-- <p class="go-book text-white">Velachery</p> -->
+                            <div class="d-inline-block align-middle">
+                              <img class="w-100 mw-100" src="assets/images/img/burger.svg">
+                            </div>
+                            <div class="d-inline-block align-middle mx-2">
+                              <img class="w-100 mw-100" src="assets/images/img/ticket.svg">
+                            </div>
+                            <!-- <div class="d-inline-block align-middle">
+                              <img class="w-100 mw-100" src="assets/images/img/tlocation.svg">
+                            </div> -->
+                          </div>
+                          <div class="col-xl-3">
+                            <img class="w-100 mw-100" src="assets/images/img/qr_code.svg">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="container-fluid pt-4 pb-4 px-5 bg-3e4453 border-bottom border-ADADBE">
+                        <div class="row">
+                          <div class="col-xl-6">
+                            <p class="text-ADADBE go-medium font-weight-bolder lead">Seat Details</p>
+                            <p class="go-medium text-primary font-weight-bolder lead">SEATS {{ ticket.seatCount }}</p>
+                            <div class="row no-gutters align-items-start">
+                              <!-- <p class="col-xl-3 go-book text-white font-weight-bolder lead">Gold - </p>
+                                                <div class="col-xl-9">
+                                                    <span class="rounded go-book text-white font-weight-bolder p-1 bg-primary">E19</span>
+                                                    <span class="rounded go-book text-white font-weight-bolder p-1 bg-primary">E20</span>
+                                                    <span class="rounded go-book text-white font-weight-bolder p-1 bg-primary">E21</span>
+                                                    <span class="rounded go-book text-white font-weight-bolder p-1 bg-primary">E22</span>
+                                                    <span class="rounded go-book text-white font-weight-bolder p-1 bg-primary">E23</span>
+                                                    <span class="line-height-2-5 rounded go-book text-white font-weight-bolder p-1 bg-primary">A19</span>
+                                                    <span class="line-height-2-5 rounded go-book text-white font-weight-bolder p-1 bg-primary">E13</span>
+                                                    <span class="line-height-2-5 rounded go-book text-white font-weight-bolder p-1 bg-primary">E14</span>
+                                                    <span class="line-height-2-5 rounded go-book text-white font-weight-bolder p-1 bg-primary">E25</span>
+                                                    <span class="line-height-2-5 rounded go-book text-white font-weight-bolder p-1 bg-primary">E26</span>
+                                                </div> -->
+                            </div>
+                          </div>
+                          <div class="offset-2 col-xl-4">
+                            <p class="go-medium text-ADADBE font-weight-bolder lead">Show Date & Time</p>
+                            <p>
+                              <span class="go-medium text-primary font-weight-bolder lead mr-4">
+                                <img class="mr-2" src="assets/images/img/calendar.svg">
+                                {{ ticket.showDate }}
+                              </span>
+                            </p>
+                            <p>
+                              <span class="go-book text-white font-weight-bolder lead">
+                                <img class="mr-2" src="assets/images/img/time.svg">
+                                {{ ticket.showTime }}</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="container-fluid pt-4 pb-4 px-5 bg-3e4453">
+                        <div class="row">
+                          <div class="col-xl-12">
+                            <p class="go-medium font-weight-bolder text-ADADBE lead">Fare Details</p>
+                          </div>
+                          <!-- <div class="col-xl-12 mb-3">
+                                                        <div class="row">
+                                                            <div class="offset-4 col-xl-4">
+                                                                <p class="go-book font-weight-bolder text-primary mb-0 lead">Transaction</p>
+                                                            </div>
+                                                            <div class="col-xl-4 text-right">
+                                                                <p class="go-book font-weight-bolder text-primary mb-0 lead">Refund</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-12">
+                                                        <div class="row">
+                                                            <div class="col-xl-4">
+                                                                <p class="go-book font-weight-bolder text-white mb-0 lead">Sub Total</p>
+                                                            </div>
+                                                            <div class="col-xl-4">
+                                                                <p class="go-book font-weight-bolder text-white mb-0 lead">3272.00</p>
+                                                            </div>
+                                                            <div class="col-xl-4 text-right">
+                                                                <p class="go-book font-weight-bolder text-white mb-0 lead">2995.00</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-12">
+                                                        <div class="row">
+                                                            <div class="col-xl-4">
+                                                                <p class="go-book font-weight-bolder text-white mb-0 lead">Tax</p>
+                                                            </div>
+                                                            <div class="col-xl-4">
+                                                                <p class="go-book font-weight-bolder text-white lead">72.00</p>
+                                                            </div>
+                                                            <div class="col-xl-4 text-right">
+                                                                <p class="go-book font-weight-bolder text-white lead">0.00</p>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+                          <div class="col-xl-12">
+                            <div class="row no-gutters my-2 py-2">
+                              <div class="col-xl-6 text-left">
+                                <p class="go-medium font-weight-bolder text-primary mb-0 lead">Total</p>
+                              </div>
+                              <div class="col-xl-6 text-right">
+                                <p class="go-medium font-weight-bolder text-primary mb-0 lead">₹ {{
+                                  ticket.bookingTransaction.totalAmount }}</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-12">
+                            <p>
+                              <a class="lead go-medium text-ADADBE text-decoration-none dropdown-toggle" href="#total "
+                                aria-expanded="false " aria-controls="total ">
+                                More Details
+                              </a>
+                            </p>
+                            <div class="collapse " id="canceltotal ">
+                              <div class="row ">
+                                <!-- <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-white lead ">Sub Total</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-primary lead ">Transaction</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-primary lead ">Refund</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">Base Fare</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-white mb-0 lead ">3272.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-white mb-0 lead ">2995.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">Extra Fare</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">200.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">200.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">Discount Fare</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">0.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">0.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">CGST - Ticket</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">36.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">36.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-8A8A8A lead ">SGST - Ticket</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A lead ">36.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A lead ">36.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-white lead ">Processing Charges</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-white lead ">200.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-white lead ">0.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">Charge Amount</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">200.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">200.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">CGST - Ticket</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">36.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">0.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-8A8A8A lead ">SGST - Ticket</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A lead ">36.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A lead ">0.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-white lead ">Tax</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-white lead ">72.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-white lead ">0.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">CGST - Ticket</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">36.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A mb-0 lead ">0.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-book font-weight-bolder text-8A8A8A lead ">SGST - Ticket</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A lead ">36.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-book font-weight-bolder text-8A8A8A lead ">0.00</p>
+                          </div>
+                        </div>
+                        <div class="row ">
+                          <div class="col-xl-4 ">
+                            <p class="go-medium font-weight-bolder text-primary lead text-uppercase ">Total</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-medium font-weight-bolder text-primary lead ">3344.00</p>
+                          </div>
+                          <div class="col-xl-4 text-right ">
+                            <p class="go-medium font-weight-bolder text-primary lead ">2995.00</p>
+                          </div>
+                        </div> -->
+                                <div class="row ">
+                                  <div class="col-xl-12 text-right my-4 ">
+                                    <a class="btn btn-secondary lead font-weight-bolder px-4 go-book rounded-pill ">Cancel
+                                      Ticket</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Cancelled Modal -->
+        <div class="modal fade " id="Cancelled " data-backdrop="static " data-keyboard="false " tabindex="-1 "
+          aria-labelledby="CancelledLabel " aria-hidden="true ">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
+            <div
+              class="modal-content bg-3e4453 shadow-custom-9 border-top-0 border-left-0 border-right-0 border-top border-primary border-2 ">
+              <div class="container-fluid py-4 bg-373D4A ">
+                <div class="row ">
+                  <div class="col-xl-12 text-center ">
+                    <span class="modal-title go-medium text-primary text-center font-weight-bolder h3 "
+                      id="CancelledLabel ">Ticket Details</span>
+                    <button type="button " class="close text-right text-9F9F9F text-shadow-0 " aria-label="Close ">
+                      <span aria-hidden="true ">×</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="modal-body text-left border-top border-left-0 border-right-0 border-bottom-0 border-primary border-2 ">
+                                <div class="row mx-3 ">
+                                    <div class="col-xl-12 ">
+                                        <div class="row ">
+                                            <div class="col-xl-6 ">
+                                                <p class="go-medium text-white mb-0 lead ">Refund Mode</p>
+                                            </div>
+                                            <div class="col-xl-6 text-right ">
+                                                <p class="go-medium text-white mb-0 lead ">Amount Refunded</p>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-xl-6 ">
+                                                <p class="go-medium font-weight-bolder text-primary mb-0 lead ">Online</p>
+                                            </div>
+                                            <div class="col-xl-6 text-right ">
+                                                <p class="go-medium font-weight-bolder text-primary mb-0 lead ">2995.00</p>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-xl-12 border-bottom border-707070 pt-4 pb-3 ">
+                                                <p class="go-medium font-weight-bolder text-primary mb-0 lead ">Ticket.No</p>
+                                                <p class="go-book font-weight-bolder text-white mb-0 lead ">MP5 2233 4455</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+              <div class="modal-footer bg-3e4453 border-top-0 m-auto ">
+                <div class="row ">
+                  <div class="col-xl-12 text-center ">
+                    <p class="go-medium font-weight-bolder text-danger text-uppercase h4 ">CANCELLED</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

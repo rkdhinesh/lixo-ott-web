@@ -1,0 +1,125 @@
+<!-- <div class="modal-content seat-select-modal">
+  <div class="modal-header">
+    <h4>{{"app.shows.select seats" | translate}}</h4>
+  </div>
+  <div class="modal-body seat modal-h1">
+    <ul>
+      <li (click)="setSeatCount(seat)" [ngClass]="seat == seatCount ? 'highlight' : ''"
+        *ngFor="let seat of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; let i = index">
+        {{ seat }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="modal-footer">
+    <div class="action-area">
+      <div class="d-flex flex-row" *ngFor="let classData of showClass">
+        <div>{{ classData.className }}</div>
+        <div class="ml-2">{{ classData.baseFare }}</div>
+      </div>
+      <span>
+        <button type="reset" class="btn btn-cancel" (click)="close()">
+          {{"app.common.cancel" | translate}}
+        </button>
+        <button type="submit" class="btn btn-select ml-2" (click)="onSeatLayout(seatCount)">
+          {{"app.common.select" | translate}}
+        </button>
+      </span>
+    </div>
+  </div>
+</div> -->
+
+<div *ngIf="seatCount" id="seat" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="seatLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable mobile-dialog">
+    <div
+      class="modal-content shadow-custom-9 border-bottom border-primary border-4 border-top-0 border-left-0 border-right-0 ">
+      <div class="container-fluid pt-4 pb-2 bg-0F1628 ">
+        <div class="row">
+          <div class="col-xl-12 text-center">
+            <span class="modal-title go-medium text-primary text-center h3" id="seatLabel">{{"app.shows.select seats" |
+              translate}}</span>
+            <button type="button" class="close fs-20 text-right text-9F9F9F text-shadow-0 position-absolute r-5"
+              aria-label="Close" (click)="close()">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body text-left px-lg-5 border-top border-primary bg-020A1C">
+        <div class="text-center mt-lg-5">
+          <p>
+            <span class="go-book lead text-white mx-3 pointer" (click)="setSeatCount(seat)"
+              [ngClass]="seat == seatCount ? 'bg-primary rounded-circle d-inline-block seat-active shadow-custom-8' : ''"
+              *ngFor="let seat of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; let i = index">
+              {{ seat }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer border-top-0 m-auto bg-020A1C">
+        <!-- <div class="row"> -->
+        <div class="col-xl-12 text-center my-lg-4">
+          <button type="button" class="btn btn-modal go-medium  lead rounded-pill px-5 mx-3"
+            (click)="close()">{{"app.common.cancel" | translate}}</button>
+          <a type="button" class="btn gradient-button gradient-button-4 go-medium  lead rounded-pill px-3"
+            (click)="onSeatLayout(seatCount)">{{"app.common.select" | translate}}</a>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="container-fluid py-4 bg-373D4A shadow-custom-9 border-bottom border-primary border-2 border-top-0 border-left-0 border-right-0 bg-373D4A">
+    <div class="row">
+        <div class="col-xl-12 text-center">
+            <span class="modal-title go-medium text-primary text-center h3" id="seatLabel">{{"app.shows.select seats" | translate}}</span>
+            <button type="button" class="close text-right text-707070 text-shadow-0" aria-label="Close" (click)="close()">
+        <span aria-hidden="true">×</span>
+      </button>
+        </div>
+    </div>
+</div>
+<div class="modal-body bg-3e4453 text-left px-5 border-top border-primary border-2 ">
+    <div class="text-center mt-5">
+        <p>
+            <span class="go-book lead text-white mx-3 pointer" (click)="setSeatCount(seat)" [ngClass]="seat == seatCount ? 'bg-primary rounded-circle d-inline-block seat-active shadow-custom-8' : ''" *ngFor="let seat of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; let i = index">
+        {{ seat }}
+      </span>
+
+        </p>
+    </div>
+</div>
+<div class="modal-footer border-top-0 m-auto bg-3e4453">
+    <div class="row">
+        <div class="col-xl-12 text-center my-4">
+            <button type="button" class="btn btn-modal go-medium font-weight-bolder lead rounded-pill px-5 mx-3" (click)="close()">{{"app.common.cancel" | translate}}</button>
+            <a type="button" class="btn btn-primary go-medium font-weight-bolder lead rounded-pill px-5" (click)="onSeatLayout(seatCount)">{{"app.common.select" | translate}}</a>
+        </div>
+    </div>
+</div> -->
+
+
+<div *ngIf="boxOfficeOnlyFlag" id="seat" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="seatLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable mobile-dialog">
+    <div
+      class="modal-content shadow-custom-9 border-bottom border-primary border-4 border-top-0 border-left-0 border-right-0 ">
+      <div class="container-fluid pt-4 pb-2 bg-0F1628 ">
+        <div class="row">
+          <div class="col-xl-12 text-center">
+            <span class="modal-title go-medium text-primary text-center h3" id="seatLabel">{{"app.shows.boxOfficeOnlyFlag" |
+              translate}}</span>
+           
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-top-0 m-auto bg-020A1C">
+     
+        <div class="col-xl-12 text-center my-lg-4">
+          <button type="button" class="btn btn-modal go-medium  lead rounded-pill px-5 mx-3"
+            (click)="close()">{{"app.common.close" | translate}}</button>
+         
+        </div>
+      </div>
+    </div>
+  

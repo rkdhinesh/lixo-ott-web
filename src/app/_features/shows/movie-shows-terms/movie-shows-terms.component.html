@@ -1,0 +1,70 @@
+<!-- <div class="container-fluid py-4 bg-272b37 shadow-custom-9 border-bottom border-primary border-2 border-top-0 border-left-0 border-right-0">
+    <div class="row">
+        <div class="col-xl-12 text-center">
+            <span class="modal-title go-medium text-primary text-center font-weight-bolder h3" id="warrantyLabel">{{"app.common.movie-terms-conditions" | translate}}</span>
+        </div>
+    </div>
+</div>
+<div class="modal-body text-left pt-5 px-5 border-top border-primary border-2" *ngIf="showTimeService.movieFileContent | async as movieFileContent">
+    <p class="go-light text-white font-weight-bolder">
+        {{movieFileContent.content}}
+    </p>
+</div>
+<div class="modal-footer border-top-0 m-auto">
+    <div class="row">
+        <div class="col-xl-12 text-center my-4">
+            <button type="button" class="btn btn-secondary go-medium font-weight-bolder lead rounded-pill px-5 mx-3" (click)="movieTermsHide()">{{"app.shows.decline" | translate}}</button>
+            <button type="button" class="btn btn-primary go-medium font-weight-bolder lead rounded-pill px-5" (click)="openSeatCountModal('venue')">{{"app.shows.accept" | translate}}</button>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- Terms & Conditions Modal -->
+<div class="" id="terms" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="termsLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-custom-26 bg-373D4A">
+        <div
+            class="modal-content bg-3e4453 shadow-custom-9 border-bottom border-primary border-2 border-top-0 border-left-0 border-right-0 h-75">
+            <div class="container-fluid bg-020A1C py-4">
+                <div class="row">
+                    <div class="col-xl-12 text-center">
+                        <span class="modal-title go-medium text-primary text-center  h3"
+                            id="termsLabel">{{"app.common.movie-terms-conditions" | translate}}</span>
+                        <!-- <button type="button" class="close text-right text-707070 text-shadow-0" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body  bg-020A1C text-left pt-5 px-5 border-top border-primary border-2"
+                *ngIf="showTimeService.movieFileContent | async as movieFileContent">
+                <div class="go-light text-white font-14-a">
+                    {{movieFileContent.content}}
+                </div>
+            </div>
+            <div class="modal-footer bg-020A1C border-top-0 m-auto">
+                <div class="row">
+                    <div class="col-xl-12 text-center my-4">
+                        <button type="button"
+                            class="btn btn-modal go-medium font-weight-bolder lead rounded-pill px-5 mx-3"
+                            (click)="movieTermsHide()">{{"app.shows.decline" | translate}}</button>
+                        <button type="button"
+                            class="btn btn-primary go-medium font-weight-bolder lead rounded-pill px-5"
+                            (click)="openSeatCountModal('venue')">{{"app.shows.accept" | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #venueTerm>
+    <mp-venue-shows-terms></mp-venue-shows-terms>
+</ng-template>
+
+<ng-template #selectSeatCount>
+    <mp-seatcount></mp-seatcount>
+</ng-template>

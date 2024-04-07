@@ -1,0 +1,49 @@
+
+/* - - - - - RATINGS */
+.rating {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+  }
+  .rating:not(:checked) > input {
+    display: none;
+  }
+  
+  /* - - - - - LIKE */
+  #like {
+    bottom: -65px;
+  }
+  #like:not(:checked) > label {
+    cursor:pointer;
+    
+    color: rgba(233, 54, 40, .4);
+  
+  }
+  #like:not(:checked) > label:hover,
+  #like:not(:checked) > label:hover ~ label {
+    color: rgba(233, 54, 40, .6);
+  }
+  #like > input:checked + label:hover,
+  #like > input:checked + label:hover ~ label,
+  #like > input:checked ~ label:hover,
+  #like > input:checked ~ label:hover ~ label,
+  #like > label:hover ~ input:checked ~ label {
+    color: rgba(233, 54, 40, .8);
+  }
+  #like > input:checked ~ label {
+    color: rgb(233, 54, 40);
+  }
+  .btn-primary {
+    color: #fff;
+    background-color: #0aa5ae;
+    border-color: #0aa5ae;
+}
+
+.btn-primary:hover {
+    color: #0aa5ae;
+    background-color: #fff;
+    border-color: #fff;
+}
