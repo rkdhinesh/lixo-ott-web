@@ -1,0 +1,141 @@
+
+  <div class="shadow-custom-9 bg-3e4453 border-bottom border-primary border-4 border-top-0 border-left-0 border-right-0">
+
+    <div class="container-fluid py-4 bg-0F1628">
+      <div class="row">
+        <div class="col-xl-12 text-center">
+          <span class="modal-title go-medium text-primary text-center h3" id="locationLabel">Lixo OTT - Rental</span>
+          <span *ngIf="hidediv"><button type="button"
+              class="close fs-20 text-right text-9F9F9F text-shadow-0 position-absolute r-5" aria-label="Close"
+              (click)="close()">
+              <span aria-hidden="true">×</span>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal-body text-left px-5 border-top border-primary bg-020A1C">
+      <div class="row">
+        <div class="col-xl-10 mx-auto">
+          <div class="input-group my-3">
+            <!-- <input
+              class="form-control p-4 go-book text-primary font-weight-bolder border border-primary border-right-0 bg-0F1628  border-radius-top-left font-1-4"
+              type="search" placeholder="Search" id="example-search-input" [(ngModel)]="query" autocomplete="off"> -->
+            <!-- <span class="input-group-append">
+              <div class="input-group-text bg-0F1628  border-primary border-left-0 border-radius-top-right">
+                <img src="/assets/images/img/search-primary.svg">
+              </div>
+            </span> -->
+          </div>
+        </div>
+        <ng-container *ngIf=" loader else loaded">
+          <div
+            class="shadow-custom-9 bg-020A1C bg-3e4453 border-bottom border-primary  border-top-0 border-left-0 border-right-0 loader-style">
+            <div class="col-xl-12 pt-3 pb-2 mt-5" *ngFor="let number of [0,1,2,3,4]">
+              <div class="row">
+                <ng-container>
+                  <div class="col-xl-3">
+                    <div class="text-right placeholder-fandb placeholder-bar">
+                    </div>
+                  </div>
+                  <div class="col-xl-8">
+                    <div class="d-inline-block align-middle mr-2 mb-2" *ngFor="let number of [0,1,2]">
+                      <a class="btn go-book timing-btn loader-width placeholder-a placeholder-bar"></a>
+                      <!-- <a class="btn go-book font-weight-bolder timing-btn placeholder-a placeholder-bar"></a> -->
+  
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #loaded>
+          <div class="px-lg-1 ml-5">
+            <!-- <div class="col-xl-12">
+              <p class="go-book text-primary h3 text-center my-4">Popular Cities</p>
+              <div class="row align-items-end bg-0F1628 px-lg-3 py-lg-4">
+                <div class="col-xl-2-3 p-lg-3 text-center"
+                  *ngFor="let city of cityresponse.popularCities | search:query:'name'">
+                  <div *ngIf="city.success!= false" (click)="setLocation(city.name)">
+                    <img class="w-100 mw-100 mh-100 fix-img-height pointer" alt="location" src="{{city.iconImage}}">
+                    <p class="text-center go-light h5 cast-review-font mt-lg-3 text-white pointer">{{city.name}}</p>
+                  </div>
+                  <div *ngIf="city.success== false">
+                    <p class="text-center h5 cast-review-font mt-3 text-white">{{city.name}}</p>
+                  </div>
+                </div>
+  
+              </div>
+              <p class="go-book text-primary h3 text-center my-4">View All Cities</p>
+            </div> -->
+            <div class="col-xl-12 col-12">
+              <!-- <div class="row ml-auto mb-2"> -->
+                <ng-container>
+                    <div class="d-flex flex-column" style="font-size: large;">
+                        <div class="row">
+                            <div class="col-6 text-white">
+                                <p>Movie :</p>
+                            </div>
+                            <div class="col-6 text-white">
+                                <p>Movie 1</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-white">
+                                <p>Rental Amount :</p>
+                            </div>
+                            <div class="col-6 text-white">
+                                <p>100 INR</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-white">
+                                <p>Validity :</p>
+                            </div>
+                            <div class="col-6 text-white">
+                                <p>5 Days</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-white">
+                                <p>Valid Till :</p>
+                            </div>
+                            <div class="col-6 text-white">
+                                <p>27-Nov-2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- <p class="form-check-label go-book lead text-white mx-lg-2 my-2 pointer">
+                        {{city.name}}
+                      </p> -->
+                  <!-- <div *ngIf="city.success!= false" class="col-xl-3 col-4" (click)="setLocation(city.name)">
+                    
+                  </div> -->
+                  <!-- <div *ngIf="city.success== false" class="col-xl-3 col-4">
+                    <p class="form-check-label go-book lead text-white mx-lg-2 my-2">
+                      {{city.name}}
+                    </p>
+                  </div> -->
+                </ng-container>
+                
+              <!-- </div> -->
+            </div>
+          </div>
+        </ng-template>
+      </div>
+      <div class="container-fluid py-4 bg-0F1628">
+        <div class="modal-title go-medium text-primary">
+            <p class="text-white" style="font-size: medium;">You will have 72 hours to complete the movie, once started</p>
+        </div>
+        
+      </div>
+      <div class="container-fluid py-4 bg-0F1628 text-center">
+        <button type="button" class="btn btn-primary go-book lead rounded-pill px-4 mx-3 h" (click)="onPurchase()">Purchase</button>
+      </div>
+  
+  
+    </div>

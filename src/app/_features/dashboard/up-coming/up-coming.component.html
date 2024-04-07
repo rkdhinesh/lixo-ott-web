@@ -1,0 +1,141 @@
+<!-- <div class="row shadow-custom hm-pos-bg  bg-020A1C">
+    <div class="offset-lg-1 col-xl-10 ">
+        <div class="container-fluid">
+            <div class="row">
+                <ng-container *ngIf="!showService.isErrorUpcomingMovies else  noMoviesTemplate">
+                    <ng-container *ngIf="showService.upcomingmovies >= 1 else noMoviesTemplate">
+                        <div class="col-xl-6 mx-auto my-lg-5 mb-lg-2 date-slider"
+                            *ngIf="showService.upcoming | async as upcoming">
+                            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                                <div ngxSlickItem *ngFor="let upcomingmovies of upcoming.upcomingMovies; index as i"
+                                    class="slide" id="upcomingMovies.month"
+                                    [ngClass]="upcomingmovies.month == activemonth ? 'bg-primary  text-ADADBE' : ''"
+                                    (click)="onselectmonth(upcomingmovies.month);">
+                                    <div class="item" id="navbar-example">
+                                        <h3 class="go-book text-center text-white mb-0 pointer">
+                                            <a class="nav-link text-white" [routerLink]="['/']"
+                                                fragment="scroll_{{upcomingmovies.month.split(' ')[0]}}"
+                                                target="_self">{{upcomingmovies.month.split('
+                                                ')[0]}}</a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </ngx-slick-carousel>
+
+                        </div>
+                    </ng-container>
+                </ng-container>
+                <ng-template #noMoviesTemplate>
+                    <div class="col-xl-12 ">
+                        <div class="go-medium text-white font-1-5 text-center py-3 pt-3">No Upcoming Movies Available
+                        </div>
+                        <p class="text-center py-4 mb-0">
+                            <img class="w-50 mw-100" src="assets/images/img/no-date.svg">
+                        </p>
+                    </div>
+                </ng-template>
+                <div class="col-xl-12 col-12">
+                    <ng-container *ngIf="loading else loaded">
+                        <div class="row mt-4">
+                            <div class="col-xl-1 col-2 text-center">
+                                <p class="text-white go-medium font-weight-bolder  font-1-5"></p>
+                                <div class="up-line bg-8A8A8A"></div>
+                            </div>
+                            <div class="col-xl-10 col-10">
+                                <div class="row no-gutters pb-5 mb-4">
+                                    <div class="px-2" *ngFor="let number of [0,1,2,3]">
+
+                                        <div class="hm-pos-box loader-width">
+                                            <div class="position-relative loader-image">
+                                                <div class="">
+                                                    <div class="show-loader-div "></div>
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid bg-0F1628">
+                                                <div class="row align-items-center">
+                                                    <div class="col-xl-8 hm-pos-box-lft">
+                                                        <h5 class="pt-3 text-white go-medium text-truncate"
+                                                            class="show-loader-h5 placeholder-bar">
+                                                        </h5>
+                                                        <h6 class="font-weight-bolder text-white go-light text-uppercase"
+                                                            class="show-loader-h6 placeholder-bar"></h6>
+                                                    </div>
+                                                    <div class="col-xl-4 text-center hm-pos-box-rgt py-3">
+                                                        <a class="btn text-white">
+                                                            <span class="d-block go-medium lead text-uppercase pt-3">
+                                                            </span>
+
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-template #loaded>
+                        <div class="row mt-4" *ngFor="let upcomingmovies of upcoming.upcomingMovies; index as i">
+                            <ng-container *ngIf="i<=selectedIndex">
+                                <div class="col-xl-1 col-2 text-center">
+                                    <p class="text-white go-book font-weight-bolder font-1-5">{{upcomingmovies.month}}
+                                    </p>
+                                    <div class="up-line bg-8A8A8A"></div>
+                                </div>
+
+                                <div class="col-xl-10 col-10" [id]="'scroll_' + upcomingmovies.month.split(' ')[0]">
+                                    <div class="row no-gutters pb-5 mb-4">
+                                        <div class="col-xl-2 px-2 col-6"
+                                            *ngFor="let movie of upcomingmovies.movies; index as i">
+                                            <div class="rounded shadow-custom-7 hm-up-cm"
+                                                (click)="onMovieSelect(movie)">
+                                                <div class="show-loader-div" [hidden]="!imageLoader"></div>
+                                                <ngx-picture src="{{movie.posterUrl|splitAndGet:'~':0}}"
+                                                    alt="Movie Poster" class="" [lazyLoad]="false">
+                                                    <ng-template #imgTemplate let-imageData>
+                                                        <img class="w-100 mw-100  rounded posterheight"
+                                                            [src]="imageData.src" [alt]="imageData.alt"
+                                                            [hidden]="imageLoader" (load)="this.imageLoader = false;" />
+                                                    </ng-template>
+                                                </ngx-picture>
+                                                <div class="container-fluid bg-0F1628">
+                                                    <div class="row align-items-center">
+                                                        <div class="px-2 py-2">
+                                                            <h6 class="text-white go-book font-1">
+                                                                {{movie.movieName}}
+                                                            </h6>
+                                                            <p class="font-weight-bolder text-8A8A8A go-light mb-0">
+                                                                <span class="border-right pr-2 mr-2">{{movie.duration}}
+                                                                </span>
+                                                                <span *ngFor="let genre of movie.genres; let i = index">
+                                                                    <span *ngIf="i < 1" style="font-size: 12px">
+                                                                        {{ genre.genreName }}</span>
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+
+                    </ng-template>
+
+                    <div class="row">
+                        <div class="offset-1 col-xl-11 text-center mb-5">
+                            <button class="btn btn-primary go-book lead px-4" *ngIf='showmore'
+                                (click)="showMoreDetails()">See More</button>
+                            <button class="btn btn-primary go-book lead px-4" *ngIf='showless'
+                                (click)="showLessDetails()">See Less</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,274 @@
+.carousel-container {
+  width: 100%;
+  height: 10%;
+  overflow: hidden;
+  // position: relative;
+  background-size: cover;
+
+  .carousel-overlay {
+    // position: absolute;
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.grad1 {
+  height: 34%;
+  width: 100%;
+  top:0;
+  left: 0;
+  background-image: linear-gradient(to top, rgba(255,0,0,0), #0F1628);
+  background-size: cover;
+  color: white;
+}
+
+.grad2 {
+
+  height: 50%;
+  width: 100%;
+
+  left: 0;
+  background-image: linear-gradient( rgba(255,0,0,0), #0F1628);
+  background-size: cover;
+  color: white;
+}
+
+// .slide {
+//   img {
+//     height: 600px;
+//     max-height: 80%;
+//     width: 100%;
+//     padding: 10px 15px;
+//     border-radius: 25px;
+//   }
+// }
+
+// slide::after {
+//   position: absolute;
+//   top: 0;
+//   height: 50px;
+//   width: 100%;
+//   background: linear-gradient(180deg, rgba(48, 51, 66, 0.25) 0%, rgba(48, 51, 66, 0.62) 100%);
+//   content: '';
+// }
+
+/* Display the dots list inline */
+@media only screen and (min-width: 600px) {
+  ::ng-deep .slick-dots {
+    display: inline-block !important;
+    list-style: none !important;
+    /* Remove default list styles */
+    padding: 0 !important;
+    /* Remove default padding */
+    margin: 0 !important;
+    /* Remove default margin */
+    position: absolute;
+    left: 47% !important;
+    top: 75% !important;
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+  ::ng-deep .slick-dots {
+    display: inline-block !important;
+    list-style: none !important;
+    /* Remove default list styles */
+    padding: 0 !important;
+    /* Remove default padding */
+    margin: 0 !important;
+    /* Remove default margin */
+    position: absolute;
+    left: 42.5% !important;
+    top: 95% !important;
+  }
+}
+
+/* Style individual dot buttons */
+::ng-deep .slick-dots li {
+  display: inline-block !important;
+  margin-right: 5px !important;
+  /* Adjust spacing between dots */
+}
+
+/* Style dot button */
+::ng-deep .slick-dots li button {
+  background-color: #8d8d8d !important;
+  /* Change dot color */
+  border: none !important;
+  /* Remove button border */
+  width: 2px !important;
+  /* Set dot width */
+  height: 5px !important;
+  /* Set dot height */
+  border-radius: 50% !important;
+  /* Make dots round */
+  cursor: pointer !important;
+  /* Show pointer cursor on hover */
+}
+
+
+::ng-deep .slick-dots li.slick-active button {
+  background-color: #0aa5ae !important;
+  content: none !important;
+}
+
+::ng-deep #slick-slide-control00,
+::ng-deep #slick-slide-control01,
+::ng-deep #slick-slide-control02,
+::ng-deep #slick-slide-control03 {
+    font-size: 0px !important;
+}
+
+.homebanner {
+  padding: 0;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgb(9,15,29,1) 100%);
+}
+
+.overlay-header-content {
+  position: absolute;
+  top: 3%;
+  left: 45%;
+  // right: 10%;
+  /* Ensure content is above the image */
+  color: white;
+  /* Set text color */
+  z-index: 1;
+}
+
+.overlay-header-content1 {
+  position: absolute;
+  top: 3%;
+  right: 10%;
+  // right: 10%;
+  /* Ensure content is above the image */
+  color: white;
+  /* Set text color */
+  z-index: 1;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 32%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  /* Ensure content is above the image */
+  color: white;
+  /* Set text color */
+  
+}
+
+.overlay-content-1 {
+  position: absolute;
+  top: 40%;
+right: 5%;
+  width: 90%;
+  height: fit-content;
+  /* Ensure content is above the image */
+  color: white;
+  /* Set text color */
+  
+}
+
+.overlay-content-2 {
+  position: absolute;
+  top: 60%;
+  right: 5%;
+  width: 90%;
+  height: fit-content;
+  /* Ensure content is above the image */
+  color: white;
+  /* Set text color */
+  
+}
+
+.overlay-content h1 {
+  font-size: 44px;
+  /* Adjust font size as needed */
+}
+
+// .overlay-content p {
+//   font-size: 20px;
+//   /* Adjust font size as needed */
+// }
+
+.overlay-content button {
+  padding: 10px 20px;
+  background-color: #333;
+  /* Button background color */
+  color: white;
+  /* Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+// span {
+//   width: 50px;
+//   height: 50px;
+//   margin: 3px;
+//   background-color: #555;
+// }
+
+.rounded-circle i {
+  align-items: center;
+}
+
+.slick-prev,
+.slick-next {
+  background-color: #007bff;
+  /* Example background color */
+  color: #ffffff;
+  /* Example text color */
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+::ng-deep .slick-prev {
+  position: absolute !important;
+  left: 10% !important;
+  top: 73% !important;
+  height: 4rem;
+  color: grey !important;
+  cursor: pointer;
+}
+
+::ng-deep .slick-next {
+  position: absolute !important;
+  right: 10% !important;
+  top: 73% !important;
+  height: 4rem;
+  color: grey !important;
+  cursor: pointer;
+}
+
+/* For devices with screen width less than or equal to 768px (e.g., tablets and smartphones) */
+@media (max-width: 390px) {
+  .slide {
+    img {
+      height: 100%;
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 25px;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .showVideo {
+    display: none;
+  }
+}

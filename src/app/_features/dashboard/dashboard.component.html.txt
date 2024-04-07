@@ -1,0 +1,414 @@
+<mp-header></mp-header>
+<mp-carousel style="transform: translate(-50%, -50%); position: relative;"></mp-carousel>
+<div class="mt-n5 position-relative" style="z-index:auto;">
+    <div class="container-fluid px-lg-5 ">
+        <div class="border-dark border-bottom border-2 ">
+            <div class="row tab">
+                <ul class="nav nav-tab-transition border-0 offset-lg-2 col-xl-9 col hm-tab-transition" id="myTab"
+                    role="tablist">
+                    <li class="nav-item text-center col-lg-2 col-6" role="presentation">
+                        <a class="nav-link bg-transparent border-0 text-white" id="nowshowing-tab" role="tab"
+                            aria-controls="nowshowing" aria-selected="true" (click)="switchShow('nowshowing')"
+                            [ngClass]="{
+                            'active': activeElem == 'nowshowing'
+                        }">
+                            <div class="hm-tab-ico text-ADADBE">
+                                <svg id="Capa_1" fill="#ADADBE" enable-background="new 0 0 511.4 511.4" height="40px"
+                                    viewBox="0 0 511.4 511.4" width="40px" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m160.866 294.809c-12.902-22.339-41.577-30.023-63.921-17.128-22.338 12.901-30.023 41.576-17.128 63.922 8.659 14.994 24.42 23.384 40.608 23.384 7.93 0 15.964-2.015 23.311-6.254.001 0 .001-.001.002-.001 22.338-12.903 30.022-41.577 17.128-63.923zm-68.059 39.294c-8.003-13.869-4.334-31.321 7.928-40.92 6.074 20.683 17.039 39.284 31.553 54.479-14.463 5.873-31.46.33-39.481-13.559zm51.754 4.691c-14.071-14.231-24.56-32-30.003-51.842 1.902-.35 3.818-.53 5.727-.53 10.997 0 21.709 5.702 27.591 15.887 6.887 11.936 5.128 26.529-3.315 36.485z" />
+                                    <path
+                                        d="m79.815 169.8c-12.894 22.344-5.209 51.018 17.132 63.921 7.348 4.24 15.38 6.254 23.311 6.254 16.186 0 31.949-8.392 40.608-23.384 0-.001.001-.001.001-.002 12.893-22.344 5.209-51.018-17.132-63.921-22.344-12.894-51.018-5.208-63.92 17.132zm64.749 2.81c8.439 9.955 10.198 24.544 3.312 36.479-6.904 11.953-20.452 17.725-33.313 15.363 5.445-19.841 15.93-37.611 30.001-51.842zm-12.264-8.872c-14.517 15.194-25.493 33.793-31.569 54.476-12.259-9.601-15.926-27.05-7.925-40.914 5.884-10.188 16.595-15.89 27.593-15.89 4.002 0 8.042.759 11.901 2.328z" />
+                                    <path
+                                        d="m228.602 427.502c25.801 0 46.792-20.991 46.792-46.792s-20.991-46.792-46.792-46.792-46.792 20.991-46.792 46.792c0 25.802 20.99 46.792 46.792 46.792zm0-78.583c13.809 0 25.584 8.853 29.963 21.179-9.574 2.512-19.613 3.863-29.964 3.863s-20.392-1.344-29.966-3.854c4.376-12.331 16.154-21.188 29.967-21.188zm-.001 40.042c10.839 0 21.376-1.309 31.47-3.765-2.187 15.413-15.462 27.307-31.469 27.307-16.01 0-29.288-11.898-31.471-27.315 10.095 2.454 20.63 3.773 31.47 3.773z" />
+                                    <path
+                                        d="m228.602 83.898c-25.801 0-46.792 20.991-46.792 46.792s20.991 46.792 46.792 46.792 46.792-20.991 46.792-46.792c-.001-25.801-20.992-46.792-46.792-46.792zm0 78.583c-13.811 0-25.588-8.855-29.966-21.184 9.574-2.511 19.614-3.858 29.965-3.858 10.352 0 20.383 1.37 29.956 3.885-4.385 12.315-16.155 21.157-29.955 21.157zm-.001-40.042c-10.842 0-21.375 1.328-31.472 3.785 2.178-15.423 15.458-27.326 31.472-27.326 16.008 0 29.285 11.896 31.47 27.311-10.094-2.455-20.63-3.77-31.47-3.77z" />
+                                    <path
+                                        d="m313.468 358.732c7.348 4.24 15.38 6.254 23.311 6.254 16.186 0 31.95-8.392 40.608-23.384 0-.001.001-.002.001-.002 12.894-22.345 5.209-51.019-17.131-63.921-22.344-12.893-51.018-5.209-63.921 17.132-12.894 22.344-5.209 51.018 17.132 63.921zm50.929-24.631c-8.022 13.89-25.016 19.433-39.478 13.563 14.512-15.196 25.472-33.8 31.545-54.483 12.264 9.599 15.934 27.05 7.933 40.92zm-55.071-31.79c5.884-10.188 16.595-15.89 27.594-15.89 1.911 0 3.831.181 5.736.532-5.444 19.842-15.946 37.605-30.017 51.837-8.44-9.955-10.199-24.546-3.313-36.479z" />
+                                    <path
+                                        d="m296.337 216.592c8.659 14.993 24.421 23.384 40.608 23.384 7.93 0 15.964-2.015 23.311-6.254 0 0 .001-.001.002-.001 22.338-12.901 30.022-41.575 17.128-63.922-12.901-22.338-41.574-30.021-63.921-17.128-22.338 12.9-30.023 41.574-17.128 63.921zm40.468-55.181c10.997 0 21.709 5.702 27.591 15.887 8.003 13.869 4.333 31.322-7.93 40.921-6.074-20.684-17.037-39.289-31.552-54.484 3.856-1.567 7.891-2.324 11.891-2.324zm-24.169 11.202c14.071 14.231 24.564 31.997 30.008 51.839-12.863 2.364-26.414-3.407-33.316-15.359-6.887-11.936-5.129-26.525 3.308-36.48z" />
+                                    <path
+                                        d="m228.602 216.292c-21.729 0-39.408 17.678-39.408 39.408s17.678 39.408 39.408 39.408 39.408-17.678 39.408-39.408-17.679-39.408-39.408-39.408zm0 63.816c-13.458 0-24.408-10.949-24.408-24.408s10.949-24.408 24.408-24.408 24.408 10.949 24.408 24.408-10.95 24.408-24.408 24.408z" />
+                                    <path
+                                        d="m148.847 125.053c1.272 0 2.562-.324 3.743-1.006 3.587-2.071 4.816-6.658 2.745-10.245l-5.915-10.246c-2.071-3.588-6.659-4.817-10.245-2.745-3.587 2.071-4.816 6.658-2.745 10.245l5.915 10.246c1.389 2.406 3.91 3.751 6.502 3.751z" />
+                                    <path
+                                        d="m304.611 387.354c-3.587 2.071-4.816 6.658-2.745 10.245l5.915 10.246c1.389 2.406 3.91 3.751 6.502 3.751 1.272 0 2.562-.324 3.743-1.006 3.587-2.071 4.816-6.658 2.745-10.245l-5.915-10.246c-2.07-3.587-6.658-4.816-10.245-2.745z" />
+                                    <path
+                                        d="m57.25 263.2h11.83c4.142 0 7.5-3.358 7.5-7.5s-3.358-7.5-7.5-7.5h-11.83c-4.142 0-7.5 3.358-7.5 7.5s3.357 7.5 7.5 7.5z" />
+                                    <path
+                                        d="m388.122 263.2h11.831c4.142 0 7.5-3.358 7.5-7.5s-3.358-7.5-7.5-7.5h-11.831c-4.142 0-7.5 3.358-7.5 7.5s3.357 7.5 7.5 7.5z" />
+                                    <path
+                                        d="m142.345 390.099-5.915 10.246c-2.071 3.587-.842 8.174 2.745 10.245 1.181.682 2.471 1.006 3.743 1.006 2.592 0 5.113-1.346 6.502-3.751l5.915-10.246c2.071-3.587.842-8.174-2.745-10.245-3.588-2.072-8.175-.842-10.245 2.745z" />
+                                    <path
+                                        d="m308.354 125.053c2.592 0 5.113-1.346 6.502-3.751l5.915-10.246c2.071-3.587.842-8.174-2.745-10.245-3.588-2.072-8.175-.842-10.245 2.745l-5.915 10.246c-2.071 3.587-.842 8.174 2.745 10.245 1.181.682 2.471 1.006 3.743 1.006z" />
+                                    <path
+                                        d="m494.222 427.708h-27.772c-4.142 0-7.5 3.358-7.5 7.5s3.358 7.5 7.5 7.5h27.772c1.201 0 2.178.977 2.178 2.178v21.883c0 1.201-.977 2.178-2.178 2.178h-182.923c17.239-6.679 33.638-15.469 48.877-26.239h71.525c4.142 0 7.5-3.358 7.5-7.5s-3.358-7.5-7.5-7.5h-52.533c3.784-3.322 7.484-6.767 11.077-10.36 43.179-43.177 66.958-100.584 66.958-161.647s-23.779-118.47-66.958-161.647c-43.177-43.176-100.583-66.954-161.643-66.954-67.049 0-130.477 29.286-174.019 80.348-2.688 3.152-2.311 7.886.841 10.573s7.886 2.312 10.573-.841c40.687-47.715 99.954-75.081 162.604-75.081 117.78 0 213.601 95.821 213.601 213.601s-95.821 213.601-213.601 213.601c-57.057 0-110.697-22.218-151.041-62.561-40.342-40.343-62.56-93.983-62.56-151.04 0-39.346 10.783-77.796 31.184-111.192 2.159-3.535 1.044-8.151-2.491-10.31-3.536-2.16-8.151-1.043-10.31 2.491-21.84 35.751-33.383 76.905-33.383 119.011 0 61.063 23.778 118.471 66.955 161.647 43.176 43.176 100.583 66.954 161.647 66.954 4.241 0 265.621-.354 265.621-.354 9.472 0 17.178-7.706 17.178-17.178v-21.883c-.001-9.472-7.707-17.178-17.179-17.178z" />
+                                </svg>
+                                <p class="mt-1 mb-0 lead go-book font-weight-bold">
+                                    Now Showing
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item text-center col-lg-2 col-6" role="presentation">
+                        <a class="nav-link bg-transparent border-0 text-white" id="upcoming-tab" role="tab"
+                            aria-controls="upcoming" aria-selected="false" (click)="switchShow('upcoming')" [ngClass]="{
+                            'active': activeElem == 'upcoming'
+                        }">
+                            <div class="hm-tab-ico text-ADADBE pointer">
+                                <svg fill="#ADADBE" height="40px" viewBox="-31 0 512 512" width="40px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g fill-rule="evenodd">
+                                        <path
+                                            d="m440.589844 206.675781h-341.171875l327.699219-94.929687c2.546874-.738282 4.695312-2.460938 5.976562-4.78125 1.28125-2.324219 1.585938-5.058594.847656-7.605469l-17.148437-59.199219c-6.851563-23.644531-28.867188-40.160156-53.539063-40.160156-5.199218 0-10.378906.738281-15.402344 2.191406l-307.675781 89.128906c-14.230469 4.121094-26.023437 13.582032-33.214843 26.632813-7.1875 13.050781-8.875 28.078125-4.753907 42.304687l16.753907 57.835938v238.253906c0 30.6875 24.964843 55.652344 55.648437 55.652344h120.164063c5.523437 0 10-4.476562 10-10s-4.476563-10-10-10h-120.160157c-19.660156 0-35.652343-15.992188-35.652343-35.652344v-136.085937h51.230468.023438.019531 78.3125.023437.023438 78.3125.023438.023437 78.3125.023437.019532 105.28125v136.085937c0 19.660156-15.992188 35.652344-35.652344 35.652344h-120.164062c-5.519532 0-10 4.476562-10 10s4.480468 10 10 10h120.164062c30.6875 0 55.652344-24.964844 55.652344-55.652344v-239.671875c0-5.523437-4.476563-10-10-10zm-176.332032 93.585938 42.488282-73.585938h55.261718l-42.484374 73.585938zm-78.359374 0 42.488281-73.585938h55.261719l-42.484376 73.585938zm-78.355469 0 42.484375-73.585938h55.265625l-42.488281 73.585938zm37.179687-129.457031-71.148437-68.335938 53.308593-15.441406c.375.546875.8125 1.0625 1.3125 1.542968l71.148438 68.335938-53.308594 15.441406c-.375-.546875-.816406-1.066406-1.3125-1.542968zm134-125.839844 71.148438 68.335937-53.308594 15.441407c-.375-.546876-.8125-1.066407-1.3125-1.542969l-71.148438-68.335938 53.308594-15.441406c.375.546875.8125 1.0625 1.3125 1.542969zm-75.265625 21.804687 71.148438 68.332031-53.308594 15.445313c-.375-.546875-.8125-1.066406-1.3125-1.542969l-71.148437-68.335937 53.308593-15.441407c.378907.542969.816407 1.0625 1.3125 1.542969zm149.960938-45.367187c3.210937-.929688 6.519531-1.402344 9.835937-1.402344 15.824219 0 29.9375 10.578125 34.328125 25.726562l14.367188 49.589844-40.121094 11.621094c-.378906-.546875-.816406-1.0625-1.316406-1.542969l-71.144531-68.332031zm-328.9375 106.199218c4.609375-8.371093 12.160156-14.433593 21.261719-17.070312l5.875-1.703125c.378906.546875.816406 1.066406 1.3125 1.542969l71.148437 68.335937-88.292969 25.578125-14.367187-49.589844c-2.636719-9.097656-1.546875-18.71875 3.0625-27.09375zm14.480469 99.074219h87.972656l-42.484375 73.585938h-45.488281zm303.65625 73.585938 42.484374-73.585938h45.488282v73.585938zm0 0" />
+                                        <path
+                                            d="m303.921875 405.113281c0-3.574219-1.90625-6.875-5-8.660156l-87.855469-50.722656c-3.09375-1.785157-6.90625-1.785157-10 0-3.09375 1.785156-5 5.085937-5 8.660156v101.445313c0 3.570312 1.90625 6.871093 5 8.65625 1.546875.894531 3.273438 1.34375 5 1.34375 1.726563 0 3.453125-.449219 5-1.34375l87.855469-50.71875c3.09375-1.785157 5-5.085938 5-8.660157zm-87.855469 33.402344v-66.804687l57.855469 33.402343zm0 0" />
+                                        <path
+                                            d="m234.773438 492c-5.507813 0-10 4.492188-10 10s4.492187 10 10 10c5.511718 0 10-4.492188 10-10s-4.488282-10-10-10zm0 0" />
+                                    </g>
+                                </svg>
+                                <p class="mt-1 mb-0 lead go-book font-weight-bold pointer">
+                                    Up Coming
+                                </p>
+                            </div>
+                        </a>
+                    </li> -->
+                    <!-- <li class="nav-item text-center col-lg-2" role="presentation" *ngIf="showVenue">
+                        <a class="nav-link bg-transparent border-0 text-white" id="venues-tab" role="tab"
+                            aria-controls="venues" aria-selected="false" (click)="switchShow('venues')" [ngClass]="{
+                                'active': activeElem == 'venues'
+                            }"> -->
+                            <!-- <div class="hm-tab-ico text-ADADBE pointer d-none d-lg-block">
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 480.001 480.001" fill="#ADADBE" width="40px" height="40px" style="
+                                    enable-background: new 0 0 480.001 480.001;
+                                " xml:space="preserve">
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M8.001,0.001c-4.418,0-8,3.582-8,8v232c0,4.418,3.582,8,8,8h80c4.418,0.001,8-3.581,8.001-7.999
+                                c0-0.38-0.027-0.76-0.081-1.137c-0.336-2.336-0.92-4.584-1.424-6.864h291.008c-0.504,2.28-1.088,4.528-1.424,6.864
+                                c-0.627,4.373,2.409,8.427,6.783,9.055c0.377,0.054,0.757,0.081,1.137,0.081h80c4.418,0,8-3.582,8-8v-240H8.001z M393.057,16.001
+                                l4.592,32.112c5.576,38.826,22.243,75.217,48,104.8c-40.309-25.401-67.251-67.396-73.536-114.624l-2.976-22.288H393.057z
+                                M86.945,16.001h23.92l-2.976,22.288c-6.279,47.214-33.201,89.201-73.488,114.608c25.735-29.582,42.386-65.963,47.952-104.776
+                                L86.945,16.001z M16.001,16.001h54.776l-4.272,29.856c-5.559,38.971-23.226,75.209-50.504,103.592V16.001z M16.001,232.001
+                                v-47.096c13.317,12.315,21.697,29.055,23.576,47.096H16.001z M55.553,232.001c-1.673-19.457-9.602-37.849-22.6-52.424
+                                c22.32,9.621,39,28.94,45.264,52.424H55.553z M390.337,216.001H89.657c-8.967-21.682-25.608-39.3-46.744-49.488
+                                c44.325-27.959,73.942-74.161,80.84-126.112l3.248-24.4h226l3.248,24.4c6.898,51.95,36.515,98.153,80.84,126.112
+                                C415.951,176.701,399.307,194.318,390.337,216.001z M401.785,232.001c6.262-23.485,22.943-42.805,45.264-52.424
+                                c-12.998,14.575-20.927,32.967-22.6,52.424H401.785z M464.001,232.001h-23.576c1.879-18.041,10.259-34.781,23.576-47.096V232.001z
+                                M464.001,149.449c-27.279-28.385-44.947-64.626-50.504-103.6l-4.272-29.848h54.776V149.449z" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path d="M474.921,398.937c-3.42-4.323-8.608-6.871-14.12-6.936h-20.8v-42.344c0.047-5.344-1.747-10.542-5.08-14.72
+                                c-3.42-4.323-8.608-6.871-14.12-6.936h-20.8v-42.344c0.047-5.344-1.747-10.542-5.08-14.72c-3.42-4.323-8.608-6.871-14.12-6.936
+                                h-49.6c-4.206,0.045-8.261,1.575-11.448,4.32c-3.455-2.766-7.742-4.288-12.168-4.32h-55.2c-4.53,0.054-8.904,1.667-12.384,4.568
+                                c-3.489-2.908-7.875-4.521-12.416-4.568h-55.2c-4.415,0.039-8.689,1.56-12.136,4.32c-3.187-2.745-7.242-4.275-11.448-4.32h-49.6
+                                c-5.5,0.075-10.675,2.622-14.088,6.936c-3.345,4.173-5.15,9.372-5.112,14.72v42.344h-20.8c-5.5,0.075-10.675,2.622-14.088,6.936
+                                c-3.345,4.173-5.15,9.372-5.112,14.72v42.344h-20.8c-5.5,0.075-10.675,2.622-14.088,6.936c-3.345,4.173-5.15,9.372-5.112,14.72
+                                v66.344h480v-8v-58.344C480.048,408.312,478.254,403.115,474.921,398.937z M328.001,285.657c-0.037-1.652,0.481-3.269,1.472-4.592
+                                c0.397-0.586,1.026-0.973,1.728-1.064h49.6c0.69,0.1,1.306,0.486,1.696,1.064c0.991,1.323,1.509,2.94,1.472,4.592v42.344h-12.768
+                                c-4.206,0.045-8.261,1.575-11.448,4.32c-3.455-2.766-7.742-4.288-12.168-4.32h-19.584V285.657z M248.001,285.657
+                                c-0.025-1.569,0.528-3.092,1.552-4.28c0.716-0.845,1.757-1.345,2.864-1.376h55.2c1.107,0.031,2.148,0.531,2.864,1.376
+                                c1.024,1.188,1.577,2.711,1.552,4.28v42.344h-19.616c-4.541,0.047-8.927,1.66-12.416,4.568c-3.489-2.908-7.875-4.521-12.416-4.568
+                                h-19.584V285.657z M168.001,285.657c-0.025-1.569,0.528-3.092,1.552-4.28c0.716-0.845,1.757-1.345,2.864-1.376h55.2
+                                c1.107,0.031,2.148,0.531,2.864,1.376c1.024,1.188,1.577,2.711,1.552,4.28v42.344h-19.616c-4.541,0.047-8.927,1.66-12.416,4.568
+                                c-3.489-2.908-7.875-4.521-12.416-4.568h-19.584V285.657z M96.001,285.657c-0.037-1.652,0.481-3.269,1.472-4.592
+                                c0.397-0.586,1.026-0.973,1.728-1.064h49.6c0.69,0.1,1.306,0.486,1.696,1.064c0.991,1.323,1.509,2.94,1.472,4.592v42.344h-19.552
+                                c-4.415,0.039-8.689,1.56-12.136,4.32c-3.195-2.752-7.263-4.283-11.48-4.32h-12.8V285.657z M16.001,464.001v-50.344
+                                c-0.037-1.652,0.481-3.269,1.472-4.592c0.397-0.586,1.026-0.973,1.728-1.064h49.6c0.69,0.1,1.306,0.486,1.696,1.064
+                                c0.991,1.323,1.509,2.94,1.472,4.592l0.032,50.344H16.001z M68.801,392.001h-12.8v-42.344c-0.037-1.652,0.481-3.269,1.472-4.592
+                                c0.397-0.586,1.026-0.973,1.728-1.064h49.6c0.69,0.1,1.306,0.486,1.696,1.064c0.991,1.323,1.509,2.94,1.472,4.592v42.344H92.417
+                                c-4.415,0.039-8.689,1.56-12.136,4.32C77.085,393.569,73.018,392.038,68.801,392.001z M152.001,464.001h-64v-50.344
+                                c-0.025-1.569,0.528-3.092,1.552-4.28c0.716-0.845,1.757-1.345,2.864-1.376h55.2c1.107,0.031,2.148,0.531,2.864,1.376
+                                c1.024,1.188,1.577,2.711,1.552,4.28L152.001,464.001z M147.585,392.001h-19.584v-42.344c-0.025-1.569,0.528-3.092,1.552-4.28
+                                c0.716-0.845,1.757-1.345,2.864-1.376h55.2c1.107,0.031,2.148,0.531,2.864,1.376c1.024,1.188,1.577,2.711,1.552,4.28v42.344
+                                h-19.616c-4.541,0.047-8.927,1.66-12.416,4.568C156.512,393.661,152.126,392.048,147.585,392.001z M232.001,464.001h-64v-50.344
+                                c-0.025-1.569,0.528-3.092,1.552-4.28c0.716-0.845,1.757-1.345,2.864-1.376h55.2c1.107,0.031,2.148,0.531,2.864,1.376
+                                c1.024,1.188,1.577,2.711,1.552,4.28L232.001,464.001z M227.585,392.001h-19.584v-42.344c-0.025-1.569,0.528-3.092,1.552-4.28
+                                c0.716-0.845,1.757-1.345,2.864-1.376h55.2c1.107,0.031,2.148,0.531,2.864,1.376c1.024,1.188,1.577,2.711,1.552,4.28v42.344
+                                h-19.616c-4.541,0.047-8.927,1.66-12.416,4.568C236.512,393.661,232.126,392.048,227.585,392.001z M312.001,464.001h-64v-50.344
+                                c-0.025-1.569,0.528-3.092,1.552-4.28c0.716-0.845,1.757-1.345,2.864-1.376h55.2c1.107,0.031,2.148,0.531,2.864,1.376
+                                c1.024,1.188,1.577,2.711,1.552,4.28L312.001,464.001z M307.585,392.001h-19.584v-42.344c-0.025-1.569,0.528-3.092,1.552-4.28
+                                c0.716-0.845,1.757-1.345,2.864-1.376h55.2c1.107,0.031,2.148,0.531,2.864,1.376c1.024,1.188,1.577,2.711,1.552,4.28v42.344
+                                h-19.616c-4.541,0.047-8.927,1.66-12.416,4.568C316.512,393.661,312.126,392.048,307.585,392.001z M392.001,464.001h-64v-50.344
+                                c-0.025-1.569,0.528-3.092,1.552-4.28c0.716-0.845,1.757-1.345,2.864-1.376h55.2c1.107,0.031,2.148,0.531,2.864,1.376
+                                c1.024,1.188,1.577,2.711,1.552,4.28L392.001,464.001z M387.585,392.001h-19.584v-42.344c-0.037-1.652,0.481-3.269,1.472-4.592
+                                c0.397-0.586,1.026-0.973,1.728-1.064h49.6c0.69,0.1,1.306,0.486,1.696,1.064c0.991,1.323,1.509,2.94,1.472,4.592v42.344h-12.768
+                                c-4.206,0.045-8.261,1.575-11.448,4.32C396.297,393.554,392.011,392.033,387.585,392.001z M408.001,464.001v-50.344
+                                c-0.037-1.652,0.481-3.269,1.472-4.592c0.397-0.586,1.026-0.973,1.728-1.064h49.6c0.69,0.1,1.306,0.486,1.696,1.064
+                                c0.991,1.323,1.509,2.94,1.472,4.592l0.032,50.344H408.001z" />
+                                        </g>
+                                    </g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                    <g></g>
+                                </svg>
+                                <p class="mt-1 mb-0 lead go-book font-weight-bold pointer">
+                                    Venue
+                                </p>
+                            </div> -->
+                        <!-- </a>
+                    </li> -->
+                    <!--@TODO Filter needs to be implemented-->
+                    <li class="nav-item text-center ml-auto mt-3 d-none d-lg-block" role="presentation">
+                        <div class="d-inline-block align-end">
+
+                            <span class="badge bg-white text-707070 go-book font-weight-bolder rounded-pill py-1"
+                                *ngFor="let displayedGenre of genreStoreArr">
+                                <a (click)="closeGenre(displayedGenre)">
+                                    {{displayedGenre}}
+                                    <span class="bg-707070 text-white rounded-circle px-1">
+
+                                        &times;
+                                    </span>
+                                </a>
+                            </span>
+
+                            <span class="badge bg-white text-707070 go-book font-weight-bolder rounded-pill py-1"
+                                *ngFor="let displayedLang of languageStoreArr">
+                                <a (click)="closeLanguage(displayedLang)">
+                                    {{displayedLang}}
+                                    <span class="bg-707070 text-white rounded-circle px-1">
+
+                                        &times;
+                                    </span>
+                                </a>
+                            </span>
+
+                        </div>
+                        <a *ngIf="filter" class="nav-link bg-transparent border-0 text-white d-inline-block align-end"
+                            (click)="openFilterModal()">
+                            <div class="hm-tab-ico">
+                                <p class="mt-3 mb-0 lead go-book font-weight-bold"> Filter
+                                    <span><svg xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
+                                            viewBox="0 0 24 24">
+                                            <defs>
+                                                <clipPath id="clip-path">
+                                                    <rect width="24" height="24" fill="none" />
+                                                </clipPath>
+                                            </defs>
+                                            <g id="icons_light_setting" data-name="icons/light/setting"
+                                                clip-path="url(#clip-path)">
+                                                <rect id="bg" width="24" height="24" fill="none" />
+                                                <path id="path"
+                                                    d="M16.824,16.976a2.255,2.255,0,0,1-4.267,0h-9.3a.762.762,0,1,1,0-1.524h9.3a2.255,2.255,0,0,1,4.267,0h.914a.762.762,0,0,1,0,1.524Zm-2.9-.762a.762.762,0,1,0,.762-.762.72.72,0,0,0-.762.762Zm-1.3-10.667a2.255,2.255,0,0,1-4.267,0h-5.1A.72.72,0,0,1,2.5,4.786a.72.72,0,0,1,.762-.762h5.1a2.255,2.255,0,0,1,4.267,0h5.1a.72.72,0,0,1,.762.762.72.72,0,0,1-.762.762Zm-2.9-.762a.762.762,0,1,0,1.524,0,.762.762,0,1,0-1.524,0Zm8,6.476h-9.3a2.255,2.255,0,0,1-4.267,0H3.262a.762.762,0,1,1,0-1.524h.914a2.255,2.255,0,0,1,4.267,0h9.3a.762.762,0,0,1,0,1.524ZM5.548,10.5a.72.72,0,0,0,.762.762.762.762,0,1,0,0-1.524.72.72,0,0,0-.762.762Z"
+                                                    transform="translate(1.5 1.5)" fill="#fff" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="">
+            <div class="">
+                <div class="tab-content">
+                    <div class="tab-pane" [ngClass]="{
+                    'active': activeElem == 'nowshowing'}" id="nowshowing" role="tabpanel"
+                        aria-labelledby="nowshowing-tab">
+                        <mp-now-showing *ngIf="activeElem == 'nowshowing'"
+                            [eventgenreFilters]="genreFilters.asObservable()"></mp-now-showing>
+                    </div>
+
+                    <div class="tab-pane" [ngClass]="{'active': activeElem == 'upcoming'}" id="upcoming" role="tabpanel"
+                        aria-labelledby="upcoming-tab">
+                        <mp-up-coming *ngIf="activeElem == 'upcoming'"></mp-up-coming>
+                    </div>
+                    <div class="tab-pane" [ngClass]="{'active': activeElem == 'venues'}" id="venues" role="tabpanel"
+                        aria-labelledby="venue-tab">
+                        <mp-venue *ngIf="activeElem == 'venues'" [eventFromDashboard]="fromDashboard.asObservable()">
+                        </mp-venue>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <ng-template #venueTemplate>
+    <div class="modal-bg bg-373D4A" id="venue" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="venueLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable modal-custom-60">
+            <div
+                class="modal-content shadow-custom-9 bg-3e4453 border-bottom border-primary border-4 border-top-0 border-left-0 border-right-0">
+                <div class="container-fluid py-4 bg-0F1628">
+                    <div class="row">
+                        <div class="col-xl-12 text-center">
+                            <span class="modal-title go-medium text-primary text-center h3" id="venueLabel">Venue</span>
+                            <button type="button" class="close fs-20 text-right text-9F9F9F text-shadow-0"
+                                (click)="close()" (click)="clearText()">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="!venueService.isErrorVenuebyCity else showVenues">
+                    <div class="modal-body text-left px-5 border-top border-primary bg-020A1C">
+                        <div class="row">
+                            <div class="col-xl-10 mx-auto">
+                                <div class="input-group my-3">
+                                    <input
+                                        class="form-control p-4 go-light text-primary font-weight-bolder border border-primary border-right-0 bg-0F1628  border-radius-top-left font-1-2"
+                                        type="search" placeholder="Search" id="example-search-input" [(ngModel)]="query"
+                                        autocomplete="off">
+                                    <span class="input-group-append">
+                                        <div
+                                            class="input-group-text bg-0F1628  border-primary border-left-0 border-radius-top-right">
+                                            <img src="assets/images/img/search-primary.svg">
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 my-4 fix-height overflow-auto">
+                                <div class="row">
+                                    <ng-container *ngIf="venueService.venuescity | async as venuescity">
+                                        <div class="col-xl-4"
+                                            *ngFor="let venuess of venuescity | search:query:'venueName'">
+                                            <div *ngIf="venuess.success!= false">
+                                                <div class="bg-020A1C">
+                                                    <p class="pt-3 pb-3 pl-5 form-check-label go-light lead text-white pointer"
+                                                        (click)="onVenueSelect(venuess.venueId, venuess.venueName,venuess.addressLine1,venuess.addressLine2)">
+                                                        {{venuess.venueName}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="venuess.success== false">
+                                                <p
+                                                    class="offset-6 text-center pt-3 pb-3 pl-5 form-check-label go-book lead text-white ">
+                                                    No Result Found
+                                                </p>
+                                                <img class=" offset-11 w-60 mx-50 "
+                                                    src="../../../../assets/images/img/no-date.svg">
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #showVenues>
+                    <div class="modal-body text-left px-5 border-top border-primary border-2 my-10 bg-020A1C">
+                        <div class="row">
+                            <div class="col-xl-12 text-center">
+                                <p class="go-medium text-white h4">No Venue Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</ng-template> -->
+
+
+<ng-template #filterTemplate>
+    <div class="modal-dialog model-lg modal-dialog-centered modal-dialog-scrollable modal-custom-50 bg-373D4A">
+        <div
+            class="modal-content shadow-custom-9 bg-3e4453 border-bottom border-primary border-4 border-top-0 border-left-0 border-right-0">
+            <div class="container-fluid py-4 bg-0F1628">
+                <div class="row">
+                    <div class="col-xl-12 text-center">
+                        <span class="modal-title go-medium text-primary text-center font-weight-bolder h3"
+                            id="langgenreLabel">Filter</span>
+                        <button type="button" class="close text-right text-707070 text-shadow-0" data-dismiss="modal"
+                            aria-label="Close" data-toggle="modal" data-target="#novenue">
+                            <span aria-hidden="true" (click)="close()">×</span>
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body text-left px-5 border-top border-primary bg-020A1C">
+                <div class="row ml-auto">
+                    <!-- <form class="col-xl-10 mx-auto">
+                        <div class="input-group my-3">
+                            <input
+                                class="form-control p-4 go-book text-primary font-weight-bolder border border-primary border-right-0 bg-secondary border-2 border-radius-top-left font-1-4"
+                                type="search" placeholder="Search" id="example-search-input">
+                            <span class="input-group-append">
+                                <div
+                                    class="input-group-text bg-secondary border-2 border-primary border-left-0 border-radius-top-right">
+                                    <img src="./assets/images/img/search.svg">
+                                </div>
+                            </span>
+                        </div>
+                    </form> -->
+                    <form class="col-xl-12">
+                        <div class="my-3">
+                            <div class="row">
+                                <div class="col-xl-5">
+                                    <p class="go-book text-primary h3 text-center my-4">Language</p>
+                                    <div class="row mb-4">
+                                        <div class="col-xl-6 col-12">
+                                            <div class="form-check">
+                                                <label class="form-check-label lead mx-2 my-2 go-book text-white col-4"
+                                                    *ngFor="let lang of filterdLang">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        [(ngModel)]="lang.checked" [ngModelOptions]="{standalone: true}"
+                                                        (change)="addLanguage(lang.languageName,$event)">
+                                                    <span class="ml-10-a">{{lang.languageName}}</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-xl-1 border-right border-ADADBE"></div>
+                                <div class="offset-lg-1 col-xl-5">
+                                    <p class="go-book text-primary h3 text-center my-4">Genre</p>
+                                    <div class="row mb-4">
+                                        <div class="col-xl-6">
+                                            <div class="form-check">
+                                                <label class="form-check-label lead mx-2 my-2 go-book text-white"
+                                                    *ngFor="let gen of filterdGenre">
+                                                    <input class="form-check-input " type="checkbox"
+                                                        [(ngModel)]="gen.checked" [ngModelOptions]="{standalone: true}"
+                                                        (change)="addGenreName(gen.genreName,$event)">
+                                                    <span class="ml-10-a">{{gen.genreName}} </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" [disabled]="!applyFilter"
+                            class="col-xl-3 offset-9 btn btn-primary font-weight-bolder font-1-2 rounded-pill"
+                            (click)="apply()">Apply</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<!-- <mp-footer></mp-footer> -->
+<ng-template #locationTemplate>
+    <mp-view-locations (emitLocation)="locationChange($event)"></mp-view-locations>
+</ng-template>

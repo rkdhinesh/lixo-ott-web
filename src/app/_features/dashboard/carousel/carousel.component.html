@@ -1,0 +1,157 @@
+
+<main role="main">
+  <div>
+    <div class="row">
+      <div class="carousel-container">
+        <div class="carousel-overlay">
+          <div class="overlay-header-content d-none d-lg-block">
+            <div class="row">
+              <div class="col">
+                <img src="/assets/images/img/Group 23.png" height="28" role="button">
+              </div>
+              <!-- <div class="col-6 float-right">
+                <img src="/assets/images/img/Icon.png">
+              </div> -->
+            </div>
+          </div>
+          <div class="overlay-header-content1 d-none d-lg-block">
+            <div class="row">
+              <div class="col">
+                <img src="/assets/images/img/Icon.png" height="28" role="button">
+              </div>
+              <!-- <div class="col-6 float-right">
+                <img src="/assets/images/img/Icon.png">
+              </div> -->
+            </div>
+          </div>
+          <ngx-slick-carousel
+            class="carousel"
+            #slickModal="slick-carousel"
+            [config]="slideConfig"
+            (afterChange)="onSlideChange($event)">
+            <div ngxSlickItem *ngFor="let slide of slides; let i = index" class="slide">
+              <div class="slide-content" style="position: relative;">
+                <!-- <div *ngIf="hideBanner">
+                  <img src="{{ slide.imgMobile }}" alt=""  class="d-block d-sm-none" style="width: 100%"/>
+                </div> -->
+                <div class="showVideo">
+                  <video poster="{{ slide.imgMobile }}" [muted]="'muted'" class="d-block d-sm-none hidden-md-up" style="width: 100%" #videoPlayer (click)="playPauseOption(i)">
+                    <source src="{{slide.video}}" type="video/mp4" class=" d-block d-sm-none">
+                  </video>
+                </div>
+                
+                
+                <img src="{{ slide.img }}" alt="" class="px-0 img-fluid d-none d-lg-block" style="height: 100%; width: 100%;"/>
+                <img src="{{ slide.img }}" alt="" class="px-0 img-fluid d-none d-md-block d-lg-none" style="height: 430px; width: 100%;"/>
+                <div class="gradient-overlay" (click)="playPauseOption(i)"></div>
+                <div class="overlay-content-2 d-none d-md-block d-lg-none">
+                  <!-- <div class="grad1"></div> -->
+                  <div class="row">
+                    <div class="col mx-5 my-3">
+                      <h3 style="font-size: 2.5rem;">{{slide.title}}</h3>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col mx-5 my-auto">
+                      <button class="btn btn-primary rounded-pill mr-3 px-3" style="background-color: #0aa5ae; width: max-content; font-size: 1.5rem;"><i class="fa-solid fa-play"></i> Trailer</button>
+                      <button class="btn btn-primary rounded-pill ml-3 px-4" style="background-color: #0aa5ae; width: max-content; font-size: 1.5rem;"><i class="fa-solid fa-play"></i> Play</button>
+                    </div>
+                    <!-- <div class="col-6 my-auto">
+                      
+                    </div> -->
+                  </div>
+                </div>
+                <div class="overlay-content-1 d-block d-md-none">
+                  <!-- <div class="grad1"></div> -->
+                  <div class="row">
+                    <div class="col text-center">
+                      <i class="fa-solid fa-play" style="font-size: 3.5rem;" role="button" (click)="playPauseOption(i)"  *ngIf="isPlaying"></i>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top: 60%;">
+                    <div class="col text-right mr-4">
+                      <i class="fa-solid fa-volume-xmark" style="font-size: 2.5rem;" role="button" (click)="muteUnmute()" *ngIf="videoPlayer.muted && !videoPlayer.paused"></i>
+                      <i class="fa-solid fa-volume-low" style="font-size: 2.5rem;" role="button" (click)="muteUnmute()" *ngIf="!videoPlayer.muted && !videoPlayer.paused"></i>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col mx-3 my-3" style="margin-top: 80%;">
+                      <h3 style="font-size: 2.5rem;">{{slide.title}}</h3>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col my-auto text-center">
+                      <button class="btn btn-primary rounded-pill mr-3" style="background-color: #0aa5ae; width: 45%; font-size: 1.5rem;"><i class="fa-solid fa-play"></i> Trailer</button>
+                      <button class="btn btn-primary rounded-pill ml-3" style="background-color: #0aa5ae; width: 45%; font-size: 1.5rem;" routerLink="/movie-detail"><i class="fa-solid fa-play"></i> Play</button>
+                    </div>
+                    <!-- <div class="col-6 my-auto">
+                      
+                    </div> -->
+                  </div>
+                </div>
+                <div class="overlay-content d-none d-lg-block my-auto">
+                  <!-- <div class="grad1"></div> -->
+                <div class="row ml-5">
+                  <div class="col ml-5">
+                    <p class="ml-5" style="font-size: 3rem;">{{slide.title}}</p>
+                  </div>
+                </div>
+                <div class="row ml-5">
+                  <div class="col-xl-4 col-6 ml-5">
+                     <p class="ml-5" style="font-size: 1.3rem;">{{slide.description}}</p>
+                  </div>
+                </div>
+                <div class="row ml-5">
+                  <div class="col ml-5">
+                    <div class="ml-5 d-flex">
+                    <img src="/assets/images/img/IMDB.png" style="height: 1.2rem;">
+                    <p class="pl-2">  
+                      {{slide.imdb}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row ml-5">
+                  <div class="col ml-5">
+                    <p class="ml-5">
+                      <span class="text-danger" style="background-color: transparent;font-size: 1rem;">2B+</span>{{slide.hits}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-center">
+                    <button class="btn btn-primary rounded-pill px-3 py-2 my-auto" style="background-color: #0aa5ae; width: auto; height: auto; font-size: 0.9rem;" routerLink="/movie-detail"><i class="fa-solid fa-play"></i> Watch Now</button>
+                    <button class="btn btn-primary rounded-pill px-3 py-2 ml-4 my-auto" style="background-color: #0aa5ae;width: auto; height: auto; font-size: 0.9rem;"><i class="fa-solid fa-play"></i> Watch Trailer</button>
+                    <span class="pl-4 my-auto" style="background-color: transparent; cursor: pointer;">
+                      <img src="\assets\images\img\Button.png" height="55">
+                      <!-- <i class="fa-solid fa-plus d-flex justify-content-center mt-4" style="font-size: large;"></i> -->
+                    </span>
+                    <span class="my-auto" style="background-color: transparent; cursor: pointer;">
+                      <img src="\assets\images\img\Button-1.png" height="55">
+                      <!-- <i class="fa-regular fa-thumbs-up d-flex justify-content-center mt-4" style="font-size: large;"></i> -->
+                    </span>
+                    <span class="my-auto" style="background-color: transparent; cursor: pointer;">
+                      <img src="\assets\images\img\Button-2.png" height="55">
+                      <!-- <i class="fa-solid fa-volume-low d-flex justify-content-center mt-4" style="font-size: large;"></i> -->
+                    </span>
+                  </div>
+                </div>
+                <!-- <div class="grad2"></div> -->
+              </div>
+              </div>
+            </div>
+          </ngx-slick-carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<!-- <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+<div class="container-fluid px-5 mt-n6 shadow-custom">
+  <img class="w-50 mw-100" src="{{ slide.img }}" alt="home-banner">
+</div>
+</div> -->
+
+<!-- <div class="container-fluid  mt-n6 shadow-custom homebanner d-lg-flex d-none">
+  <img class="w-100 mw-100" src="assets/images/img/homebanner.jpg" alt="home-banner">
+</div> -->

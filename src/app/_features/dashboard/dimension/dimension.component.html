@@ -1,0 +1,77 @@
+<!-- <div>
+    <div class="modal-header summary-header">
+        <p></p>
+        <div class="modal-title">
+            <button type="button" class="close" data-dismiss="modal">
+                <i class="far fa-times-circle"></i>
+            </button>
+        </div>
+    </div>
+    <div style="text-align: center">
+
+       <div *ngIf="showService.movies$ | async as movies">
+            <div *ngFor="let movie of movies">
+                <div *ngIf="movie.groupId > 0">
+                    <div *ngFor="let available of movie.moviechoice">
+                        <div class="format-heading">
+                            {{ available.language }}
+                        </div>
+                        <div *ngFor="let option of available.availableOptions"
+                            (click)="getMovieDimension(option.movieId)">
+                            <span class="format-dimensions ">
+                                {{ option.dimension }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div> -->
+
+<div class="shadow-custom-9 bg-3e4453 border-bottom border-primary border-2 border-top-0 border-left-0 border-right-0">
+
+    <div class="container-fluid py-4 bg-373D4A">
+        <div class="row">
+            <div class="col-xl-12 text-center">
+                <span class="modal-title go-medium text-primary text-center font-weight-bolder h3"
+                    id="locationLabel">Choose Experience</span>
+                <span><button type="button" class="close fs-20 text-right text-9F9F9F text-shadow-0 position-absolute r-5"
+                        aria-label="Close" (click)="close()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-body text-left px-5 border-top border-primary border-2" *ngIf="selectedMovie">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="row align-items-end bg-3e4453 px-3 py-4 ">
+                    <p class="go-book text-primary h3 font-weight-bolder text-center my-4"> Language </p>
+                    <div class="col-xl-2-2 p-3 text-center"
+                        *ngFor="let movieLanguage of selectedMovie.movieChoice;index as i">
+                        <div [ngClass]="choosenExperience==i?'selected':''">
+
+                            <p class="form-check-label go-book lead text-white mx-2 my-2 pointer"
+                                (click)="choosenExperience = i;">{{movieLanguage.language}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-end bg-3e4453 px-3 py-4 ">
+                    <p class="go-book text-primary h3 font-weight-bolder text-center my-4"> Experience </p>
+                    <div class="col-xl-2-2 p-3 text-center"
+                        *ngFor="let movieExperience of selectedMovie.movieChoice[choosenExperience].availableOptions">
+                        <p class="form-check-label go-book lead text-white mx-2 my-2 pointer"
+                            (click)="selectedMovieExp(movieExperience.movieId,movieExperience.dimension)">
+                            {{movieExperience.dimension}}</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

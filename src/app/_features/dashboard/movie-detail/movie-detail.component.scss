@@ -1,0 +1,565 @@
+.jumbotron {
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: fadeIn;
+    animation-duration: 3s;
+    width: 100%;
+    height: 500px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 0rem 0rem;
+}
+
+.movie-details-container {
+    background: #0a0a0a;
+    width: 50.3rem;
+    margin: -9.7rem;
+}
+
+.movie-synopsis {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.movie-synopsis h4 {
+    padding-left: 2%;
+    padding-top: 2%;
+}
+
+.movie-synopsis p {
+    padding: 2%;
+}
+
+.cast-crew {
+    width: 80px;
+    height: 75px;
+}
+
+.user-review {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    height: 271px;
+    padding-top: 1px;
+    overflow: auto;
+}
+
+.user-review h4 {
+    padding-left: 2%;
+    padding-top: 2%;
+}
+
+.user-review p {
+    margin: 1%;
+}
+
+.user-card {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    background-color: #272A47;
+    border-radius: 10px;
+    margin: 5%;
+}
+
+.review-font {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.cast-review-font {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px
+}
+
+.back-button {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #FFAF29;
+}
+
+.recommended-movie-img {
+    width: 256px;
+    height: 357.91px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0aa5ae;
+    border-color: #0aa5ae;
+}
+
+.btn-primary:hover {
+    color: #0aa5ae;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.play-btn {
+    width: 20px;
+    height: 38px;
+    background: radial-gradient( rgb(10, 165, 174) 65%, rgba(255, 255, 255, 1) 30%);
+    border-radius: 50%;
+    position: relative;
+    display: block;
+    margin: 12px auto;
+    box-shadow: 0px 0px 25px 3px rgb(10, 165, 174);
+}
+
+
+/* triangle */
+
+.play-btn::after {
+    content: "";
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    -webkit-transform: translateX(-40%) translateY(-50%);
+    transform: translateX(-20%) translateY(-50%);
+    transform-origin: center center;
+    width: 0;
+    height: 0;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: 15px solid #fff;
+    z-index: 100;
+    -webkit-transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+
+/* pulse wave */
+
+.play-btn:before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation: pulsate1 2s;
+    animation: pulsate1 2s;
+    -webkit-animation-direction: forwards;
+    animation-direction: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: steps;
+    animation-timing-function: steps;
+    opacity: 1;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, .75);
+    top: -30%;
+    left: -30%;
+    background: rgba(198, 16, 0, 0);
+}
+
+@-webkit-keyframes pulsate1 {
+    0% {
+        -webkit-transform: scale(0.6);
+        transform: scale(0.6);
+        opacity: 1;
+        box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 30px 15px rgba(255, 255, 255, 0.75);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+        box-shadow: none;
+    }
+}
+
+@keyframes pulsate1 {
+    0% {
+        -webkit-transform: scale(0.6);
+        transform: scale(0.6);
+        opacity: 1;
+        box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
+    }
+    100% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1);
+        opacity: 0;
+        box-shadow: none;
+    }
+}
+
+.gradient-button {
+    margin: 10px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+    padding: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #FFF;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    width: 110px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 25px;
+}
+
+.gradient-button:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin: 8px 10px 12px;
+    color: #FFF;
+}
+
+.gradient-button-4 {
+    background-image: radial-gradient(closest-side at 50% 50%, #9FE1E4 0%, #1CACB4 89%, #0AA5AE 100%)
+}
+
+.gradient-button-4:hover {
+    background-position: right center;
+}
+
+.rating {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+
+.rating:not(:checked)>input {
+    display: none;
+}
+
+
+/* - - - - - LIKE */
+
+#like {
+    bottom: -65px;
+}
+
+#like:not(:checked)>label {
+    cursor: pointer;
+    color: rgba(233, 54, 40, .4);
+}
+
+#like:not(:checked)>label:hover,
+#like:not(:checked)>label:hover~label {
+    color: rgba(233, 54, 40, .6);
+}
+
+#like>input:checked+label:hover,
+#like>input:checked+label:hover~label,
+#like>input:checked~label:hover,
+#like>input:checked~label:hover~label,
+#like>label:hover~input:checked~label {
+    color: rgba(233, 54, 40, .8);
+}
+
+#like>input:checked~label {
+    color: rgb(233, 54, 40);
+}
+
+.userrating {
+    position: relative;
+    left: 15%;
+    text-align: center;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.play .mobile {
+    display: none;
+    max-width: 100%;
+    width: 25%;
+}
+
+@media (max-width: 800px) {
+    .mobile {
+        position: relative;
+        bottom: 185px;
+        display: block;
+    }
+    .desktop {
+        display: none;
+    }
+}
+
+.userimg .mobile {
+    display: none;
+    max-width: 100%;
+    width: 20%;
+}
+
+@media (max-width: 800px) {
+    .userimg .mobile {
+        display: block;
+    }
+    .userimg .desktop {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .backmobile {
+        position: relative;
+        bottom: 195px;
+        display: block;
+    }
+    .backdesktop {
+        display: none;
+    }
+}
+
+::ng-deep .modal-open .modal {
+    backdrop-filter: blur(0px) !important;
+    background-color:rgba(4, 13, 42, 0.7)
+}
+
+::ng-deep  .modal {
+    backdrop-filter: blur(0px) !important;
+    background-color:rgba(4, 13, 42, 0.7)
+}
+
+.overlay-header-content {
+    position: absolute;
+    top: 3%;
+    left: 45%;
+    // right: 10%;
+    /* Ensure content is above the image */
+    color: white;
+    /* Set text color */
+    z-index: 1;
+  }
+  
+  .overlay-header-content1 {
+    position: absolute;
+    top: 3%;
+    right: 10%;
+    // right: 10%;
+    /* Ensure content is above the image */
+    color: white;
+    /* Set text color */
+    z-index: 1;
+  }
+
+// ::ng-deep .modal-dialog {
+//     margin-left: 10% !important;
+//     margin-top :2% !important
+    
+// }
+// ::ng-deep .modal-custom {
+//     position: relative !important;
+//     margin: auto !important;
+// }
+// ::ng-deep .modal-custom {
+//     padding: auto 40% !important; 
+//     width: max-content !important;
+// }
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgb(9,15,29,1) 100%);
+  }
+
+  .overlay-content-1 {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    width: 90%;
+    // height: 100%;
+    /* Ensure content is above the image */
+    color: white;
+    transform: translate(-50%, -50%);
+    /* Set text color */
+  }
+
+::ng-deep .modal-custom {
+    margin-left: 10% !important;
+    margin-top: 2% !important;
+    width: 35% !important;
+    height: 50% !important
+}
+
+::ng-deep .modal-content {
+    background-color: transparent !important;
+    border: transparent !important;
+}
+
+.modal-dialog .modal-dialog-centered {
+    max-width: 662px;
+}
+
+// ::ng-deep .modal-content {
+//     width: max-content !important;
+// }
+
+// ::ng-deep .modal-open {
+//     overflow: auto !important;
+// }
+
+::ng-deep .modal-backdrop.show {
+    opacity: 0.5 !important; /* Adjust opacity if needed */
+}
+// ::ng-deep .modal {
+//     position: fixed;
+// }
+
+.fix-height {
+    height: 400px;
+    width: 100%;
+}
+
+.image-container {
+    position: inherit;
+    display: inline-block;
+    width: 100%;
+    height: inherit;
+ /* Ensure the container wraps around the image */
+  }
+  
+  .image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-image: linear-gradient(to top, rgba(255, 0, 0, 0), black);
+    z-index: 1; /* Adjust as needed to position the gradient above the image */
+    pointer-events: none; /* Allow pointer events to pass through to the image */
+    border-radius: 10px;
+  }
+
+  .image-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background-image: linear-gradient(rgba(255,0,0,0), #0F1628);
+    z-index: 1; /* Adjust as needed to position the gradient above the image */
+    pointer-events: none; /* Allow pointer events to pass through to the image */
+    border-radius: 10px;
+  }
+  
+  .image-container img {
+    display: block;
+    width: 100%;
+    height: inherit;
+    z-index: 0; /* Ensure the image is behind the gradient */
+  }
+
+  .grad1 {
+    position: relative;
+    width: 100%;
+    background-image: linear-gradient(to top,rgba(255,0,0,0), #0F1628);
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  .text-overlay {
+    position: absolute;
+    width: inherit;
+    top: 0;
+    color: white; /* Text color */
+    z-index: 2; /* Ensure the text appears above the gradient */
+    text-align: center; /* Adjust text alignment as needed */
+}
+
+.text-overlay h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.text-overlay p {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: auto; /* or set a fixed height that fits the image */
+}
+
+.overlay-header-content,
+.overlay-content {
+    position: absolute;
+    color: white;
+    z-index: 1;
+    /* Use percentage-based positioning */
+}
+
+.overlay-header-content {
+    top: 2.4%; /* Adjust as needed */
+    right: 5%; /* Adjust as needed */
+}
+  
+.overlay-content {
+    top: 55%; /* Adjust as needed */
+    left: 5%; /* Adjust as needed */
+    width: 90%; /* Adjust as needed */
+    transform: translateY(-50%); /* Center the content vertically */
+}
+  
+@media (max-width: 767px) {
+    .overlay-header-content {
+        display: none; /* Hide on smaller devices if needed */
+    }
+
+    .overlay-content {
+        top: 50%; /* Adjust as needed for smaller devices */
+    }
+}
+  .rounded-circle.ml-5, .rounded-circle.ml-4 {
+    width: 50px;
+    height: 50px;
+    margin: 3px;
+    background-color: #555;
+  }
+  
+  .rounded-circle i {
+    align-items: center;
+  }
+
+  @media only screen and (max-width: 500px) {
+    #mobile {
+        margin-top: 50% !important;
+    }
+    ::ng-deep #mobileres {
+        margin-top: 50% !important;
+    }
+
+  }
+
+  @media screen and (min-width: 600px) {
+    ::ng-deep #mobileres {
+        width: 45rem !important;
+    }
+    ::ng-deep .payment {
+        width: 45rem !important;
+    }
+
+  }
+
+  ::ng-deep .modal.fade.show {
+    overflow-y: auto !important;
+  }
+
+
+  

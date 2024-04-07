@@ -1,0 +1,460 @@
+<mp-header></mp-header>
+<mp-carousel ></mp-carousel>
+<div class="mt-n10 position-relative" style="background-color: #0F1628; margin-top: -3%; margin-left: 6%;margin-right: 6%;border-radius: 10px;">
+    <div class="container-fluid px-lg-5 mt-5" style="border-radius: 10%;">
+        <div class="row">
+            <div class="col-6 mt-4 my-auto">
+                <h1 class="text-white mt-5 mb-5 d-none d-xl-block">New Releases</h1>
+                <p class="text-white mt-5 mb-5 d-block d-lg-none" style="font-size: 20px;">New Releases</p>
+            </div>
+            <div class="col-6 mt-4 my-auto">
+                <h5 class="text-white px-lg-5 float-right d-none d-sm-block" style="text-decoration: underline;" role="button">View all</h5>
+                <h5 class="text-white px-lg-5 float-right d-block d-sm-none" style="text-decoration: underline;" role="button">View all</h5>
+            </div>
+        </div>
+        <div class="row mb-5" role="button">
+            <div class="col mb-5">
+                <div class="card p-0 ml-5 float-left d-none d-lg-block" style="width:80%; max-width: 25rem; height:21rem; border:2px solid #0aa5ae; border-radius: 10px; background-color: #242834;" (mouseenter)="openModal(hoverTemplate,'hoverTemplate')"> <!--(mouseenter)="openModal(hoverTemplate,'hoverTemplate')"-->
+                    <div class="row">
+                        <div class="col" style="text-align: center;">
+                            <img class="card-img-top mt-2 pb-2" src="https://pbs.twimg.com/media/GDWJJb-WkAAU-Zz?format=jpg&name=large" alt="Card image" style="width: 94%; height: 14rem;max-height: 20rem; border-radius: 10px;">
+                        </div>
+                    </div>
+                    
+                    <div class="card-body py-0 px-3 d-none d-md-block">
+                        <div class="card-title text-white mb-0 mt-md-1">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6 class="d-none d-lg-block">Madame Web</h6>
+                                    <h5 class="d-block d-lg-none">Madame Web</h5>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="float-right d-none d-lg-block">Action/Thriller</h6>
+                                    <h5 class="float-right d-block d-lg-none">Action/Thriller</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-title text-white mb-0 mt-md-1">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6 class="d-none d-lg-block">English</h6>
+                                    <h5 class="d-block d-lg-none">English</h5>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="float-right d-none d-lg-block">U/A</h6>
+                                    <h5 class="float-right d-block d-lg-none">U/A</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-title text-white mb-0 d-none d-xl-block">
+                            <div class="row">
+                                <div class="col-4 pr-0">
+                                    <div class="d-flex justify-content-center" style="width: auto; height: auto; background-color: #0F1628; border-radius: 20px; border: 2px solid #0aa5ae;">
+                                    <!-- <span class="d-flex justify-content-start"> -->
+                                        <img src="/assets/images/img/Subtract.png" class="ml-1 mr-1 my-auto" style="height: 2vh;">
+                                        <span class="ml-1 mr-2" style="color: #0aa5ae;">2h 30min</span>
+                                    <!-- </span> -->
+                                </div>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="mt-1" style="text-align: center;">Rent: 250</h5>
+                                </div>
+                                <div class="col-4">
+                                    <div class="float-right my-auto" style="width: auto; height: auto; background-color: #0F1628; border-radius: 20px; border: 2px solid #0aa5ae; display: flex; justify-content: center; align-items: center;">
+                                        <!-- <span class="d-flex justify-content-center ml-1 mr-1"> -->
+                                            <img src="/assets/images/img/view.png" style="height: 2vh;" class="ml-2 mr-1">
+                                            <span class="ml-1 mr-2" style="color: #0aa5ae;">2K</span>
+                                        <!-- </span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="card p-0 float-left d-block d-lg-none" style="width:fit-content; height:fit-content; border:2px solid #0aa5ae; border-radius: 10px; background-color: #242834;">
+                    <div class="row">
+                        <div class="col" style="text-align: center;">
+                            <img class="card-img-top m-2 d-block d-md-none" src="https://pbs.twimg.com/media/GDWJJb-WkAAU-Zz?format=jpg&name=large" alt="Card image" style="width: 120px; height: 196px; border-radius: 10px;" routerLink="/movie-detail">
+              <img class="card-img-top m-2 d-none d-md-block d-lg-none" src="https://pbs.twimg.com/media/GDWJJb-WkAAU-Zz?format=jpg&name=large" alt="Card image" style="width: 130px; height: 220px; border-radius: 10px;" routerLink="/movie-detail">
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            
+        </div>
+        
+          <!-- <div class="mb-5">
+          <div class="row">
+            <div class="col-6">
+                <h1 class="text-white mt-5 mb-5 d-none d-xl-block">Other Popular Movies</h1>
+                <p class="text-white mt-5 mb-5 d-block d-sm-none" style="font-size: 20px;">Trending</p>
+            </div>
+            <div class="col-6">
+                <h3 class="text-white px-lg-5 mt-5 float-right" style="text-decoration: underline;">View all</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col pb-5">
+                <div class="card p-0 ml-5 float-left d-none d-sm-block" style="width:80%; max-width: 25rem; height:100%; border:2px solid #0aa5ae; border-radius: 10px; background-color: #242834;" (mouseenter)="openModal(hoverTemplate,'hoverTemplate')">
+                    <div class="row">
+                        <div class="col" style="text-align: center;">
+                            <img class="card-img-top mt-3 mb-3 pb-2" src="https://pbs.twimg.com/media/GDWJJb-WkAAU-Zz?format=jpg&name=large" alt="Card image" style="width: 94%; height: 90%; border-radius: 10px;">
+                        </div>
+                    </div>
+                    
+                    <div class="card-body py-2 px-3 d-none d-xl-block">
+                        <div class="card-title text-white mb-0">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6>Madame Web</h6>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="float-right">Action/Thriller</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-title text-white mb-0">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6 class="">English</h6>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="float-right">U/A</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-title text-white mb-0">
+                            <div class="row">
+                                <div class="col-4 pr-0">
+                                    <div class="d-flex justify-content-center" style="width: 100%; height: 85%; background-color: #0F1628; border-radius: 20px; border: 2px solid #0aa5ae;">
+                                    <span class="d-flex justify-content-start">
+                                        <i class="fa-solid fa-clock ml-1 mt-1 mb-1" style="font-size: medium; color: #0aa5ae;"></i><p class=" ml-1 mt-1 mr-1 mb-1" style="color: #0aa5ae;">2h 30min</p>
+                                    </span>
+                                </div>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="mt-2" style="text-align: center;">Rent: 250</h5>
+                                </div>
+                                <div class="col-4">
+                                    <div class="float-right" style="width: 50px; height: 25px; background-color: #0F1628; border-radius: 20px; border: 2px solid #0aa5ae;">
+                                    <span class="d-flex justify-content-center">
+                                        <i class="fa-solid fa-eye mt-1" style="font-size: medium; color: #0aa5ae;"></i><p class="mt-1 ml-1 mr-1" style="color: #0aa5ae;">2K</p>
+                                    </span>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="card p-0 ml-5 float-left d-block d-sm-none" style="width:125px; height:185px; border:2px solid #0aa5ae; border-radius: 10px; background-color: #242834;">
+                    <div class="row">
+                        <div class="col" style="text-align: center;">
+                            <img class="card-img-top m-3" src="https://pbs.twimg.com/media/GDWJJb-WkAAU-Zz?format=jpg&name=large" alt="Card image" style="width: 100px; height: 160px; border-radius: 10px;">
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        </div> -->
+        <!-- <div class="d-flex">
+        <div class="d-flex justify-content-start">
+            <h1 class="text-white px-lg-5 mt-5">New Releases</h1>
+        </div>
+        <div class="d-flex float-right">
+            <h1 class="text-white px-lg-5 mt-5">View all</h1>
+        </div>
+        </div> -->
+        
+    </div>
+</div>
+<!-- <ng-template #venueTemplate>
+    <div class="modal-bg bg-373D4A" id="venue" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="venueLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable modal-custom-60">
+            <div
+                class="modal-content shadow-custom-9 bg-3e4453 border-bottom border-primary border-4 border-top-0 border-left-0 border-right-0">
+                <div class="container-fluid py-4 bg-0F1628">
+                    <div class="row">
+                        <div class="col-xl-12 text-center">
+                            <span class="modal-title go-medium text-primary text-center h3" id="venueLabel">Venue</span>
+                            <button type="button" class="close fs-20 text-right text-9F9F9F text-shadow-0"
+                                (click)="close()" (click)="clearText()">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="!venueService.isErrorVenuebyCity else showVenues">
+                    <div class="modal-body text-left px-5 border-top border-primary bg-020A1C">
+                        <div class="row">
+                            <div class="col-xl-10 mx-auto">
+                                <div class="input-group my-3">
+                                    <input
+                                        class="form-control p-4 go-light text-primary font-weight-bolder border border-primary border-right-0 bg-0F1628  border-radius-top-left font-1-2"
+                                        type="search" placeholder="Search" id="example-search-input" [(ngModel)]="query"
+                                        autocomplete="off">
+                                    <span class="input-group-append">
+                                        <div
+                                            class="input-group-text bg-0F1628  border-primary border-left-0 border-radius-top-right">
+                                            <img src="assets/images/img/search-primary.svg">
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 my-4 fix-height overflow-auto">
+                                <div class="row">
+                                    <ng-container *ngIf="venueService.venuescity | async as venuescity">
+                                        <div class="col-xl-4"
+                                            *ngFor="let venuess of venuescity | search:query:'venueName'">
+                                            <div *ngIf="venuess.success!= false">
+                                                <div class="bg-020A1C">
+                                                    <p class="pt-3 pb-3 pl-5 form-check-label go-light lead text-white pointer"
+                                                        (click)="onVenueSelect(venuess.venueId, venuess.venueName,venuess.addressLine1,venuess.addressLine2)">
+                                                        {{venuess.venueName}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="venuess.success== false">
+                                                <p
+                                                    class="offset-6 text-center pt-3 pb-3 pl-5 form-check-label go-book lead text-white ">
+                                                    No Result Found
+                                                </p>
+                                                <img class=" offset-11 w-60 mx-50 "
+                                                    src="../../../../assets/images/img/no-date.svg">
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #showVenues>
+                    <div class="modal-body text-left px-5 border-top border-primary border-2 my-10 bg-020A1C">
+                        <div class="row">
+                            <div class="col-xl-12 text-center">
+                                <p class="go-medium text-white h4">No Venue Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</ng-template> -->
+
+<ng-template #hoverTemplate>
+    <div >
+    <div class="row">
+        <div class="col image-container">
+            <div class="text-overlay">
+                <div class="row grad1 m-0">
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-11"></div>
+                    <div clas="col">
+                        <i class="fa-solid fa-circle-plus" style="font-size: xx-large;"></i>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-11"></div>
+                    <div clas="col">
+                        <i class="fa-regular fa-thumbs-up py-3" style="font-size: xx-large;"></i>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-11"></div>
+                    <div clas="col">
+                        <i class="fa-regular fa-thumbs-down py-3" style="font-size: xx-large;"></i>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-11"></div>
+                    <div clas="col">
+                        <i class="fa-solid fa-share-nodes py-3" style="font-size: xx-large;"></i>
+                    </div>
+                </div> 
+                <div class="row m-0">
+                    <div class="col mx-5 my-auto">
+                        <div class="row mt-4 pt-4">
+                            <div class="col-6 px-0 my-auto">
+                                <span class="text-white my-auto d-flex">
+                                    <img src="/assets/images/img/Group 57.png" style="width: 44px;">
+                                    <p class="my-auto pl-3" style="font-size: larger;">Play Madame Web</p>
+                                </span>
+                            </div>
+                            <div class="col-6 px-0 my-auto">
+                                <p class="my-auto" style="color: #0aa5ae; font-size: medium; border-radius: 11px;"><span class="">2h 20min</span><span class="pl-2">2023</span><span class="pl-2">BLURAY</span><span class="pl-2">UHD</span><span class="pl-2">U/A</span><span class="pl-2">13+</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="https://i.ytimg.com/vi/s_76M4c4LTo/maxresdefault.jpg" style="width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+        </div>
+    </div>
+    <div class="border border-primary border-1" style="background-color: #0F1628; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; width: inherit;">
+    <div class="row">
+        <div class="col mx-5 my-5" style="color: #0aa5ae; font-size: medium;">
+            <p>Cassandra Webb is a New York City paramedic who starts to show signs of clairvoyance. Forced to confront revelations about her past, she must protect three young women from a mysterious adversary who wants them dead.</p>
+        </div>
+    </div>
+    <div class="row mx-5">
+        <div class="col-6 py-5">       
+                <p class="text-white float-right" style="font-size: small;">275.00</p>     
+        </div>
+        <div class="col-6 py-5">       
+            <button class="btn btn-primary rounded" style="font-size: small;" (click)="toMovieDetail()">Rent</button>   
+    </div>
+</div>
+    </div>
+</div>
+</ng-template>
+
+<!-- <ng-template #hoverTemplate>
+    <div class="border border-primary border-1" style="background-color: #0F1628; border-radius: 10px;" (mouseleave)="closeModal()">
+    <div class="row">
+        <div class="col image-container">
+            <div class="text-overlay">
+                <div class="row">
+                    <div clas="col">
+                        <i class="fa-solid fa-circle-plus" style="font-size: xx-large;"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div clas="col">
+                        <i class="fa-regular fa-thumbs-up py-3" style="font-size: xx-large;"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div clas="col">
+                        <i class="fa-regular fa-thumbs-down py-3" style="font-size: xx-large;"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div clas="col">
+                        <i class="fa-solid fa-share-nodes py-3" style="font-size: xx-large;"></i>
+                    </div>
+                </div> 
+            </div>
+            <img src="https://i.ytimg.com/vi/s_76M4c4LTo/maxresdefault.jpg" style="width: 550px; border-radius: 10px;" class="grad1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mx-5 my-3">
+            <div class="row">
+                <div class="col-6 px-0 my-auto">
+                    <h3 class="text-white my-auto"><i class="fa-regular fa-circle-play p-2" style="font-size: xx-large;"></i>Play Madame Web</h3>
+                </div>
+                <div class="col-6 px-0 my-auto">
+                    <p class="my-auto" style="color: #0aa5ae; font-size: small; border-radius: 10px;"><span class="pl-2">2h 20min</span><span class="pl-2">2023</span><span class="pl-2">BLURAY</span><span class="pl-2">UHD</span><span class="pl-2">U/A</span><span class="pl-2">13+</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mx-5" style="color: #0aa5ae; font-size: small;">
+            <p>Cassandra Webb is a New York City paramedic who starts to show signs of clairvoyance. Forced to confront revelations about her past, she must protect three young women from a mysterious adversary who wants them dead.</p>
+        </div>
+    </div>
+    <div class="row mx-5">
+        <div class="col-6 py-5">       
+                <p class="text-white float-right" style="font-size: small;">275.00</p>     
+        </div>
+        <div class="col-6 py-5">       
+            <button class="btn btn-primary rounded" style="font-size: small;">Rent</button>   
+    </div>
+    </div>
+</div>
+</ng-template> -->
+
+<ng-template #filterTemplate>
+    <div class="modal-dialog model-lg modal-dialog-centered modal-dialog-scrollable modal-custom-50 bg-373D4A">
+        <div
+            class="modal-content shadow-custom-9 bg-3e4453 border-bottom border-primary border-4 border-top-0 border-left-0 border-right-0">
+            <div class="container-fluid py-4 bg-0F1628">
+                <div class="row">
+                    <div class="col-xl-12 text-center">
+                        <span class="modal-title go-medium text-primary text-center font-weight-bolder h3"
+                            id="langgenreLabel">Filter</span>
+                        <button type="button" class="close text-right text-707070 text-shadow-0" data-dismiss="modal"
+                            aria-label="Close" data-toggle="modal" data-target="#novenue">
+                            <span aria-hidden="true" (click)="close()">×</span>
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body text-left px-5 border-top border-primary bg-020A1C">
+                <div class="row ml-auto">
+                    <!-- <form class="col-xl-10 mx-auto">
+                        <div class="input-group my-3">
+                            <input
+                                class="form-control p-4 go-book text-primary font-weight-bolder border border-primary border-right-0 bg-secondary border-2 border-radius-top-left font-1-4"
+                                type="search" placeholder="Search" id="example-search-input">
+                            <span class="input-group-append">
+                                <div
+                                    class="input-group-text bg-secondary border-2 border-primary border-left-0 border-radius-top-right">
+                                    <img src="./assets/images/img/search.svg">
+                                </div>
+                            </span>
+                        </div>
+                    </form> -->
+                    <form class="col-xl-12">
+                        <div class="my-3">
+                            <div class="row">
+                                <div class="col-xl-5">
+                                    <p class="go-book text-primary h3 text-center my-4">Language</p>
+                                    <div class="row mb-4">
+                                        <div class="col-xl-6 col-12">
+                                            <div class="form-check">
+                                                <label class="form-check-label lead mx-2 my-2 go-book text-white col-4"
+                                                    *ngFor="let lang of filterdLang">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        [(ngModel)]="lang.checked" [ngModelOptions]="{standalone: true}"
+                                                        (change)="addLanguage(lang.languageName,$event)">
+                                                    <span class="ml-10-a">{{lang.languageName}}</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-xl-1 border-right border-ADADBE"></div>
+                                <div class="offset-lg-1 col-xl-5">
+                                    <p class="go-book text-primary h3 text-center my-4">Genre</p>
+                                    <div class="row mb-4">
+                                        <div class="col-xl-6">
+                                            <div class="form-check">
+                                                <label class="form-check-label lead mx-2 my-2 go-book text-white"
+                                                    *ngFor="let gen of filterdGenre">
+                                                    <input class="form-check-input " type="checkbox"
+                                                        [(ngModel)]="gen.checked" [ngModelOptions]="{standalone: true}"
+                                                        (change)="addGenreName(gen.genreName,$event)">
+                                                    <span class="ml-10-a">{{gen.genreName}} </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" [disabled]="!applyFilter"
+                            class="col-xl-3 offset-9 btn btn-primary font-weight-bolder font-1-2 rounded-pill"
+                            (click)="apply()">Apply</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<!-- <mp-footer style="position: relative; transform: translate(-5.8%, -1%); width: 100%;"></mp-footer> -->
+<!-- <ng-template #locationTemplate>
+    <mp-view-locations (emitLocation)="locationChange($event)"></mp-view-locations>
+</ng-template> -->

@@ -1,0 +1,31 @@
+<!-- <div *ngIf="showService.movies$ | async as movies">
+    <div class="row" style="    margin: 50px 10px 50px 35px;" *ngIf="movies">
+        <div style="    background: #1c212e;
+          flex: 0 0 30%;
+          margin-left: 25px;">
+            <ul style="list-style: none;
+              font-family: 'Montserrat';
+              font-size: 14px;
+              font-weight: 600;
+              color: #dcdcdc;">
+                <li style="font-size:24px;font-weight: 600;border-bottom: 1px solid #2f2f33;padding:20px 20px">
+                    {{"app.dashboard.toprelatedmovies" | translate}}
+                </li>
+                <ng-container *ngFor="let movie of movies; let i = index">
+                    <li style="padding: 20px 20px;border-bottom: 1px solid #2f2f33;cursor: pointer" *ngIf="i<= 4"
+                        (click)="navigateTrailer(movie.trailerUrl)">
+                        {{ movie.movieName }}
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+        <div style="flex: 0 0 60%;">
+            <div class="video" style="display: flex;
+            justify-content: center;
+            margin:0px 20px;">
+                <iframe height="400" width="100%" [src]="topratedTrailer" style="border:none;">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div> -->
