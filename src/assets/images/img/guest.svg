@@ -1,0 +1,28 @@
+<svg id="User" xmlns="http://www.w3.org/2000/svg" width="106" height="106" viewBox="0 0 106 106">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #272c38;
+        stroke: #545965;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #0aa5ae;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Ellipse_38" data-name="Ellipse 38" class="cls-1">
+    <circle class="cls-3" cx="53" cy="53" r="53"/>
+    <circle class="cls-4" cx="53" cy="53" r="52"/>
+  </g>
+  <path id="Icon_awesome-user-alt" data-name="Icon awesome-user-alt" class="cls-2" d="M35.532,39.974A19.987,19.987,0,1,0,15.545,19.987,19.992,19.992,0,0,0,35.532,39.974ZM53.3,44.415H45.651a24.161,24.161,0,0,1-20.237,0H17.766A17.765,17.765,0,0,0,0,62.181V64.4a6.664,6.664,0,0,0,6.662,6.662H64.4A6.664,6.664,0,0,0,71.064,64.4V62.181A17.765,17.765,0,0,0,53.3,44.415Z" transform="translate(17 17)"/>
+</svg>

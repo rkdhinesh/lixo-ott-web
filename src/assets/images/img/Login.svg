@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <filter id="Ellipse_38" x="0" y="0" width="60" height="60" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#d4d4d4" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Login" transform="translate(-1707 -12)">
+    <g transform="matrix(1, 0, 0, 1, 1707, 12)" filter="url(#Ellipse_38)">
+      <g id="Ellipse_38-2" data-name="Ellipse 38" transform="translate(9 6)" fill="#272c38" stroke="#545965" stroke-width="2">
+        <circle cx="21" cy="21" r="21" stroke="none"/>
+        <circle cx="21" cy="21" r="20" fill="none"/>
+      </g>
+    </g>
+    <path id="Icon_open-account-login" data-name="Icon open-account-login" d="M9.393,0V3.131H21.916V18.785H9.393v3.131H25.047V0Zm3.131,6.262V9.393H0v3.131H12.523v3.131l6.262-4.7Z" transform="translate(1723.477 27.792)" fill="#0aa5ae"/>
+  </g>
+</svg>
